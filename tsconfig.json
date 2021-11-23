@@ -1,16 +1,30 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "target": "ES2019",
     "module": "commonjs",
     "noImplicitAny": true,
+    "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
+    "pretty": true,
+    "strict": true,
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": false,
+    "noFallthroughCasesInSwitch": true,
+    /* Module Resolution Options */
+    "esModuleInterop": true,
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "allowJs": true,
   },
   "include": [
     "src/**/*"
