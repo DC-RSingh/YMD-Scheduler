@@ -6,6 +6,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
+    "lib": ["DOM", "ESNext"],
     "baseUrl": "./src",
     "pretty": true,
     "strict": true,
