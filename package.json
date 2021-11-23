@@ -5,11 +5,16 @@
   "description": "My Electron application description",
   "main": "dist/index.js",
   "scripts": {
+    "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
+    "build:main": "tsc",
+    "build:renderer": "webpack",
     "start": "tsc && electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts ."
+    "lint": "cross-env NODE_ENV=development eslint . --cache --ext .ts",
+    "dev": "concurrently \"tsc -w\" \"electron-forge start\"",
+    "serve": "webpack serve"
   },
   "keywords": [],
   "author": {
@@ -63,6 +68,9 @@
           "name": "@electron-forge/maker-rpm",
           "config": {}
         }
+      ],
+      "plugins": [
+
       ]
     }
   },
@@ -72,16 +80,40 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.61",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
+    "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@types/jest": "^27.0.3",
+    "@types/mysql": "^2.15.19",
+    "@types/node": "^16.11.9",
+    "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
+    "chalk": "^4.1.2",
     "concurrently": "^6.4.0",
+    "core-js": "^3.19.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
     "electron": "15.2.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.2",
-    "typescript": "^4.4.4"
+    "file-loader": "^6.2.0",
+    "jest": "^27.3.1",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "webpack": "^5.64.2",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "mysql": "^2.18.1"
   }
 }

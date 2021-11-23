@@ -1,6 +1,13 @@
 import { app, BrowserWindow } from 'electron';
 import * as path from 'path';
 
+// import electronReload from 'electron-reload';
+
+// electronReload(__dirname, {});
+
+// TODO: Sort out Package scripts
+// TODO: Webpack rules, package properly
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
