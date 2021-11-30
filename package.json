@@ -2,19 +2,16 @@
   "name": "ymd-scheduler",
   "productName": "ymd-scheduler",
   "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "dist/index.js",
+  "description": "A scheduling application for a small music store.",
+  "main": ".webpack/main",
+  "private": "true",
   "scripts": {
-    "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
-    "build:main": "tsc",
-    "build:renderer": "webpack",
-    "start": "tsc && electron-forge start",
+    "dev": "cross-env NODE_ENV=development electron-forge start -- --no-sandbox",
+    "start": "cross-env NODE_ENV=production electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "cross-env NODE_ENV=development eslint . --cache --ext .ts",
-    "dev": "concurrently \"tsc -w\" \"electron-forge start\"",
-    "serve": "webpack serve"
+    "lint": "cross-env NODE_ENV=development eslint . --cache --ext .ts"
   },
   "keywords": [],
   "author": {
@@ -70,7 +67,24 @@
         }
       ],
       "plugins": [
-
+        [
+            "@electron-forge/plugin-webpack",
+            {
+            "devServer": {},
+            "mainConfig": "./config/webpack.main.config.js",
+            "renderer": {
+                "config": "./config/webpack.renderer.config.js",
+                "entryPoints": [
+                {
+                    "html": "./src/index.html",
+                    "js": "./src/renderer.ts",
+                    "name": "main_window"
+                }
+                ],
+                "node-integration": true
+            }
+            }
+        ]
       ]
     }
   },
@@ -85,9 +99,12 @@
     "@types/jest": "^27.0.3",
     "@types/mysql": "^2.15.19",
     "@types/node": "^16.11.9",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
     "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
+    "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "chalk": "^4.1.2",
     "concurrently": "^6.4.0",
     "core-js": "^3.19.1",
@@ -97,7 +114,11 @@
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.2",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.4.1",
     "jest": "^27.3.1",
+    "node-loader": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",

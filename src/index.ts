@@ -1,12 +1,6 @@
 import { app, BrowserWindow } from 'electron';
-import * as path from 'path';
 
-// import electronReload from 'electron-reload';
-
-// electronReload(__dirname, {});
-
-// TODO: Sort out Package scripts
-// TODO: Webpack rules, package properly
+declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -16,12 +10,15 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    height: 860,
+    width: 1280,
+    webPreferences: {
+        nodeIntegration: true,
+    },
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, '../src/index.html'));
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();

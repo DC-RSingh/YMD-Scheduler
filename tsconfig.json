@@ -7,9 +7,10 @@
     "declarationMap": true,
     "sourceMap": true,
     "lib": ["DOM", "ESNext"],
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "pretty": true,
     "strict": true,
+    "jsx": "react",
     "paths": {
       "*": ["node_modules/*"]
     },

@@ -1,8 +1,22 @@
 module.exports = [
+    {
+        test: /\.node$/,
+        use: 'node-loader',
+    },
     // EOT Font
     {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         use: 'file-loader',
+    },
+    {
+        test: /\.(m?js|node)$/,
+        parser: { amd: false },
+        use: {
+          loader: '@vercel/webpack-asset-relocator-loader',
+          options: {
+            outputAssetBase: 'native_modules',
+          },
+        },
     },
     {
       test: /\.tsx?$/,
@@ -14,4 +28,4 @@ module.exports = [
         }
       }
     },
-  ];
+];
