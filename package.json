@@ -68,22 +68,22 @@
       ],
       "plugins": [
         [
-            "@electron-forge/plugin-webpack",
-            {
+          "@electron-forge/plugin-webpack",
+          {
             "devServer": {},
             "mainConfig": "./config/webpack.main.config.js",
             "renderer": {
-                "config": "./config/webpack.renderer.config.js",
-                "entryPoints": [
+              "config": "./config/webpack.renderer.config.js",
+              "entryPoints": [
                 {
-                    "html": "./src/index.html",
-                    "js": "./src/renderer.ts",
-                    "name": "main_window"
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.ts",
+                  "name": "main_window"
                 }
-                ],
-                "node-integration": true
+              ],
+              "node-integration": true
             }
-            }
+          }
         ]
       ]
     }
@@ -107,6 +107,7 @@
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "chalk": "^4.1.2",
     "concurrently": "^6.4.0",
+    "copy-webpack-plugin": "^10.0.0",
     "core-js": "^3.19.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
