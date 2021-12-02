@@ -6532,7 +6532,12 @@
   "resolved" "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-3.2.2.tgz"
   "version" "3.2.2"
 
-"mobx@^6.1.0", "mobx@^6.3.8":
+"mobx-utils@^6.0.4":
+  "integrity" "sha512-CcTgFcCWN78eyRXU7OiKfhIVDEWFFoKdpfj49GIVcWykIQ4deXnaRnnKHElbVYFFgz1TOs8a3bDAq7qsSe864A=="
+  "resolved" "https://registry.npmjs.org/mobx-utils/-/mobx-utils-6.0.4.tgz"
+  "version" "6.0.4"
+
+"mobx@^6.0.0", "mobx@^6.1.0", "mobx@^6.3.8":
   "integrity" "sha512-RfG2y766P1o9u9xrQht/HBXEoUPIr4B3Gjri3reLW/TuHm3I/3TfBBS0OaeMbw19RIF0AymqjDNlJgakN4ZK7g=="
   "resolved" "https://registry.npmjs.org/mobx/-/mobx-6.3.8.tgz"
   "version" "6.3.8"
