@@ -27,6 +27,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
+    "experimentalDecorators": true
   },
   "include": [
     "src/**/*"
