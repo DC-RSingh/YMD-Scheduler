@@ -143,6 +143,7 @@
     "electron-log": "^4.4.1",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-squirrel-startup": "^1.0.0",
+    "formik": "^2.2.9",
     "mobx": "^6.3.8",
     "mobx-persist": "^0.4.1",
     "mobx-react-lite": "^3.2.2",
