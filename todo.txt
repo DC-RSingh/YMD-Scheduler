@@ -1,0 +1,4 @@
+// TODO: UI before you concern yourself with anything else yessir
+// TODO: Add required software to app bundle (MYSQL)
+// TODO: Setup database with sequelize and models
+// TODO: Change App Theme
