@@ -21,34 +21,34 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 }
 
 const createWindow = (): void => {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    minHeight: MIN_HEIGHT,
-    minWidth: MIN_WIDTH,
-    resizable: true,
-    autoHideMenuBar: true,
-    show: false,
-    webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false,
-        webSecurity: false,
-    },
-  });
+    // Create the browser window.
+    mainWindow = new BrowserWindow({
+        minHeight: MIN_HEIGHT,
+        minWidth: MIN_WIDTH,
+        resizable: true,
+        autoHideMenuBar: true,
+        show: false,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            webSecurity: false,
+        },
+    });
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+    // and load the index.html of the app.
+    mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-  // Perform after the webcontents of the window have finished loading
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.setSize(MIN_WIDTH, MIN_HEIGHT);
-    mainWindow.center();
-    mainWindow.show();
+    // Perform once the window is ready to show
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.setSize(MIN_WIDTH, MIN_HEIGHT);
+        mainWindow.center();
+        mainWindow.show();
 
-    if (isDev) {
-        // Open the DevTools.
-        mainWindow.webContents.openDevTools();
-    }
-  });
+        if (isDev) {
+            // Open the DevTools.
+            mainWindow.webContents.openDevTools();
+        }
+    });
 };
 
 // If another app has the lock, quit this instance
