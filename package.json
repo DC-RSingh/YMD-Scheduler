@@ -134,6 +134,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@sweetalert2/themes": "^5.0.8",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-squirrel-startup": "^1.0.0",
     "mysql": "^2.18.1"

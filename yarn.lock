@@ -940,6 +940,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@sweetalert2/themes@^5.0.8":
+  "integrity" "sha512-z6AZwcAn2/DlmD8+HJx//SzPFiGQ3a9Ss7dvWDMaUpvrzd7pUxQ75rerk20elSGrl1APy5qY/Ry+faKmHSbdsw=="
+  "resolved" "https://registry.npmjs.org/@sweetalert2/themes/-/themes-5.0.8.tgz"
+  "version" "5.0.8"
+
 "@szmarczak/http-timer@^1.1.2":
   "integrity" "sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA=="
   "resolved" "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-1.1.2.tgz"
@@ -7966,6 +7971,11 @@
   dependencies:
     "has-flag" "^4.0.0"
     "supports-color" "^7.0.0"
+
+"sweetalert2@^11.0.0":
+  "integrity" "sha512-6O+Ftl3yCg58pUqMiEn58+p7bQd7h7YrAM1diSaTJcRPO23bcfVd2DI2hW3246XVlTgL+EauV76va6VN5LrfIw=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.2.1.tgz"
+  "version" "11.2.1"
 
 "symbol-tree@^3.2.4":
   "integrity" "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw=="
