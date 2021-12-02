@@ -15,8 +15,6 @@
       "*": ["node_modules/*"]
     },
     /* Additional Checks */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "strictNullChecks": false,
