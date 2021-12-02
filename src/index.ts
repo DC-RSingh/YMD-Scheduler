@@ -1,4 +1,6 @@
 import { app, BrowserWindow } from 'electron';
+// import ElectronLog from 'electron-log';
+// import isDev from "electron-is-dev";
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 
@@ -10,10 +12,14 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 860,
-    width: 1280,
+    minHeight: 860,
+    minWidth: 1280,
+    resizable: true,
+    autoHideMenuBar: true,
     webPreferences: {
         nodeIntegration: true,
+        contextIsolation: false,
+        webSecurity: false,
     },
   });
 

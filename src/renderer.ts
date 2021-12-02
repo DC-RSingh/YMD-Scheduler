@@ -27,7 +27,6 @@
  */
 
  import './assets/css/index.css';
+ import './app.tsx';
  import '@sweetalert2/themes/dark/dark.min.css';
-
- console.log('👋 This message is being logged by "renderer.js", included via webpack');
  
