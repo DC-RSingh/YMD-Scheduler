@@ -7,6 +7,11 @@ declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 const MIN_HEIGHT = 860;
 const MIN_WIDTH = 1280;
 
+// Whether this instance of the application is the only one
+const gotTheLock = app.requestSingleInstanceLock();
+
+let mainWindow: BrowserWindow;
+
 // Disable security warnings that result from disabling webSecurity in webPreferences
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
@@ -17,7 +22,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 const createWindow = (): void => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     minHeight: MIN_HEIGHT,
     minWidth: MIN_WIDTH,
     resizable: true,
@@ -46,10 +51,23 @@ const createWindow = (): void => {
   });
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+// If another app has the lock, quit this instance
+if (!gotTheLock) {
+    app.quit();
+} else {
+    // Focus the instance that was already running
+    if (mainWindow) {
+        if (mainWindow.isMinimized()) mainWindow.restore();
+        mainWindow.focus();
+    }
+
+    // If no instance is running, create a window
+    
+    // This method will be called when Electron has finished
+    // initialization and is ready to create browser windows.
+    // Some APIs can only be used after this event occurs.
+    app.on('ready', createWindow);
+}
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
