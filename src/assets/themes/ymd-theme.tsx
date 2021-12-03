@@ -63,25 +63,6 @@ import {
     third: 'linear-gradient(90deg, #14384a 0%, #082533 100%)',
   };
   
-  export const rarityColors = {
-    normal: '#c0c0c0',
-    magic: '#8888FF',
-    rare: '#EBEB57',
-    unique: '#da7a36',
-    gem: '#1ba29b',
-    currency: '#AD904B',
-    divination: '#c0c0c0',
-    quest: '#6eb930',
-    unknown: '#fff',
-    legacy: '#82ad6a',
-  };
-  
-  export const itemColors = {
-    chaosOrb: '#d6b600',
-    corrupted: 'rgb(255 123 123)',
-    custom: '#38cfba',
-  };
-  
   export const statusColors = {
     success: green[800],
     warning: amber[900],
@@ -99,9 +80,7 @@ import {
     paper: '#202020',
     darker: '#0e0e0e',
   };
-  
-  export type Rarity = typeof rarityColors;
-  export type ItemColor = typeof itemColors;
+
   export type StatusColor = typeof statusColors;
   
   export const primaryGradient = `linear-gradient(90deg, ${primaryDark} 0%, ${primaryMain} 35%, ${primaryDarkest} 100%)`;

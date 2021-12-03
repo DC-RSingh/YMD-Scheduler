@@ -3,6 +3,7 @@
 // TODO: Setup database with sequelize and models
 // TODO: Note, project does not work on node version 12 or lower 
 // TODO: Checkbox Field cancer not sending actual value, state updates but always sends initial
+// TODO: For the drawer on the right side in DrawerWrapper, use it for editing records
 
 Luxury 
 // TODO: Add notifications with react-toastify
