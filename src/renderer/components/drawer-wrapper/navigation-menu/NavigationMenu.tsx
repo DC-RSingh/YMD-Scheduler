@@ -17,7 +17,7 @@ type NavigationMenuProps = {
     handleRedirect: (path: string) => void;
   };
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, handleRedirect}) => {
+const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, handleRedirect}: NavigationMenuProps) => {
     const classes = useStyles();
     const location = useLocation();
 
