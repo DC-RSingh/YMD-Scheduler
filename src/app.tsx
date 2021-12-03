@@ -37,7 +37,11 @@ const App: React.FC = () => {
                     <CssBaseline />
                     <GlobalStyles />
                     <Route path="/login" component={Login} />
+                    <Route path="/logout" component={Schedule} />
                     <Route path="/schedule" component={Schedule}/>
+                    <Route path="/student" component={Schedule} />
+                    <Route path="/staff" component={Schedule} />
+                    <Route path="/register-class" component={Schedule} />
                     <Route path="/" exact
                         render={() => 
                              rootStore.userStore.authenticated ? (
