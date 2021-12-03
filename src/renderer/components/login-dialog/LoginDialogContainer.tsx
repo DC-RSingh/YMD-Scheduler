@@ -14,7 +14,6 @@ const LoginDialogContainer: React.FC = () => {
     };
 
     const onSubmit = (user: ILoginForm) => {
-        console.log(`${user.username}-${user.password} [${user.remember}]  We will remember your login!`);
         userStore.login(user);
     }
 
