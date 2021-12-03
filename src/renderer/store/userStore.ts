@@ -32,11 +32,9 @@ export class UserStore {
         console.log(`${this.username} ${this.password} ${this.remember}`);
 
         if(this.authenticate()) {
-            console.log("Authentication Success!");
             this.authenticateSuccess();
         }
         else {
-            console.log("Authentication Failed!");
             this.authenticateFail();
         }
 
@@ -50,20 +48,18 @@ export class UserStore {
 
     @action
     authenticateSuccess(): void {
+        console.log("Authentication Success!");
         this.authenticated = true;
         this.rootStore.uiStateStore.setLoginAuthenticating(false);
+        this.rootStore.routeStore.redirect('/schedule');
     }
 
     @action
     authenticateFail(): void {
+        console.log("Authentication Failed!");
         this.authenticated = false;
         this.rootStore.uiStateStore.setLoginAuthenticating(false);
         this.rootStore.uiStateStore.setLoginError(new Error("Username and Password combination not recognized."));
-    }
-
-    @action
-    getAuthenticationStatus(): boolean {
-        return this.authenticated;
     }
     
 }

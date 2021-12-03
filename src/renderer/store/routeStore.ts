@@ -10,11 +10,8 @@ export class RouteStore {
     }
 
     @action
-    redirect(path: string, loginError?: string): void {
+    redirect(path: string): void {
         if (this.redirectedTo !== path) {
-            if (loginError) {
-                // something happens
-            }
             this.redirectedTo = path;
         }
     }
