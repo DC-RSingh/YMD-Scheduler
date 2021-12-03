@@ -10,6 +10,7 @@ import GlobalStyles from "./renderer/components/GlobalStyles";
 import { configure } from "mobx";
 import { rootStore } from "./renderer/store";
 import ReactionContainer from "./renderer/components/ReactionContainer";
+import DrawerWrapperContainer from "./renderer/components/drawer-wrapper/DrawerWrapperContainer";
 
 configure({enforceActions: 'observed'});
 
@@ -37,20 +38,22 @@ const App: React.FC = () => {
                     <CssBaseline />
                     <GlobalStyles />
                     <Route path="/login" component={Login} />
-                    <Route path="/logout" component={Schedule} />
-                    <Route path="/schedule" component={Schedule}/>
-                    <Route path="/student" component={Schedule} />
-                    <Route path="/staff" component={Schedule} />
-                    <Route path="/register-class" component={Schedule} />
-                    <Route path="/" exact
-                        render={() => 
-                             rootStore.userStore.authenticated ? (
-                                <Redirect to="/schedule"/>
-                            ) : (
-                                <Redirect to="/login"/>
-                            )
-                        }
-                    />
+                    <DrawerWrapperContainer>
+                        <Route path="/schedule" component={Schedule}/>
+                        <Route path="/student" component={Schedule} />
+                        <Route path="/staff" component={Schedule} />
+                        <Route path="/register-class" component={Schedule} />
+                        <Route path="/logout" component={Schedule} />
+                        <Route path="/" exact
+                            render={() => 
+                                rootStore.userStore.authenticated ? (
+                                    <Redirect to="/schedule"/>
+                                ) : (
+                                    <Redirect to="/login"/>
+                                )
+                            }
+                        />
+                    </DrawerWrapperContainer>
                     <ReactionContainer/>
                 </div>
             </Router>

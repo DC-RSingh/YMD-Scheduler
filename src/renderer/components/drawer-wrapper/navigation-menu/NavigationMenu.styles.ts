@@ -5,7 +5,7 @@ import { primaryLighter } from '../../../../assets/themes/ymd-theme';
 export const navigationMenuWidth = 240;
 export const resizeHandleContainerHeight = 5;
 export const collapsedNavigationMenuWidth = 57;
-export const toolbarHeight = 30;
+export const toolbarHeight = 0;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {

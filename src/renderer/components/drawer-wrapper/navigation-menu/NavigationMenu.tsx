@@ -10,6 +10,7 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import SchoolIcon from '@mui/icons-material/School';
 import BadgeIcon from '@mui/icons-material/Badge';
 import ClassIcon from '@mui/icons-material/Class';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 type NavigationMenuProps = {
     open: boolean;
@@ -128,7 +129,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
 
                     <ListItemIcon>
                         <Tooltip title={"Logout" || ''} placement="right">
-                            <ClassIcon/>
+                            <ExitToAppIcon/>
                         </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
