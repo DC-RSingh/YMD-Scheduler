@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import {Dialog, DialogTitle, DialogContent, DialogActions} from "@mui/material";
-// import { useStores } from '../../store';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import useStyles from './LoginDialog.styles';
@@ -23,20 +22,24 @@ export type LoginDialogProps = {
     show: boolean;
     initialValues: ILoginForm;
     onSubmit: (user: ILoginForm) => void;
+    loginError?: Error;
+    handleClearError: () => void;
+    loading: boolean;
 };
 
 const LoginDialog: React.FC<LoginDialogProps> =  ({
     show,
     initialValues,
-    onSubmit
+    onSubmit,
+    loginError,
+    handleClearError,
+    loading
 }: LoginDialogProps) => {
-    // const {userStore} = useStores();
     const classes = useStyles();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string().required('Username is required'),
         password: Yup.string().required('Password is required'),
-        remember: Yup.boolean()
     });
 
     return (
@@ -62,6 +65,7 @@ const LoginDialog: React.FC<LoginDialogProps> =  ({
                                 type="text"
                                 label="User Name"
                                 placeholder="Enter your User Name"
+                                customError={loginError ? loginError.message : undefined}
                                 required
                                 autoFocus
                             />
@@ -69,12 +73,14 @@ const LoginDialog: React.FC<LoginDialogProps> =  ({
                                 name="password"
                                 label="Password"
                                 placeholder="Enter your Password"
-                                handleOnChange={null}
+                                handleOnChange={() => handleClearError()}
+                                customError={loginError ? loginError.message : undefined}
                                 required
                             />
                             <CheckboxField 
                                 name="rememberMe"
                                 label="Remember Me"
+                                // isChecked={initialValues.remember}
                             />
                         </DialogContent>
                         <DialogActions className={classes.dialogActions}>
@@ -83,7 +89,7 @@ const LoginDialog: React.FC<LoginDialogProps> =  ({
                                 disabled={!isValid}
                                 color="primary"
                                 variant="contained"
-                                loading={false}
+                                loading={loading}
                                 loadingPosition="end"
                                 endIcon={<LoginIcon/>}
                             >

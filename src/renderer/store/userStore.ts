@@ -9,7 +9,7 @@ type Details = {
 
 // Temporary Constants for Login Info
 const CORRECT_USERNAME = "admin";
-const CORRECT_PASSWORD = "password;"
+const CORRECT_PASSWORD = "password";
 
 export class UserStore {
     @observable username = "";
@@ -29,12 +29,14 @@ export class UserStore {
         this.password = details.password.trim();
         this.remember = details.remember;
         console.log("Authenticating...");
+        console.log(`${this.username} ${this.password} ${this.remember}`);
 
         if(this.authenticate()) {
             console.log("Authentication Success!");
             this.authenticateSuccess();
         }
         else {
+            console.log("Authentication Failed!");
             this.authenticateFail();
         }
 

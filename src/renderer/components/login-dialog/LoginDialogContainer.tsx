@@ -1,23 +1,32 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import LoginDialog, {ILoginForm} from "./LoginDialog";
+import { useStores } from '../../store';
 
 const LoginDialogContainer: React.FC = () => {
+    const {uiStateStore, userStore} = useStores();
+
     const initialValues: ILoginForm = {
+        // TODO: Fill in values if remember me is present
         username: '',
         password: '',
         remember: false
     };
 
     const onSubmit = (user: ILoginForm) => {
-        return;
+        console.log(`${user.username}-${user.password} [${user.remember}]  We will remember your login!`);
+        userStore.login(user);
     }
 
     return (
+
         <LoginDialog
             show={true}
             initialValues={initialValues}
-            onSubmit={onSubmit}
+            onSubmit={(user: ILoginForm) => onSubmit(user)}
+            loginError={uiStateStore.loginError}
+            handleClearError={() => {uiStateStore.setLoginError(undefined)}}
+            loading={uiStateStore.loginAuthenticating}
         />
     );
 };
