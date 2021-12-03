@@ -1,13 +1,14 @@
 import React, { Suspense, useEffect } from "react";
 import ReactDOM from "react-dom";
-import {HashRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import Login from "./renderer/routes/login/Login";
+import Schedule from "./renderer/routes/schedule/Schedule";
 import {StyledEngineProvider, ThemeProvider, CssBaseline, responsiveFontSizes} from "@mui/material";
 import ymdTheme from "./assets/themes/ymd-theme";
 import useStyles from "./app.styles";
 import GlobalStyles from "./renderer/components/GlobalStyles";
 import { configure } from "mobx";
-// import {rootStore} from "./renderer/store";
+import { rootStore } from "./renderer/store";
 
 configure({enforceActions: 'observed'});
 
@@ -35,7 +36,17 @@ const App: React.FC = () => {
                     <CssBaseline />
                     <GlobalStyles />
                     <Switch>
-                        <Route path="/" exact component={Login} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/schedule" component={Schedule}/>
+                        <Route path="/" exact
+                            render={() => 
+                                rootStore.userStore.getAuthenticationStatus() ? (
+                                    <Redirect to="/schedule"/>
+                                ) : (
+                                    <Redirect to="/login"/>
+                                )
+                            }
+                        />
                     </Switch>
                 </div>
             </Router>
