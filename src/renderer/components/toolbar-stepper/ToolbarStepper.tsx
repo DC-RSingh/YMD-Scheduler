@@ -41,14 +41,14 @@ const ToolbarStepper: React.FC<ToolbarStepperProps> = ({ isOpen, handleClose }: 
     <Tour
       steps={steps}
       isOpen={isOpen}
-      showCloseButton={false}
+      showCloseButton={true}
       onRequestClose={handleClose}
       accentColor={theme.palette.primary.main}
       maskSpace={isOnSupportPanelStep || viewStep ? 0 : 16}
       closeWithMask={false}
       getCurrentStep={(currentStep) => setStep(currentStep)}
       startAt={0}
-      lastStepNextButton={
+      lastStepNextButton={  // Causes a ReactDOM warning because custom button renders inside button, no side effects so ignore
         <Button color="primary" variant="contained">
           {"Let's Begin"}
         </Button>
