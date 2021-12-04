@@ -11,11 +11,24 @@ import { configure } from "mobx";
 import { rootStore } from "./renderer/store";
 import ReactionContainer from "./renderer/components/ReactionContainer";
 import DrawerWrapperContainer from "./renderer/components/drawer-wrapper/DrawerWrapperContainer";
+import ToolbarContainer from "./renderer/components/toolbar/ToolbarContainer";
+import localForage from 'localforage';
+import { create } from "mobx-persist";
 
 configure({enforceActions: 'observed'});
 
 const theme = responsiveFontSizes(ymdTheme());
 
+// Configure Local Forage
+localForage.config({
+    name:'your-music-scheduler-db',
+    driver: localForage.INDEXEDDB,
+});
+
+/**
+ * The main app component comprising of the DOMtree for this application.
+ * @returns The main app component
+ */
 const App: React.FC = () => {
     // Use custom styles creating in app.styles
     const classes = useStyles();
@@ -39,10 +52,10 @@ const App: React.FC = () => {
                     <GlobalStyles />
                     <Route path="/login" component={Login} />
                     <DrawerWrapperContainer>
+                        <ToolbarContainer />
                         <Route path="/schedule" component={Schedule}/>
                         <Route path="/student" component={Schedule} />
                         <Route path="/staff" component={Schedule} />
-                        <Route path="/register-class" component={Schedule} />
                         <Route path="/logout" component={Schedule} />
                         <Route path="/" exact
                             render={() => 
@@ -63,7 +76,24 @@ const App: React.FC = () => {
     );
 };
 
-ReactDOM.render(
-    <App />,
-    document.querySelector("#root")
-);
+/**
+ * Fetches values that persist after app close from local storage.
+ */
+const hydrate = create({
+    storage: localForage,
+    jsonify: true,
+});
+
+/**
+ * Renders the App after fetching values from local storage and other pre-app loading tasks.
+ */
+const renderApp = () => {
+    Promise.all([
+        hydrate('uiState', rootStore.uiStateStore),
+    ]).then(() => {
+        ReactDOM.render(<App />, document.querySelector("#root")); // Render the React DOM tree
+    });
+}
+
+// Render the App 
+renderApp();
