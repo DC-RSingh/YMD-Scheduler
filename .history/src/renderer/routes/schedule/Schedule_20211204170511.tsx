@@ -6,7 +6,7 @@ const Schedule: React.FC = () => {
 
     return (
         <div>
-            Welcome to the YMD App Test!
+            Welcome to the YMD App!
         </div>
     )
 }
