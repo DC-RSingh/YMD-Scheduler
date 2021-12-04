@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     justifyContent: 'flex-start',
   },
-  groupName: {
-    textAlign: 'center',
-  },
 }));
 
 export default useStyles;
