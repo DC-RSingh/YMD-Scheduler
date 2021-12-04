@@ -32,9 +32,21 @@ export function getToolbarSteps(): IStepDescriptor[] {
         selector: '[data-tour-elem="logoutView"]',
     },
     {
+        key: 'add_step',
+        title: "Add Section",
+        body: "Here, you can open a menu allowing you to choose between addding Classes, Students or Staff.",
+        selector: '[data-tour-elem="addArea"]',
+    },
+    {
+        key: 'notifications_step',
+        title: "Notification List",
+        body: "Here, you can view a list of recent events within the app, like adding a new student to the database.",
+        selector: '[data-tour-elem="notificationList"]',
+    },
+    {
         key: 'support_panel_step',
         title: "Support Panel",
-        body: "Here can take this tour again, or view some details about the app.",
+        body: "Here you can take this tour again, or view some details about the app.",
         selector: '[data-tour-elem="supportPanel"]',
     },
   ];
