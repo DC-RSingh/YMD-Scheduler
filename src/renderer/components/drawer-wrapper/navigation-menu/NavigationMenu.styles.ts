@@ -3,7 +3,7 @@ import { innerToolbarHeight } from '../DrawerWrapper';
 import { primaryLighter } from '../../../../assets/themes/ymd-theme';
 
 export const navigationMenuWidth = 240;
-export const resizeHandleContainerHeight = 5;
+export const resizeHandleContainerHeight = 0;
 export const collapsedNavigationMenuWidth = 57;
 export const toolbarHeight = 0;
 
