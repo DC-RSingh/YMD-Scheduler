@@ -13,6 +13,9 @@ export class UiStateStore {
     //#region AddOverview States
     @observable addOverviewOpen = false;
     //#endregion
+    //#region ToolbarTour States
+    @persist @observable toolbarTourOpen = true;
+    //#endregion
 
     constructor(private rootStore: RootStore) {
         makeObservable(this);
@@ -41,6 +44,12 @@ export class UiStateStore {
     toggleAddOverview(open?: boolean): void {
         this.sideNavOpen = false;
         this.addOverviewOpen = open !== undefined ? open : !this.addOverviewOpen;
+    }
+    //#endregion
+    //#region ToolbarTour Functions
+    @action
+    setToolbarTourOpen(open: boolean): void {
+      this.toolbarTourOpen = open;
     }
     //#endregion
 }
