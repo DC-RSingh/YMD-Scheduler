@@ -9,16 +9,16 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import SchoolIcon from '@mui/icons-material/School';
 import BadgeIcon from '@mui/icons-material/Badge';
-import ClassIcon from '@mui/icons-material/Class';
+// import ClassIcon from '@mui/icons-material/Class';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 type NavigationMenuProps = {
     open: boolean;
-    toggleSidenav: () => void;
+    toggleSideNav: () => void;
     handleRedirect: (path: string) => void;
   };
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, handleRedirect}: NavigationMenuProps) => {
+const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSideNav: toggleSideNav, handleRedirect}: NavigationMenuProps) => {
     const classes = useStyles();
     const location = useLocation();
 
@@ -43,7 +43,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
         >
             <div className={clsx(classes.drawerHeader, { [classes.drawerHeaderOpen]: open })}>
                 {/* Dynamic Chevron changes whether drawer is open or closed */}
-                <IconButton onClick={() => toggleSidenav()} size="large">
+                <IconButton onClick={() => toggleSideNav()} size="large">
                 {open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
             </div>
@@ -53,14 +53,13 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
 
             <List>
 
-
                 {/* Navigate to Schedule Route */}
                 <ListItem
                     button
                     key="schedule"
                     selected={location.pathname === '/schedule'}
                     onClick={() => handleRedirect('/schedule')}
-                    // data-tour-elem="scheduleView"
+                    data-tour-elem="scheduleView"
                 >
 
                     <ListItemIcon>
@@ -77,6 +76,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
                     key="student"
                     selected={location.pathname === '/student'}
                     onClick={() => handleRedirect('/student')}
+                    data-tour-elem="studentView"
                 >
 
                     <ListItemIcon>
@@ -93,6 +93,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
                     key="staff"
                     selected={location.pathname === '/staff'}
                     onClick={() => handleRedirect('/staff')}
+                    data-tour-elem="staffView"
                 >
 
                     <ListItemIcon>
@@ -103,7 +104,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
                     <ListItemText primary="Staff" />
                 </ListItem>
 
-                {/* Navigate to Register-Class Route */}
+                {/* Navigate to Register-Class Route
                 <ListItem
                     button
                     key="register-class"
@@ -117,7 +118,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
                         </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="Register Class" />
-                </ListItem>
+                </ListItem> */}
 
                 {/* Navigate to Logout Route */}
                 <ListItem
@@ -125,6 +126,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSidenav, han
                     key="logout"
                     selected={location.pathname === '/logout'}
                     onClick={() => handleRedirect('/logout')}
+                    data-tour-elem="logoutView"
                 >
 
                     <ListItemIcon>

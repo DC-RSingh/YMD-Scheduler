@@ -10,6 +10,7 @@ import {
   collapsedNavigationMenuWidth, navigationMenuWidth, resizeHandleContainerHeight, toolbarHeight
 } from './navigation-menu/NavigationMenu.styles';
 import NavigationMenuContainer from './navigation-menu/NavigationMenuContainer';
+import AddOverviewContainer from './add-overview/AddOverviewContainer';
 
 export const innerToolbarHeight = 50;
 export const drawerWidth = 300;
@@ -51,10 +52,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   
 type DrawerWrapperProps = {
     navMenuOpen: boolean;
+    addOverviewOpen: boolean;
     children: ReactNode;
 };
 
-const DrawerWrapper: React.FC<DrawerWrapperProps> = ({ navMenuOpen, children}: DrawerWrapperProps) => {
+const DrawerWrapper: React.FC<DrawerWrapperProps> = ({ navMenuOpen, addOverviewOpen, children}: DrawerWrapperProps) => {
     const classes = useStyles();
     const location = useLocation();
     const theme = useTheme();
@@ -69,13 +71,15 @@ const DrawerWrapper: React.FC<DrawerWrapperProps> = ({ navMenuOpen, children}: D
             {!atLoginRoute() && (
                 <>
                 <NavigationMenuContainer />
+                <AddOverviewContainer />
                 </>
             )}
             {!atLoginRoute() && (
             <main
                 className={clsx(classes.content, {
-                    [classes.contentShift]: navMenuOpen,
+                    [classes.contentShift]: navMenuOpen || (addOverviewOpen && !atLoginRoute()),
                     [classes.fromLeft]: navMenuOpen,
+                    [classes.fromRight]: addOverviewOpen,
                 })}
             >
                 {children}

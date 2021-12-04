@@ -9,7 +9,7 @@ const NavigationMenuContainer: React.FC = () => {
     return (
         <NavigationMenu 
             open={uiStateStore.sideNavOpen}
-            toggleSidenav={() => uiStateStore.toggleSideNav()}
+            toggleSideNav={() => uiStateStore.toggleSideNav()}
             handleRedirect={(path) => routeStore.redirect(path)}
         />
     )
