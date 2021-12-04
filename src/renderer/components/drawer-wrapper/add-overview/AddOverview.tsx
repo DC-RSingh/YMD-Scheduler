@@ -1,6 +1,6 @@
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { Box, Button, Divider, Drawer, Grid, IconButton } from '@mui/material';
+import { Box, Button, Divider, Drawer, Grid, IconButton, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { observer } from 'mobx-react-lite';
 import React, { MouseEvent } from 'react';
@@ -50,7 +50,9 @@ const AddOverview: React.FC<AddOverviewProps> = (
                             fullWidth
                             onClick={handleAddClass}
                         >
-                            Register Class
+                            <Typography component="h4" fontWeight="bold">
+                                Register Class
+                            </Typography>
                         </Button>
                     </Grid>
 
@@ -62,7 +64,9 @@ const AddOverview: React.FC<AddOverviewProps> = (
                             fullWidth
                             onClick={handleAddStudent}
                         >
-                            Add Student
+                            <Typography component="h4" fontWeight="bold">
+                                Add Student
+                            </Typography>
                         </Button>
                     </Grid>
 
@@ -74,7 +78,9 @@ const AddOverview: React.FC<AddOverviewProps> = (
                             fullWidth
                             onClick={handleAddStaff}
                         >
-                            Add Staff
+                            <Typography component="h4" fontWeight="bold">
+                                Add Staff
+                            </Typography>
                         </Button>
                     </Grid>
                     </>
