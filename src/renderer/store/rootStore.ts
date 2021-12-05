@@ -4,9 +4,28 @@ import { UiStateStore } from "./uiStateStore";
 import { RouteStore } from "./routeStore";
 
 export class RootStore {
+
+    /**
+     * Stores state information related to the user.
+     */
     userStore: UserStore;
+
+    /**
+     * Test Store, does nothing. Marked for removal.
+     */
     counterStore: CounterStore;
+
+    /**
+     * Stores state information having to do with the User Interface.
+     * Things like whether menus are opened or close, and state that other UI components
+     * may be concerned with.
+     */
     uiStateStore: UiStateStore;
+
+    /** 
+     * Stores route state, and is observed by Reaction Container. 
+     * Do routeStore.redirect(path) when you want to go to a new route.
+     **/
     routeStore: RouteStore;
 
     constructor() {
