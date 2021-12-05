@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/*
+Model for each table
+*/
+
+model Students {
+  Id   Int    @id @default(autoincrement())
+  Name @db.VarChar(30)
+  Gender @db.VarChar(1)
+  Age Int
+  Email @db.VarChar(20)
+  Telephone @db.VarChar(12)
+  PaymentMethod @db.VarChar(16)
+}
+
+model StaffType {
+  Id   Int    @id @default(autoincrement())
+  Type @db.VarChar(10)
+}
+
+model Staff {
+  Id   Int    @id @default(autoincrement())
+  Type Int
+  Name @db.VarChar(30)
+  Gender @db.VarChar(1)
+  Age Int
+  MaxHoursPerWeek Int
+}
+
+model Skills {
+  Id   Int    @id @default(autoincrement())
+  Skill @db.VarChar(10)
+}
+
+model Credentials {
+  Id   Int    @id @default(autoincrement())
+  Credential @db.VarChar(10)
+}
+
+model Restrictions {
+  Id   Int    @id @default(autoincrement())
+  Restriction @db.VarChar(10)
+}
+
+model StaffSkills {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  SkillId Int
+}
+
+model StaffCredentials {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  CredentialId Int
+}
+
+model StaffRestrictions {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  RestrictionId Int
+}
+
+

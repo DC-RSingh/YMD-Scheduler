@@ -1,0 +1,121 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/*
+Model for each table
+*/
+
+model Students {
+  Id   Int    @id @default(autoincrement())
+  Name String @db.VarChar(30)
+  Gender String @db.VarChar(1)
+  Age Int
+  Email String @db.VarChar(20)
+  Telephone String @db.VarChar(12)
+  PaymentMethod String @db.VarChar(16)
+}
+
+model StaffType {
+  Id   Int    @id @default(autoincrement())
+  Type String @db.VarChar(10)
+}
+
+model Staff {
+  Id   Int    @id @default(autoincrement())
+  Type Int
+  Name String @db.VarChar(30)
+  Gender String @db.VarChar(1)
+  Age Int
+  MaxHoursPerWeek Int
+}
+
+model Skills {
+  Id   Int    @id @default(autoincrement())
+  Skill String @db.VarChar(10)
+}
+
+model Credentials {
+  Id   Int    @id @default(autoincrement())
+  Credential String  @db.VarChar(10)
+}
+
+model Restrictions {
+  Id   Int    @id @default(autoincrement())
+  Restriction String @db.VarChar(10)
+}
+
+model StaffSkills {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  SkillId Int
+}
+
+model StaffCredentials {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  CredentialId Int
+}
+
+model StaffRestrictions {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  RestrictionId Int
+}
+
+model RoomType {
+  Id   Int    @id @default(autoincrement())
+  Type String @db.VarChar(10)
+}
+
+model Room {
+  Id   Int    @id @default(autoincrement())
+  Type Int
+  Name String @db.VarChar(10)
+  RoomSize Int
+  HasPiano Int
+}
+
+model Days {
+  Id   Int    @id @default(autoincrement())
+  Day String @db.VarChar(10)
+}
+
+model TimeSlot {
+  Id   Int    @id @default(autoincrement())
+  Day String @db.VarChar(10)
+  StartTime TIME 
+  EndTime TIME 
+  Day String Int
+}
+
+model ClassType {
+  Id   Int    @id @default(autoincrement())
+  Type String @db.VarChar(10)
+}
+
+model ClassSubType {
+  Id   Int    @id @default(autoincrement())
+  Type String @db.VarChar(10)
+}
+
+model StaffAvailableDays {
+  Id   Int    @id @default(autoincrement())
+  StaffId Int
+  DayId INT
+}
+
+model Class {
+  Id   Int    @id @default(autoincrement())
+  ClassType Int
+  ClassSubType Int
+  Name String @db.VarChar(10)
+  RoomSize Int
+  HasPiano Int
+}
+
