@@ -1,3 +1,7 @@
+/**
+ * App wide colors applied to many components. Controls the color scheme of the app,
+ * changing values here affects the app's whole aesthetic. 
+ */
 import {
     amber,
     blue,

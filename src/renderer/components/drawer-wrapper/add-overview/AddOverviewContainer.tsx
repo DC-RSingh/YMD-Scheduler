@@ -19,4 +19,7 @@ const AddOverviewContainer: React.FC = () => {
     )
 }
 
+/**
+ * Container for the add overview drawer.
+ */
 export default observer(AddOverviewContainer);

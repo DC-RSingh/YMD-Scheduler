@@ -1,5 +1,9 @@
 import { IStepDescriptor } from '../interfaces/step-descriptor.interface';
 
+/**
+ * Returns each step in the tour for use with Reactour.
+ * @returns An array of Step Descriptor objects.
+ */
 export function getToolbarSteps(): IStepDescriptor[] {
   return [
     {

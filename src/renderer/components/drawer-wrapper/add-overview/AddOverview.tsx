@@ -91,4 +91,7 @@ const AddOverview: React.FC<AddOverviewProps> = (
     )
 }
 
+/**
+ * Drawer opening from the right providing buttons to bring up dialogs that add records to the database. 
+ */
 export default observer(AddOverview);
