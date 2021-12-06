@@ -36,3 +36,9 @@ Luxury
 // TODO: Fork or for when adding backend logic if possible
 
 // TODO: Extract DrawerWrapper styles to a file
+
+// TODO: PACKAGES MAYBE USE:
+
+- react-datepicker + @types/react-datepicker
+- react-big-calendar + @types/react-big-calendar
+- date-fns
