@@ -11,9 +11,9 @@ const AddOverviewContainer: React.FC = () => {
             <AddOverview
                 open={uiStateStore.addOverviewOpen}
                 toggleAddOverview={() => uiStateStore.toggleAddOverview()}
-                handleAddClass={null}
-                handleAddStaff={null}
-                handleAddStudent={null}
+                handleAddClass={() => uiStateStore.setClassDialogOpen(true, 'Create')}
+                handleAddStaff={() => uiStateStore.setStaffDialogOpen(true, 'Create')}
+                handleAddStudent={() => uiStateStore.setStudentDialogOpen(true, 'Create')}
             />
         </>
     )

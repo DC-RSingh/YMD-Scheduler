@@ -9,6 +9,9 @@ import { observer } from 'mobx-react-lite';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SupportPanel from '../support-panel/SupportPanel';
 import HelpIcon from '@mui/icons-material/Help';
+import StaffDialogContainer from '../add-dialog/add-staff/StaffDialogContainer';
+import StudentDialogContainer from '../add-dialog/add-student/StudentDialogContainer';
+import ClassDialogContainer from '../add-dialog/register-class/ClassDialogContainer';
 
 type ToolbarProps = {
     sideNavOpened: boolean;
@@ -117,6 +120,9 @@ const Toolbar: React.FC<ToolbarProps> = ({
               </MuiToolbar>
           </AppBar>
           {/* Add Dialog Containers for the Add Stuff Here */}
+          <StaffDialogContainer />
+          <StudentDialogContainer />
+          <ClassDialogContainer />
         </>
     )
 }
