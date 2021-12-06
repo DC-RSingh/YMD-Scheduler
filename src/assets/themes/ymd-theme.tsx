@@ -25,17 +25,17 @@ import {
   
   const defaultTheme = createTheme({ palette: { mode: 'dark' } });
   
-  const primaryLight = '#e91e63';
-  const primaryMain = '#a31545';
-  const primaryDark = '#720e30';
+  const primaryLight = '#0E95E3';
+  const primaryMain = '#48B9FA';
+  const primaryDark = '#0E9AEB';
   
   const infoLight = '#d3d3d3';
   const infoMain = '#c9c9c9';
   const infoDark = '#b5b5b5';
   
-  export const primaryLighter = '#ff2e75';
-  export const primaryDarker = '#4a091f';
-  export const primaryDarkest = '#280310';
+  export const primaryLighter = '#45A1D6';
+  export const primaryDarker = '#3A789C';
+  export const primaryDarkest = '#2C6485';
   
   export const fontColors = {
     hintDarker: 'rgba(255, 255, 255, 0.2)',
