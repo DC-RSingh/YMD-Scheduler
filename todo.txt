@@ -19,7 +19,8 @@
 
 
 // TODO: Add Credits to README as well as in app with a credit-dialog component, 
-    big thanks to exilence-next for their excellent codebase, api and project structure
+    big thanks to exilence-next for their excellent codebase, api and project structure and DevExtreme for the 
+    great React Scheduler component available for free for non-commercial use
 
 
 Luxury 
@@ -29,7 +30,7 @@ Luxury
 
 // TODO: Same as dependency fallback, app should not break completely if something goes wrong (like a promise never fulfilled)
 
-// TODO: Add notifications with react-toastify
+// TODO: Add notifications with react-toastify and desktop notifications for calendar events
 
 // TODO: Document Project after main functionality is complete
 
@@ -37,8 +38,8 @@ Luxury
 
 // TODO: Extract DrawerWrapper styles to a file
 
+// TODO: System Tray stuff
+
 // TODO: PACKAGES MAYBE USE:
 
-- react-datepicker + @types/react-datepicker
-- react-big-calendar + @types/react-big-calendar
 - date-fns
