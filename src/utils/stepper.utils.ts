@@ -30,6 +30,18 @@ export function getToolbarSteps(): IStepDescriptor[] {
         selector: '[data-tour-elem="staffView"]',
     },
     {
+        key: 'room_step',
+        title: "Room View",
+        body: "Stuff.",
+        selector: '[data-tour-elem="roomView"]',
+    },
+    {
+        key: 'settings_step',
+        title: "Settings View",
+        body: "Stuff.",
+        selector: '[data-tour-elem="settingsView"]',
+    },
+    {
         key: 'logout_step',
         title: "Logout Button",
         body: "When you are done, you can logout of the YMD Scheduler by clicking here.",

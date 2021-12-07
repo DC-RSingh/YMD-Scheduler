@@ -9,8 +9,9 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import SchoolIcon from '@mui/icons-material/School';
 import BadgeIcon from '@mui/icons-material/Badge';
-// import ClassIcon from '@mui/icons-material/Class';
+import SettingsIcon from '@mui/icons-material/Settings';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 
 type NavigationMenuProps = {
     open: boolean;
@@ -104,21 +105,39 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSideNav: tog
                     <ListItemText primary="Staff" />
                 </ListItem>
 
-                {/* Navigate to Register-Class Route
+                {/* Navigate to Room Route */}
                 <ListItem
                     button
-                    key="register-class"
-                    selected={location.pathname === '/register-class'}
-                    onClick={() => handleRedirect('/register-class')}
+                    key="room"
+                    selected={location.pathname === '/room'}
+                    onClick={() => handleRedirect('/room')}
+                    data-tour-elem="roomView"
                 >
 
                     <ListItemIcon>
-                        <Tooltip title={"Register Class" || ''} placement="right">
-                            <ClassIcon/>
+                        <Tooltip title={"Room" || ''} placement="right">
+                            <MeetingRoomIcon/>
                         </Tooltip>
                     </ListItemIcon>
-                    <ListItemText primary="Register Class" />
-                </ListItem> */}
+                    <ListItemText primary="Room" />
+                </ListItem>
+
+                {/* Navigate to Settings Route */}
+                <ListItem
+                    button
+                    key="settings"
+                    selected={location.pathname === '/settings'}
+                    onClick={() => handleRedirect('/settings')}
+                    data-tour-elem="settingsView"
+                >
+
+                    <ListItemIcon>
+                        <Tooltip title={"Settings" || ''} placement="right">
+                            <SettingsIcon/>
+                        </Tooltip>
+                    </ListItemIcon>
+                    <ListItemText primary="Settings" />
+                </ListItem>
 
                 {/* Navigate to Logout Route */}
                 <ListItem

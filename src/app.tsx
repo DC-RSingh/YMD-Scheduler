@@ -53,9 +53,11 @@ const App: React.FC = () => {
                     <Route path="/login" component={Login} />
                     <DrawerWrapperContainer>
                         <ToolbarContainer />
-                        <Route path="/schedule" component={Schedule}/>
-                        <Route path="/student" component={Schedule} />
-                        <Route path="/staff" component={Schedule} />
+                        <Route path="/schedule" exact component={Schedule}/>
+                        <Route path="/student" exact component={Schedule} />
+                        <Route path="/staff" exact component={Schedule} />
+                        <Route path="/room" exact component={Schedule} />
+                        <Route path="/settings" component={Schedule} />
                         <Route path="/logout" component={Schedule} />
                         <Route path="/" exact
                             render={() => 
