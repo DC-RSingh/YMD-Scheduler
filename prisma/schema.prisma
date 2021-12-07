@@ -1,0 +1,194 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model classtype {
+  Id         Int          @id @default(autoincrement())
+  Type       String       @db.VarChar(10)
+  musicclass musicclass[]
+}
+
+model credentials {
+  Id               Int                @id @default(autoincrement())
+  Credential       String             @unique(map: "Credential") @db.VarChar(10)
+  staffcredentials staffcredentials[]
+}
+
+model days {
+  Id                 Int                  @id @default(autoincrement()) @db.TinyInt
+  Day                String               @db.VarChar(10)
+  staffavailabledays staffavailabledays[]
+}
+
+model musicclass {
+  Id               Int                @id @default(autoincrement())
+  ClassType        Int
+  StaffId          Int
+  TimeSlotId       Int
+  RoomId           Int
+  ClassSize        Int                @db.TinyInt
+  classtype        classtype          @relation(fields: [ClassType], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_1")
+  room             room               @relation(fields: [RoomId], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_4")
+  staff            staff              @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_2")
+  timeslot         timeslot           @relation(fields: [TimeSlotId], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_3")
+  studentclasslist studentclasslist[]
+
+  @@index([ClassType], map: "ClassType")
+  @@index([RoomId], map: "RoomId")
+  @@index([StaffId], map: "StaffId")
+  @@index([TimeSlotId], map: "TimeSlotId")
+}
+
+model restrictions {
+  Id                Int                 @id @default(autoincrement())
+  Restriction       String              @db.VarChar(10)
+  staffrestrictions staffrestrictions[]
+}
+
+model room {
+  Id         Int          @id @default(autoincrement())
+  Type       Int
+  Name       String       @db.VarChar(10)
+  RoomSize   Int          @db.SmallInt
+  hasPiano   Boolean
+  roomtype   roomtype     @relation(fields: [Type], references: [Id], onDelete: Cascade, map: "room_ibfk_1")
+  musicclass musicclass[]
+
+  @@index([Type], map: "Type")
+}
+
+model roomtype {
+  Id   Int    @id @default(autoincrement())
+  Type String @db.VarChar(10)
+  room room[]
+}
+
+model skills {
+  Id          Int           @id @default(autoincrement())
+  Skill       String        @unique(map: "Skill") @db.VarChar(10)
+  staffskills staffskills[]
+}
+
+model staff {
+  Id                 Int                  @id @default(autoincrement())
+  Type               Int
+  FirstName          String               @db.VarChar(30)
+  LastName           String               @db.VarChar(30)
+  Gender             String               @db.VarChar(1)
+  DateOfBirth        DateTime             @db.DateTime(0)
+  Email              String               @db.VarChar(255)
+  Telephone          String               @db.VarChar(12)
+  MaxHoursPerWeek    Int                  @db.TinyInt
+  stafftype          stafftype            @relation(fields: [Type], references: [Id], onDelete: Cascade, map: "staff_ibfk_1")
+  musicclass         musicclass[]
+  staffavailabledays staffavailabledays[]
+  staffcredentials   staffcredentials[]
+  staffrestrictions  staffrestrictions[]
+  staffskills        staffskills[]
+
+  @@index([Type], map: "Type")
+}
+
+model staffavailabledays {
+  Id      Int   @id @default(autoincrement())
+  StaffId Int
+  DayId   Int   @db.TinyInt
+  days    days  @relation(fields: [DayId], references: [Id], onDelete: Cascade, map: "staffavailabledays_ibfk_2")
+  staff   staff @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffavailabledays_ibfk_1")
+
+  @@index([DayId], map: "DayId")
+  @@index([StaffId], map: "StaffId")
+}
+
+model staffcredentials {
+  Id           Int         @id @default(autoincrement())
+  StaffId      Int
+  CredentialId Int
+  credentials  credentials @relation(fields: [CredentialId], references: [Id], onDelete: Cascade, map: "staffcredentials_ibfk_2")
+  staff        staff       @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffcredentials_ibfk_1")
+
+  @@index([CredentialId], map: "CredentialId")
+  @@index([StaffId], map: "StaffId")
+}
+
+model staffrestrictions {
+  Id            Int          @id @default(autoincrement())
+  StaffId       Int
+  RestrictionId Int
+  restrictions  restrictions @relation(fields: [RestrictionId], references: [Id], onDelete: Cascade, map: "staffrestrictions_ibfk_2")
+  staff         staff        @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffrestrictions_ibfk_1")
+
+  @@index([RestrictionId], map: "RestrictionId")
+  @@index([StaffId], map: "StaffId")
+}
+
+model staffskills {
+  Id      Int    @id @default(autoincrement())
+  StaffId Int
+  SkillId Int
+  skills  skills @relation(fields: [SkillId], references: [Id], onDelete: Cascade, map: "staffskills_ibfk_2")
+  staff   staff  @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffskills_ibfk_1")
+
+  @@index([SkillId], map: "SkillId")
+  @@index([StaffId], map: "StaffId")
+}
+
+model stafftype {
+  Id    Int     @id @default(autoincrement())
+  Type  String  @unique(map: "Type") @db.VarChar(10)
+  staff staff[]
+}
+
+model studentclasslist {
+  Id         Int        @id @default(autoincrement())
+  ClassId    Int
+  StudentId  Int
+  musicclass musicclass @relation(fields: [ClassId], references: [Id], onDelete: Cascade, map: "studentclasslist_ibfk_1")
+  students   students   @relation(fields: [StudentId], references: [Id], onDelete: Cascade, map: "studentclasslist_ibfk_2")
+
+  @@index([ClassId], map: "ClassId")
+  @@index([StudentId], map: "StudentId")
+}
+
+model students {
+  Id               Int                @id @default(autoincrement())
+  FirstName        String             @db.VarChar(30)
+  LastName         String             @db.VarChar(30)
+  Gender           String             @db.VarChar(1)
+  DateOfBirth      DateTime           @db.DateTime(0)
+  ContactEmail     String             @db.VarChar(255)
+  ContactTelephone String             @db.VarChar(12)
+  PaymentMethod    String             @db.VarChar(16)
+  studentclasslist studentclasslist[]
+}
+
+model timeslot {
+  Id           Int            @id @default(autoincrement())
+  StartDate    DateTime       @db.DateTime(0)
+  EndDate      DateTime       @db.DateTime(0)
+  Duration     Int?
+  WeekDay      Int?
+  Attended     Boolean?       @default(false)
+  musicclass   musicclass[]
+  timeslotmeta timeslotmeta[]
+}
+
+model timeslotmeta {
+  Id            Int       @id @default(autoincrement())
+  TimeSlotId    Int
+  RepeatStart   DateTime  @db.Date
+  RepeatEnd     DateTime? @db.Date
+  RepeatYear    Int?      @db.SmallInt
+  RepeatMonth   Int?      @db.TinyInt
+  RepeatDay     Int?      @db.TinyInt
+  RepeatWeek    Int?      @db.TinyInt
+  RepeatWeekday Int?      @db.TinyInt
+  timeslot      timeslot  @relation(fields: [TimeSlotId], references: [Id], onDelete: Cascade, map: "timeslotmeta_ibfk_1")
+
+  @@index([TimeSlotId], map: "TimeSlotId")
+}

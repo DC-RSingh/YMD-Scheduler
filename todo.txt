@@ -43,6 +43,8 @@ Luxury
 
 // TODO: Do docs folder in Markdown outlining application structure and API
 
+// TODO: Prettier the project!!
+
 // TODO: PACKAGES MAYBE USE:
 
 - date-fns

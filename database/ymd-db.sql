@@ -4,10 +4,10 @@ use YMDDB;
 
 /* Dropping Tables */
 DROP TABLE IF EXISTS StudentClassList;
-DROP TABLE IF EXISTS Class;
+DROP TABLE IF EXISTS MusicClass;
 DROP TABLE IF EXISTS StaffAvailableDays;
 DROP TABLE IF EXISTS StaffSkills;
-DROP TABLE IF EXISTS StaffCredentials;
+DROP TABLE IF EXISTS StaffCredentials; 
 DROP TABLE IF EXISTS StaffRestrictions;
 DROP TABLE IF EXISTS Skills;
 DROP TABLE IF EXISTS Credentials;
@@ -55,7 +55,7 @@ CREATE TABLE Staff(
    Email VARCHAR(255) NOT NULL,
    Telephone VARCHAR(12) NOT NULL,
    MaxHoursPerWeek  TINYINT NOT NULL,
-   FOREIGN KEY (Type) REFERENCES StaffType(Id)
+   FOREIGN KEY (Type) REFERENCES StaffType(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Skills Table */
@@ -86,8 +86,8 @@ CREATE TABLE StaffSkills(
    Id INT PRIMARY KEY AUTO_INCREMENT,
    StaffId  INT NOT NULL,
    SkillId  INT NOT NULL,
-   FOREIGN KEY (StaffId) REFERENCES Staff(Id),
-   FOREIGN KEY (SkillId) REFERENCES Skills(Id)
+   FOREIGN KEY (StaffId) REFERENCES Staff(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (SkillId) REFERENCES Skills(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Staff Credentials Table */
@@ -96,8 +96,8 @@ CREATE TABLE StaffCredentials(
    Id INT PRIMARY KEY AUTO_INCREMENT,
    StaffId  INT NOT NULL,
    CredentialId  INT NOT NULL,
-   FOREIGN KEY (StaffId) REFERENCES Staff(Id),
-   FOREIGN KEY (CredentialId) REFERENCES Credentials(Id)
+   FOREIGN KEY (StaffId) REFERENCES Staff(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (CredentialId) REFERENCES Credentials(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Staff Restrictions Table */
@@ -106,8 +106,8 @@ CREATE TABLE StaffRestrictions(
    Id INT PRIMARY KEY AUTO_INCREMENT,
    StaffId  INT NOT NULL,
    RestrictionId  INT NOT NULL,
-   FOREIGN KEY (StaffId) REFERENCES Staff(Id),
-   FOREIGN KEY (RestrictionId) REFERENCES Restrictions(Id)
+   FOREIGN KEY (StaffId) REFERENCES Staff(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (RestrictionId) REFERENCES Restrictions(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Room Type Table */
@@ -124,7 +124,7 @@ CREATE TABLE Room(
    Name  VARCHAR(10) NOT NULL,
    RoomSize  SMALLINT NOT NULL,
    hasPiano  BOOLEAN NOT NULL,
-   FOREIGN KEY (Type) REFERENCES RoomType(Id)
+   FOREIGN KEY (Type) REFERENCES RoomType(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -160,7 +160,7 @@ CREATE TABLE TimeSlotMeta (
 	RepeatDay TINYINT,
 	RepeatWeek TINYINT,
 	RepeatWeekday TINYINT,
-	FOREIGN KEY (TimeSlotId) REFERENCES TimeSlot(Id)
+	FOREIGN KEY (TimeSlotId) REFERENCES TimeSlot(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Room Type Table */
@@ -175,23 +175,23 @@ CREATE TABLE StaffAvailableDays(
    Id INT PRIMARY KEY AUTO_INCREMENT,
    StaffId  INT NOT NULL,
    DayId  TINYINT NOT NULL,
-   FOREIGN KEY (StaffId) REFERENCES Staff(Id),
-   FOREIGN KEY (DayId) REFERENCES Days(Id)
+   FOREIGN KEY (StaffId) REFERENCES Staff(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (DayId) REFERENCES Days(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Class Table */
 /* A class has an instructor, a time slot and room associated with it. A class can require more people than a room can fit, so the size is necessary. */
-CREATE TABLE Class(
+CREATE TABLE MusicClass(
    Id INT PRIMARY KEY AUTO_INCREMENT,
    ClassType  INT NOT NULL,
    StaffId  INT NOT NULL,
    TimeSlotId  INT NOT NULL,
    RoomId  INT NOT NULL,
    ClassSize  TINYINT NOT NULL,
-   FOREIGN KEY (ClassType) REFERENCES ClassType(Id),
-   FOREIGN KEY (StaffId) REFERENCES Staff(Id),
-   FOREIGN KEY (TimeSlotId) REFERENCES TimeSlot(Id),
-   FOREIGN KEY (RoomId) REFERENCES Room(Id)
+   FOREIGN KEY (ClassType) REFERENCES ClassType(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (StaffId) REFERENCES Staff(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (TimeSlotId) REFERENCES TimeSlot(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (RoomId) REFERENCES Room(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* Creating Student Class List Table */
@@ -200,6 +200,6 @@ CREATE TABLE StudentClassList(
    Id INT PRIMARY KEY AUTO_INCREMENT,
    ClassId  INT NOT NULL,
    StudentId  INT NOT NULL,
-   FOREIGN KEY (ClassId) REFERENCES Class(Id),
-   FOREIGN KEY (StudentId) REFERENCES Students(Id)
+   FOREIGN KEY (ClassId) REFERENCES MusicClass(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+   FOREIGN KEY (StudentId) REFERENCES Students(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
