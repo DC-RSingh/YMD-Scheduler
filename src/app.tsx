@@ -15,6 +15,7 @@ import ToolbarContainer from "./renderer/components/toolbar/ToolbarContainer";
 import localForage from 'localforage';
 import { create } from "mobx-persist";
 import Logout from "./renderer/routes/logout/Logout";
+import Student from "./renderer/routes/student/Student";
 
 configure({enforceActions: 'observed'});
 
@@ -55,7 +56,7 @@ const App: React.FC = () => {
                     <DrawerWrapperContainer>
                         <ToolbarContainer />
                         <Route path="/schedule" exact component={Schedule}/>
-                        <Route path="/student" exact component={Schedule} />
+                        <Route path="/student" exact component={Student} />
                         <Route path="/staff" exact component={Schedule} />
                         <Route path="/room" exact component={Schedule} />
                         <Route path="/settings" component={Schedule} />

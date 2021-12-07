@@ -61,12 +61,6 @@ import {
   
   export const gridSpacing = 2;
   
-  export const cardColors = {
-    primary: 'linear-gradient(90deg, #273238 0%, #1c262b 100%)',
-    secondary: 'linear-gradient(90deg, #1d3e3b 0%, #192f2d 100%)',
-    third: 'linear-gradient(90deg, #14384a 0%, #082533 100%)',
-  };
-  
   export const statusColors = {
     success: green[800],
     warning: amber[900],

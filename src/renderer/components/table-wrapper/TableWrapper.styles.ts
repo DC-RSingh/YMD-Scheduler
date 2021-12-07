@@ -51,7 +51,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       outline: 0,
       verticalAlign: 'middle',
       '&:hover': {
-        backgroundColor: `rgba(163, 21, 69, 0.16)`,
+        backgroundColor: `rgba(58, 120, 156, 0.16)`,
       },
       borderBottom: '1px solid rgba(81, 81, 81, 0.6)',
     },

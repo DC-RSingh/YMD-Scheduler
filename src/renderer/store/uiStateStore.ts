@@ -41,6 +41,9 @@ export class UiStateStore {
     //#region ToolbarTour States
     @persist @observable toolbarTourOpen = true;
     //#endregion
+    //#region StudentTable States
+    @observable studentTableFilterText = '';
+    //#endregion
 
     //#region LoginDialog Functions
     @action
@@ -101,6 +104,12 @@ export class UiStateStore {
     @action
     setToolbarTourOpen(open: boolean): void {
       this.toolbarTourOpen = open;
+    }
+    //#endregion
+    //#region Student Table Functions
+    @action
+    setStudentTableFilterText(text: string): void {
+      this.studentTableFilterText = text;
     }
     //#endregion
 }
