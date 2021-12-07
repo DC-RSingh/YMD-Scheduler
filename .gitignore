@@ -90,3 +90,6 @@ out/
 
 # Distribution Files
 dist/
+
+# Ignore DB Files
+*.db
