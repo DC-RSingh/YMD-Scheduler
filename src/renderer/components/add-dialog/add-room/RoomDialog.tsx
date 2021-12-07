@@ -12,51 +12,51 @@ import React from 'react';
 import * as Yup from 'yup';
 import SimpleField from '../../simple-field/SimpleField';
 import SelectField from '../../select-field/SelectField';
-import useStyles from './ClassDialog.styles';
-import { IClassForm } from './ClassDialogContainer';
+import useStyles from './RoomDialog.styles';
+import { IRoomForm } from './RoomDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
 
-type ClassDialogProps = {
+type RoomDialogProps = {
   show: boolean;
-  initialValues: IClassForm;
+  initialValues: IRoomForm;
   dialogType: AddDialogType;
   onClose: () => void;
-  onSubmit: (registerClass: IClassForm) => void;
-  handleClassExists: (someIdentifier: string) => void;  // TODO: Make this some clear reproducable identifier
+  onSubmit: (registerRoom: IRoomForm) => void;
+  handleRoomExists: (someIdentifier: string) => void;  // TODO: Make this some clear reproducable identifier
   handleClearError: () => void; // TODO: Instead of this, remember how errors are handled by the field components
   loading: boolean;
-  classError?: Error;
-  classExists?: boolean;
+  roomError?: Error;
+  roomExists?: boolean;
 };
 
-const ClassDialog = ({
+const RoomDialog = ({
   show,
   onClose,
   onSubmit,
   initialValues,
-  classError,
-  classExists,
+  roomError,
+  roomExists,
   dialogType,
-  handleClassExists,
+  handleRoomExists,
   handleClearError,
   loading,
-}: ClassDialogProps) => {
-  const classes = useStyles();
+}: RoomDialogProps) => {
+  const roomes = useStyles();
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required('First Name is required'),
     lastName: Yup.string().required('Last Name is required'),
   });
 
-  const getClassExistsError = () => {
+  const getRoomExistsError = () => {
     switch (dialogType) {
       case 'Create':
-        return classExists !== undefined && classExists
-          ? "Error: Class already exists!"
+        return roomExists !== undefined && roomExists
+          ? "Error: Room already exists!"
           : undefined;
       case 'Edit':
-        return classExists !== undefined && !classExists ? "Error: Invalid values!" : undefined;
+        return roomExists !== undefined && !roomExists ? "Error: Invalid values!" : undefined;
       default:
         return undefined;
     }
@@ -71,7 +71,7 @@ const ClassDialog = ({
       >
         {({ isValid, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <DialogTitle>{`${dialogType} a Class`}</DialogTitle>
+            <DialogTitle>{`${dialogType} a Room`}</DialogTitle>
             <DialogContent>
 
                 {/* First Name field */}
@@ -80,7 +80,7 @@ const ClassDialog = ({
                 type="text"
                 label={"First Name"}
                 placeholder={"Enter your First Name here"}
-                handleBlur={handleClassExists}
+                handleBlur={handleRoomExists}
                 required
                 autoFocus
               />
@@ -91,18 +91,18 @@ const ClassDialog = ({
                 type="text"
                 label={"Last Name"}
                 placeholder={"Enter your Last Name here"}
-                handleBlur={handleClassExists}
+                handleBlur={handleRoomExists}
                 required
                 autoFocus
               />
 
             </DialogContent>
             
-            <DialogActions className={classes.dialogActions}>
+            <DialogActions className={roomes.dialogActions}>
               <Button onClick={onClose}>{"Close"}</Button>
               <LoadingButton
                 type="submit"
-                disabled={!isValid || getClassExistsError() !== undefined}
+                disabled={!isValid || getRoomExistsError() !== undefined}
                 color="primary"
                 variant="contained"
                 loading={loading}
@@ -119,4 +119,4 @@ const ClassDialog = ({
   );
 };
 
-export default observer(ClassDialog);
+export default observer(RoomDialog);

@@ -26,11 +26,11 @@ export class UiStateStore {
     @observable studentDialogOpen = false;
     @observable studentDialogType: AddDialogType = undefined;
     //#endregion
-    //#region ClassDialog States
-    @observable classError: Error | undefined = undefined;
-    @observable creatingClass = false;
-    @observable classDialogOpen = false;
-    @observable classDialogType: AddDialogType = undefined;
+    //#region Room States
+    @observable roomError: Error | undefined = undefined;
+    @observable creatingRoom = false;
+    @observable roomDialogOpen = false;
+    @observable roomDialogType: AddDialogType = undefined;
     //#endregion
     //#region NavigationMenu States
     @persist @observable sideNavOpen = false;
@@ -73,14 +73,14 @@ export class UiStateStore {
         this.studentDialogOpen = open;
     }
     //#endregion
-    //#region Class Dialog Functions
+    //#region Room Dialog Functions
     @action
-    setClassDialogOpen(open: boolean, type?: AddDialogType): void {
+    setRoomDialogOpen(open: boolean, type?: AddDialogType): void {
         if (open) {
-            this.classDialogType = type;
+            this.roomDialogType = type;
         }
 
-        this.classDialogOpen = open;
+        this.roomDialogOpen = open;
     }
     //#endregion
     //#region NavigationMenu Functions
