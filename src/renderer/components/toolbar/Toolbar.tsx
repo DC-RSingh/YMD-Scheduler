@@ -56,7 +56,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                   >
                       {/* Add Button on Toolbar */}
                       <Grid item className={classes.addArea} data-tour-elem="addArea">
-                      <Tooltip title="Add Class/Student/Staff" placement="bottom">
+                      <Tooltip title="Add Records" placement="bottom">
                           <span>
                           <IconButton
                               onClick={() => toggleAddOverview()}

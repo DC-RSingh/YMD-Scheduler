@@ -42,15 +42,9 @@ export function getToolbarSteps(): IStepDescriptor[] {
         selector: '[data-tour-elem="settingsView"]',
     },
     {
-        key: 'logout_step',
-        title: "Logout Button",
-        body: "When you are done, you can logout of the YMD Scheduler by clicking here.",
-        selector: '[data-tour-elem="logoutView"]',
-    },
-    {
         key: 'add_step',
         title: "Add Section",
-        body: "Here, you can open a menu allowing you to choose between addding Classes, Students or Staff.",
+        body: "Here, you can open a menu allowing you to choose the type of records you want to add.",
         selector: '[data-tour-elem="addArea"]',
     },
     {
@@ -64,6 +58,12 @@ export function getToolbarSteps(): IStepDescriptor[] {
         title: "Notification List",
         body: "Here, you can view a list of recent events within the app, like adding a new student to the database.",
         selector: '[data-tour-elem="notificationList"]',
+    },
+    {
+        key: 'logout_step',
+        title: "Logout Button",
+        body: "When you are done, you can logout of the YMD Scheduler by clicking here.",
+        selector: '[data-tour-elem="logoutView"]',
     },
     {
         key: 'support_panel_step',
