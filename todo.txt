@@ -18,6 +18,8 @@
 // TODO: On top of edit and delete in table menus, add ability to view info on just one employee
  View info also present for other tables, where for students you can see the classes they are in, rooms you see when they are booked
 
+ // TODO: Maybe add views to schema so joins aren't as complex
+
 
 Luxury 
 

@@ -14,7 +14,7 @@ const Schedule: React.FC = () => {
 
 
     return (
-        <ScheduleComponent>
+        <ScheduleComponent data-tour-elem="scheduleArea">
             <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>
     );
