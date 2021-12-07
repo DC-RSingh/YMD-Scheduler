@@ -107,6 +107,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
+    "concurrently": "^6.4.0",
     "core-js": "^3.19.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",

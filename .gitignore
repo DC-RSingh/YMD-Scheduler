@@ -93,3 +93,6 @@ dist/
 
 # Ignore DB Files
 *.db
+
+# Ignore .History
+.history
