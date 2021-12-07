@@ -13,11 +13,11 @@ type AddOverviewProps = {
     toggleAddOverview: () => void;
     handleAddStudent: Handler;
     handleAddStaff: Handler;
-    handleAddClass: Handler;
+    handleAddRoom: Handler;
 };
 
 const AddOverview: React.FC<AddOverviewProps> = (
-{open, toggleAddOverview, handleAddClass, handleAddStaff, handleAddStudent}: AddOverviewProps) => {
+{open, toggleAddOverview, handleAddRoom, handleAddStaff, handleAddStudent}: AddOverviewProps) => {
     const classes = useStyles();
     const theme = useTheme();
 
@@ -42,19 +42,6 @@ const AddOverview: React.FC<AddOverviewProps> = (
             <Box p={2}>
                 <Grid container spacing={2}>
                     <>
-                    {/* Button for Adding Classes */}
-                    <Grid item xs={12}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            fullWidth
-                            onClick={handleAddClass}
-                        >
-                            <Typography component="h4" fontWeight="bold">
-                                Register Class
-                            </Typography>
-                        </Button>
-                    </Grid>
 
                     {/* Button for Adding Staff */}
                     <Grid item xs={12}>
@@ -83,6 +70,20 @@ const AddOverview: React.FC<AddOverviewProps> = (
                             </Typography>
                         </Button>
                     </Grid>
+
+                    {/* Button for Adding Rooms */}
+                    <Grid item xs={12}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            fullWidth
+                            onClick={handleAddRoom}
+                        >
+                            <Typography component="h4" fontWeight="bold">
+                                Add Room
+                            </Typography>
+                        </Button>
+                    </Grid>
                     </>
                 </Grid>
             </Box>
@@ -91,4 +92,7 @@ const AddOverview: React.FC<AddOverviewProps> = (
     )
 }
 
+/**
+ * Drawer opening from the right providing buttons to bring up dialogs that add records to the database. 
+ */
 export default observer(AddOverview);

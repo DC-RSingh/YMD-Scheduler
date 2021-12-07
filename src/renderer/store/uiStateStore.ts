@@ -2,11 +2,36 @@ import { makeObservable, observable, action } from "mobx";
 import { persist } from "mobx-persist";
 import { RootStore } from "./rootStore";
 
+export type AddDialogType = 'Create' | 'Edit' | undefined;
+
 export class UiStateStore {
+    
+    constructor(private rootStore: RootStore) {
+        makeObservable(this);
+    }
+    
     // #region LoginDialog States
     @observable loginError: Error | undefined = undefined;
     @observable loginAuthenticating = false;
     // #endregion
+    //#region StaffDialog States
+    @observable staffError: Error | undefined = undefined;
+    @observable creatingStaff = false;
+    @observable staffDialogOpen = false;
+    @observable staffDialogType: AddDialogType = undefined;
+    //#endregion
+    //#region StudentDialog States
+    @observable studentError: Error | undefined = undefined;
+    @observable creatingStudent = false;
+    @observable studentDialogOpen = false;
+    @observable studentDialogType: AddDialogType = undefined;
+    //#endregion
+    //#region Room States
+    @observable roomError: Error | undefined = undefined;
+    @observable creatingRoom = false;
+    @observable roomDialogOpen = false;
+    @observable roomDialogType: AddDialogType = undefined;
+    //#endregion
     //#region NavigationMenu States
     @persist @observable sideNavOpen = false;
     //#endregion
@@ -17,10 +42,6 @@ export class UiStateStore {
     @persist @observable toolbarTourOpen = true;
     //#endregion
 
-    constructor(private rootStore: RootStore) {
-        makeObservable(this);
-    }
-
     //#region LoginDialog Functions
     @action
     setLoginError(error: Error | undefined): void {
@@ -30,6 +51,36 @@ export class UiStateStore {
     @action
     setLoginAuthenticating(authenticating: boolean): void {
         this.loginAuthenticating = authenticating;
+    }
+    //#endregion
+    //#region Staff Dialog Functions
+    @action
+    setStaffDialogOpen(open: boolean, type?: AddDialogType): void {
+        if (open) {
+            this.staffDialogType = type;
+        }
+
+        this.staffDialogOpen = open;
+    }
+    //#endregion
+    //#region Student Dialog Functions
+    @action
+    setStudentDialogOpen(open: boolean, type?: AddDialogType): void {
+        if (open) {
+            this.studentDialogType = type;
+        }
+
+        this.studentDialogOpen = open;
+    }
+    //#endregion
+    //#region Room Dialog Functions
+    @action
+    setRoomDialogOpen(open: boolean, type?: AddDialogType): void {
+        if (open) {
+            this.roomDialogType = type;
+        }
+
+        this.roomDialogOpen = open;
     }
     //#endregion
     //#region NavigationMenu Functions

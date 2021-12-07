@@ -1,5 +1,4 @@
-import { app, BrowserWindow } from 'electron';
-// import ElectronLog from 'electron-log';
+import { app, BrowserWindow,  } from 'electron';
 import isDev from "electron-is-dev";
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;

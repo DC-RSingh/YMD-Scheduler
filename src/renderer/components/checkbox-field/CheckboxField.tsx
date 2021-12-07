@@ -45,7 +45,11 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({
   );
 };
 
+/**
+ * Checkbox field that is supposed to work but doesn't want to.
+ */
 export default CheckboxField;
+
 // import React from 'react';
 // import { Checkbox, FormControl, FormControlLabel } from '@mui/material';
 // import { useField } from 'formik';

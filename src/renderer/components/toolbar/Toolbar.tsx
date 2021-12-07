@@ -9,6 +9,9 @@ import { observer } from 'mobx-react-lite';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SupportPanel from '../support-panel/SupportPanel';
 import HelpIcon from '@mui/icons-material/Help';
+import StaffDialogContainer from '../add-dialog/add-staff/StaffDialogContainer';
+import StudentDialogContainer from '../add-dialog/add-student/StudentDialogContainer';
+import RoomDialogContainer from '../add-dialog/add-room/RoomDialogContainer';
 
 type ToolbarProps = {
     sideNavOpened: boolean;
@@ -53,7 +56,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                   >
                       {/* Add Button on Toolbar */}
                       <Grid item className={classes.addArea} data-tour-elem="addArea">
-                      <Tooltip title="Add Class/Student/Staff" placement="bottom">
+                      <Tooltip title="Add Records" placement="bottom">
                           <span>
                           <IconButton
                               onClick={() => toggleAddOverview()}
@@ -117,6 +120,9 @@ const Toolbar: React.FC<ToolbarProps> = ({
               </MuiToolbar>
           </AppBar>
           {/* Add Dialog Containers for the Add Stuff Here */}
+          <StaffDialogContainer />
+          <StudentDialogContainer />
+          <RoomDialogContainer />
         </>
     )
 }

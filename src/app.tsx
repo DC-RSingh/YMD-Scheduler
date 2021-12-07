@@ -14,6 +14,7 @@ import DrawerWrapperContainer from "./renderer/components/drawer-wrapper/DrawerW
 import ToolbarContainer from "./renderer/components/toolbar/ToolbarContainer";
 import localForage from 'localforage';
 import { create } from "mobx-persist";
+import Logout from "./renderer/routes/logout/Logout";
 
 configure({enforceActions: 'observed'});
 
@@ -53,10 +54,12 @@ const App: React.FC = () => {
                     <Route path="/login" component={Login} />
                     <DrawerWrapperContainer>
                         <ToolbarContainer />
-                        <Route path="/schedule" component={Schedule}/>
-                        <Route path="/student" component={Schedule} />
-                        <Route path="/staff" component={Schedule} />
-                        <Route path="/logout" component={Schedule} />
+                        <Route path="/schedule" exact component={Schedule}/>
+                        <Route path="/student" exact component={Schedule} />
+                        <Route path="/staff" exact component={Schedule} />
+                        <Route path="/room" exact component={Schedule} />
+                        <Route path="/settings" component={Schedule} />
+                        <Route path="/logout" component={Logout} />
                         <Route path="/" exact
                             render={() => 
                                 rootStore.userStore.authenticated ? (

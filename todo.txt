@@ -1,25 +1,24 @@
-// TODO: UI before you concern yourself with anything else yessir
-
-// TODO: Add required software to app bundle (MYSQL)
-
-// TODO: Setup database with sequelize and models or just use SQLite3
+// TODO: SQLite3 + Prisma 
 
 // TODO: Note, project does not work on node version 12 or lower 
 
 // TODO: Checkbox Field cancer not sending actual value, state updates but always sends initial
     Might have to just scrap remember me Sadge (if it does work, remember to make it @persist)
 
-// TODO: Change App Theme Maybe, quite like this scheme tho
-
 // TODO: Maybe still have a route or way where you can view classes that isn't the schedule
 
-// TODO: Confirmation Dialog for adds and edits
-
-// TODO: remember to wire callbacks for handling the adds in AddOverviewContainer
-
+// TODO: use jest to write tests for the app (imagine writing tests after programming the whole project OMEGALUL)
 
 // TODO: Add Credits to README as well as in app with a credit-dialog component, 
-    big thanks to exilence-next for their excellent codebase, api and project structure
+    big thanks to exilence-next for their excellent codebase, api and project structure and DevExtreme for the 
+    great React Scheduler component available for free for non-commercial use
+
+// TODO: Disable electron security warnings
+
+// TODO: On top of edit and delete in table menus, add ability to view info on just one employee
+ View info also present for other tables, where for students you can see the classes they are in, rooms you see when they are booked
+
+ // TODO: Maybe add views to schema so joins aren't as complex
 
 
 Luxury 
@@ -29,10 +28,17 @@ Luxury
 
 // TODO: Same as dependency fallback, app should not break completely if something goes wrong (like a promise never fulfilled)
 
-// TODO: Add notifications with react-toastify
+// TODO: Add notifications with react-toastify and desktop notifications for calendar events (like a lesson is upcoming) 
+    with electron notifications
 
 // TODO: Document Project after main functionality is complete
 
-// TODO: Fork or for when adding backend logic if possible
+// TODO: System Tray stuff
 
-// TODO: Extract DrawerWrapper styles to a file
+// TODO: Add Schedule Step to the tour.
+
+// TODO: Do docs folder in Markdown outlining application structure and API
+
+// TODO: PACKAGES MAYBE USE:
+
+- date-fns
