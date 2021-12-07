@@ -74,11 +74,6 @@ import {
     error: red[900],
   };
   
-  export const currencyChangeColors = {
-    positive: green[600],
-    negative: red[700],
-  };
-  
   export const background = {
     default: '#151515',
     paper: '#202020',
