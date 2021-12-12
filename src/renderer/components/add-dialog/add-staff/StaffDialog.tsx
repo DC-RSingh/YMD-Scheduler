@@ -16,6 +16,7 @@ import useStyles from './StaffDialog.styles';
 import { IStaffForm } from './StaffDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
+import DatePickerField from '../../datepicker-field/DatePickerField';
 
 type StaffDialogProps = {
   show: boolean;
@@ -74,8 +75,8 @@ const StaffDialog = ({
             <DialogTitle>{`${dialogType} a Staff Member`}</DialogTitle>
             <DialogContent>
 
-                {/* First Name field */}
-              <SimpleField
+            {/* First Name field */}
+            <SimpleField
                 name="firstName"
                 type="text"
                 label={"First Name"}
@@ -83,7 +84,7 @@ const StaffDialog = ({
                 handleBlur={handleStaffExists}
                 required
                 autoFocus
-              />
+            />
 
             {/* Last Name Field */}
             <SimpleField
@@ -93,8 +94,86 @@ const StaffDialog = ({
                 placeholder={"Enter your Last Name here"}
                 handleBlur={handleStaffExists}
                 required
-                autoFocus
-              />
+            />
+
+            {/* Gender Field */}
+            <SelectField 
+                name="gender"
+                label="Select Staff Gender"
+                options={
+                    [
+                        {id: 'male', value: 'M', label: 'Male'},
+                        {id: 'female', value: 'F', label: 'Female'},
+                        {id: 'other', value: 'O', label: 'Other'}
+                    ]
+                }
+                required
+            />
+
+            {/* Staff Date of Birth Field */}
+            <DatePickerField 
+                name="dateOfBirth"
+                label="Date Of Birth"
+            />
+
+            {/* Staff Email Field */}
+            <SimpleField
+                name="email"
+                type="text"
+                label={"Contact Email"}
+                placeholder={"Enter Student Contact Email here"}
+                handleBlur={handleStaffExists}
+                required
+            />
+
+            {/* Staff Telephone Field */}
+            <SimpleField
+                name="telephone"
+                type="text"
+                label={"Contact Telephone"}
+                placeholder={"Enter Student Contact Telephone here"}
+                handleBlur={handleStaffExists}
+                required
+            />
+
+            {/* Staff Max Hours Field */}
+            <SimpleField
+                name="maxHours"
+                type="number"
+                label={"Max Hours per Week"}
+                placeholder={"Enter Staff Max Hours here"}
+                handleBlur={handleStaffExists}
+                required
+            />
+
+            {/* Staff Type Field */}
+            {/* To be replaced with special dropdown component */}
+            <SelectField
+                name="staffType"
+                label="Staff Type"
+                required
+            />
+
+            {/* Staff Skills Field */}
+            {/* To be replaced with special dropdown component */}
+            <SelectField
+                name="staffSkills"
+                label="Staff Skills"
+            />
+
+            {/* Staff Credentials Field */}
+            {/* To be replaced with special dropdown component */}
+            <SelectField
+                name="staffCredentials"
+                label="Staff Credentials"
+            />
+
+            {/* Staff Restrictions Field */}
+            {/* To be replaced with special dropdown component */}
+            <SelectField
+                name="staffRestrictions"
+                label="Staff Restrictions"
+            />
 
             </DialogContent>
             

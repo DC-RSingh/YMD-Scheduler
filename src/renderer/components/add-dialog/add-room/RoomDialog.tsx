@@ -16,6 +16,7 @@ import useStyles from './RoomDialog.styles';
 import { IRoomForm } from './RoomDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
+import CheckboxField from '../../checkbox-field/CheckboxField';
 
 type RoomDialogProps = {
   show: boolean;
@@ -74,44 +75,56 @@ const RoomDialog = ({
             <DialogTitle>{`${dialogType} a Room`}</DialogTitle>
             <DialogContent>
 
-                {/* First Name field */}
-              <SimpleField
-                name="firstName"
-                type="text"
-                label={"First Name"}
-                placeholder={"Enter your First Name here"}
-                handleBlur={handleRoomExists}
-                required
-                autoFocus
-              />
+                {/* Room Name field */}
+                <SimpleField
+                    name="name"
+                    type="text"
+                    label={"Room Name"}
+                    placeholder={"Enter the Room Name here"}
+                    handleBlur={handleRoomExists}
+                    required
+                    autoFocus
+                />
 
-            {/* Last Name Field */}
-            <SimpleField
-                name="lastName"
-                type="text"
-                label={"Last Name"}
-                placeholder={"Enter your Last Name here"}
-                handleBlur={handleRoomExists}
-                required
-                autoFocus
-              />
+                {/* Room Size Field */}
+                <SimpleField
+                    name="roomSize"
+                    type="number"
+                    label={"Room Size"}
+                    placeholder={"Enter the Room Size here"}
+                    handleBlur={handleRoomExists}
+                    required
+                />
 
-            </DialogContent>
-            
-            <DialogActions className={roomes.dialogActions}>
-              <Button onClick={onClose}>{"Close"}</Button>
-              <LoadingButton
-                type="submit"
-                disabled={!isValid || getRoomExistsError() !== undefined}
-                color="primary"
-                variant="contained"
-                loading={loading}
-                loadingPosition="end"
-                endIcon={<SaveIcon />}
-              >
-                {dialogType}
-              </LoadingButton>
-            </DialogActions>
+                {/* Room Type Field */}
+                {/* To be replaced with special dropdown component */}
+                <SelectField
+                    name="roomType"
+                    label="Room Type"
+                />
+
+                {/* Has Piano Field */}
+                <CheckboxField 
+                    name="hasPiano"
+                    label="Has Piano?"
+                />
+
+                </DialogContent>
+                
+                <DialogActions className={roomes.dialogActions}>
+                <Button onClick={onClose}>{"Close"}</Button>
+                <LoadingButton
+                    type="submit"
+                    disabled={!isValid || getRoomExistsError() !== undefined}
+                    color="primary"
+                    variant="contained"
+                    loading={loading}
+                    loadingPosition="end"
+                    endIcon={<SaveIcon />}
+                >
+                    {dialogType}
+                </LoadingButton>
+                </DialogActions>
           </form>
         )}
       </Formik>
