@@ -1,4 +1,4 @@
-import { Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
+import { Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Tooltip, Typography } from '@mui/material';
 import clsx from 'clsx';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
@@ -130,7 +130,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({open, toggleSideNav: tog
                     onClick={() => handleRedirect('/settings')}
                     data-tour-elem="settingsView"
                 >
-
+                    <Typography className={classes.new}>WIP</Typography>
                     <ListItemIcon>
                         <Tooltip title={"Settings" || ''} placement="right">
                             <SettingsIcon/>
