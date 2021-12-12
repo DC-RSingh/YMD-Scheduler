@@ -19,7 +19,6 @@ import { defaultColumn } from '../table-wrapper/DefaultColumn';
 import TableWrapper from '../table-wrapper/TableWrapper';
 import StudentTableFilter from './student-table-filter/StudentTableFilter';
 import StudentTableColumns from './StudentTableColumns';
-import MOCK_DATA from './MOCK_DATA.json';
 
 export const studentTableFilterSpacing = 2;
 
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const StudentTableContainer = () => {
-  const { uiStateStore } = useStores();
+  const { uiStateStore, studentStore } = useStores();
   const classes = useStyles();
 
   const tableName = 'student-table';
@@ -58,8 +57,8 @@ const StudentTableContainer = () => {
     pageSize: 25,
   });
 
-//   const columns = useMemo(() => StudentTableColumns, []);
-  const data = useMemo(() => MOCK_DATA, [])
+  const students = studentStore.studentTableData;
+  const data = useMemo(() => students, [students])
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   const [instance] = useState<TableInstance<object>>(

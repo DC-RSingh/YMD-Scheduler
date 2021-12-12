@@ -27,6 +27,8 @@
 
 Luxury 
 
+// TODO: Disclaimer on information collected in software
+
 // TODO: Configure app to not open if dependencies (MySQL) is not installed, 
     or at least prompt for an install. TL;DR is not having it shouldn't break it completely
 
@@ -44,6 +46,8 @@ Luxury
 // TODO: Do docs folder in Markdown outlining application structure and API
 
 // TODO: Prettier the project!!
+
+// TODO: add credated at and updated at fields
 
 // TODO: PACKAGES MAYBE USE:
 

@@ -8,15 +8,15 @@ const StudentTableColumns: Column<any>[] = [
     },
     {
         Header: 'First Name',
-        accessor: 'first_name',
+        accessor: 'firstName',
     },
     {
         Header: 'Last Name',
-        accessor: 'last_name',
+        accessor: 'lastName',
     },
     {
         Header: 'Email',
-        accessor: 'contact_email',
+        accessor: 'contactEmail',
     },
     {
         Header: 'Gender',
@@ -24,11 +24,11 @@ const StudentTableColumns: Column<any>[] = [
     },
     {
         Header: 'DOB',
-        accessor: 'date_of_birth',
+        accessor: 'dateOfBirth',
     },
     {
         Header: 'Phone Number',
-        accessor: 'contact_telephone',
+        accessor: 'contactTelephone',
     },
 ];
 

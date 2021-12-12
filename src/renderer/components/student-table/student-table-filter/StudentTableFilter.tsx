@@ -39,7 +39,6 @@ const StudentTableFilter = ({ handleFilter, clearFilter }: TableFilterProps) => 
         size="small"
         onChange={(e) => {
           formik.handleChange(e);
-          console.log('but are you even calling back tho');
           handleFilter(e);
         }}
         name="searchText"
