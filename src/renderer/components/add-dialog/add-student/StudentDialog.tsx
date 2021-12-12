@@ -16,6 +16,7 @@ import useStyles from './StudentDialog.styles';
 import { IStudentForm } from './StudentDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
+import DatePickerField from '../../datepicker-field/DatePickerField';
 
 type StudentDialogProps = {
   show: boolean;
@@ -74,27 +75,80 @@ const StudentDialog = ({
             <DialogTitle>{`${dialogType} a Student`}</DialogTitle>
             <DialogContent>
 
-                {/* First Name field */}
-              <SimpleField
-                name="firstName"
-                type="text"
-                label={"First Name"}
-                placeholder={"Enter your First Name here"}
-                handleBlur={handleStudentExists}
-                required
-                autoFocus
-              />
+            {/* First Name field */}
+            <SimpleField
+              name="firstName"
+              type="text"
+              label={"First Name"}
+              placeholder={"Enter Student First Name here"}
+              handleBlur={handleStudentExists}
+              required
+              autoFocus
+            />
 
             {/* Last Name Field */}
             <SimpleField
                 name="lastName"
                 type="text"
                 label={"Last Name"}
-                placeholder={"Enter your Last Name here"}
+                placeholder={"Enter Student Last Name here"}
                 handleBlur={handleStudentExists}
                 required
-                autoFocus
-              />
+            />
+
+            {/* Gender Field */}
+            <SelectField 
+                name="gender"
+                label="Select Student Gender"
+                options={
+                    [
+                        {id: 'male', value: 'M', label: 'Male'},
+                        {id: 'female', value: 'F', label: 'Female'},
+                        {id: 'other', value: 'O', label: 'Other'}
+                    ]
+                }
+                required
+            />
+
+            {/* Date of Birth Field */}
+            <DatePickerField 
+                name="dateOfBirth"
+                label="Date Of Birth"
+            />
+
+            {/* Student Contact Email Field */}
+            <SimpleField
+                name="contactEmail"
+                type="text"
+                label={"Contact Email"}
+                placeholder={"Enter Student Contact Email here"}
+                handleBlur={handleStudentExists}
+                required
+            />
+
+            {/* Student Contact Telephone Field */}
+            <SimpleField
+                name="contactTelephone"
+                type="text"
+                label={"Contact Telephone"}
+                placeholder={"Enter Student Contact Telephone here"}
+                handleBlur={handleStudentExists}
+                required
+            />
+
+            {/* Student Payment Method Field */}
+            <SelectField
+                name="paymentMethod"
+                label="Select Student Payment Method"
+                options={
+                    [
+                        {id: 'credit', value: 'Credit', label: 'Credit'},
+                        {id: 'debit', value: 'Debit', label: 'Debit'},
+                        {id: 'cash', value: 'Cash', label: 'Cash'}
+                    ]
+                }
+                required
+            />
 
             </DialogContent>
             

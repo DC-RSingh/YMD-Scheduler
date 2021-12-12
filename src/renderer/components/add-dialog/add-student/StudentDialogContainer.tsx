@@ -6,6 +6,11 @@ import StudentDialog from './StudentDialog'
 export interface IStudentForm {
     firstName: string;
     lastName: string;
+    gender: string;
+    dateOfBirth: string;
+    contactEmail: string;
+    contactTelephone: string;
+    paymentMethod: string;
 }
 
 const StudentDialogContainer: React.FC = () => {
@@ -14,6 +19,11 @@ const StudentDialogContainer: React.FC = () => {
     const initialValues: IStudentForm = {
         firstName: '',
         lastName: '',
+        gender: '',
+        dateOfBirth: '',
+        contactEmail: '',
+        contactTelephone: '',
+        paymentMethod: '',
     }
 
     const onSubmit = (student: IStudentForm) => {

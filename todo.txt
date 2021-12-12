@@ -6,6 +6,8 @@
 
 // TODO: Note, project does not work on node version 12 or lower 
 
+// TODO: For Credentials and Restrictions, on value already exists prompt for a delete
+
 // TODO: Checkbox Field cancer not sending actual value, state updates but always sends initial
     Might have to just scrap remember me Sadge (if it does work, remember to make it @persist)
 
@@ -17,8 +19,6 @@
     big thanks to exilence-next for their excellent codebase, api and project structure and DevExtreme for the 
     great React Scheduler component available for free for non-commercial use
 
-// TODO: Disable electron security warnings
-
 // TODO: On top of edit and delete in table menus, add ability to view info on just one employee
  View info also present for other tables, where for students you can see the classes they are in, rooms you see when they are booked
 
@@ -29,10 +29,7 @@ Luxury
 
 // TODO: Disclaimer on information collected in software
 
-// TODO: Configure app to not open if dependencies (MySQL) is not installed, 
-    or at least prompt for an install. TL;DR is not having it shouldn't break it completely
-
-// TODO: Same as dependency fallback, app should not break completely if something goes wrong (like a promise never fulfilled)
+// TODO:  app should not break completely if something goes wrong (like a promise never fulfilled)
 
 // TODO: Add notifications with react-toastify and desktop notifications for calendar events (like a lesson is upcoming) 
     with electron notifications
