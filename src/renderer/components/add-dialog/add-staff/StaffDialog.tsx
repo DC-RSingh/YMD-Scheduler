@@ -146,6 +146,14 @@ const StaffDialog = ({
                 required
             />
 
+            {/* Staff Available Days Field */}
+            {/* To be replaced with special dropdown component */}
+            <SelectField
+                name="staffAvailableDays"
+                label="Staff Available Days"
+                required
+            />
+
             {/* Staff Type Field */}
             {/* To be replaced with special dropdown component */}
             <SelectField
