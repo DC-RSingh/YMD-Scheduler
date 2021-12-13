@@ -94,5 +94,8 @@ dist/
 # Ignore DB Files
 *.db
 
+# Ignore DB Journal FIles
+*.db-journal
+
 # Ignore .History
 .history

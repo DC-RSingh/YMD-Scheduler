@@ -1,3 +1,5 @@
+// TODO: Seed the database with a package script
+
 // TODO: Fake Data for Database available as JSON/CSV for transfer into sqlite db
     Certain tables need set data (or just do it with prisma)
     Build the database with the fake values during the packaging process

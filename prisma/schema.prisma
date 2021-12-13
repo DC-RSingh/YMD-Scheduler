@@ -3,25 +3,25 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:../database/ymd-db.db"
 }
 
 model classtype {
   Id         Int          @id @default(autoincrement())
-  Type       String       @db.VarChar(10)
+  Type       String       
   musicclass musicclass[]
 }
 
 model credentials {
   Id               Int                @id @default(autoincrement())
-  Credential       String             @unique(map: "Credential") @db.VarChar(10)
+  Credential       String             @unique(map: "Credential") 
   staffcredentials staffcredentials[]
 }
 
 model days {
-  Id                 Int                  @id @default(autoincrement()) @db.TinyInt
-  Day                String               @db.VarChar(10)
+  Id                 Int                  @id @default(autoincrement()) 
+  Day                String               
   staffavailabledays staffavailabledays[]
 }
 
@@ -31,108 +31,108 @@ model musicclass {
   StaffId          Int
   TimeSlotId       Int
   RoomId           Int
-  ClassSize        Int                @db.TinyInt
-  classtype        classtype          @relation(fields: [ClassType], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_1")
-  room             room               @relation(fields: [RoomId], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_4")
-  staff            staff              @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_2")
-  timeslot         timeslot           @relation(fields: [TimeSlotId], references: [Id], onDelete: Cascade, map: "musicclass_ibfk_3")
+  ClassSize        Int                
+  classtype        classtype          @relation(fields: [ClassType], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  room             room               @relation(fields: [RoomId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  staff            staff              @relation(fields: [StaffId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  timeslot         timeslot           @relation(fields: [TimeSlotId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
   studentclasslist studentclasslist[]
 
-  @@index([ClassType], map: "ClassType")
+  @@index([ClassType], map: "mcClassType")
   @@index([RoomId], map: "RoomId")
-  @@index([StaffId], map: "StaffId")
-  @@index([TimeSlotId], map: "TimeSlotId")
+  @@index([StaffId], map: "mcStaffId")
+  @@index([TimeSlotId], map: "mcTimeSlotId")
 }
 
 model restrictions {
   Id                Int                 @id @default(autoincrement())
-  Restriction       String              @db.VarChar(10)
+  Restriction       String              
   staffrestrictions staffrestrictions[]
 }
 
 model room {
   Id         Int          @id @default(autoincrement())
   Type       Int
-  Name       String       @db.VarChar(10)
-  RoomSize   Int          @db.SmallInt
+  Name       String       
+  RoomSize   Int          
   hasPiano   Boolean
-  roomtype   roomtype     @relation(fields: [Type], references: [Id], onDelete: Cascade, map: "room_ibfk_1")
+  roomtype   roomtype     @relation(fields: [Type], references: [Id], onDelete: Cascade, onUpdate: Cascade)
   musicclass musicclass[]
 
-  @@index([Type], map: "Type")
+  @@index([Type], map: "rType")
 }
 
 model roomtype {
   Id   Int    @id @default(autoincrement())
-  Type String @db.VarChar(10)
+  Type String 
   room room[]
 }
 
 model skills {
   Id          Int           @id @default(autoincrement())
-  Skill       String        @unique(map: "Skill") @db.VarChar(10)
+  Skill       String        @unique(map: "Skill") 
   staffskills staffskills[]
 }
 
 model staff {
   Id                 Int                  @id @default(autoincrement())
   Type               Int
-  FirstName          String               @db.VarChar(30)
-  LastName           String               @db.VarChar(30)
-  Gender             String               @db.VarChar(1)
-  DateOfBirth        DateTime             @db.DateTime(0)
-  Email              String               @db.VarChar(255)
-  Telephone          String               @db.VarChar(12)
-  MaxHoursPerWeek    Int                  @db.TinyInt
-  stafftype          stafftype            @relation(fields: [Type], references: [Id], onDelete: Cascade, map: "staff_ibfk_1")
+  FirstName          String               
+  LastName           String               
+  Gender             String               
+  DateOfBirth        DateTime             
+  Email              String               
+  Telephone          String               
+  MaxHoursPerWeek    Int                  
+  stafftype          stafftype            @relation(fields: [Type], references: [Id], onDelete: Cascade, onUpdate: Cascade)
   musicclass         musicclass[]
   staffavailabledays staffavailabledays[]
   staffcredentials   staffcredentials[]
   staffrestrictions  staffrestrictions[]
   staffskills        staffskills[]
 
-  @@index([Type], map: "Type")
+  @@index([Type], map: "sType")
 }
 
 model staffavailabledays {
   Id      Int   @id @default(autoincrement())
   StaffId Int
-  DayId   Int   @db.TinyInt
-  days    days  @relation(fields: [DayId], references: [Id], onDelete: Cascade, map: "staffavailabledays_ibfk_2")
-  staff   staff @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffavailabledays_ibfk_1")
+  DayId   Int   
+  days    days  @relation(fields: [DayId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  staff   staff @relation(fields: [StaffId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([DayId], map: "DayId")
-  @@index([StaffId], map: "StaffId")
+  @@index([StaffId], map: "sadStaffId")
 }
 
 model staffcredentials {
   Id           Int         @id @default(autoincrement())
   StaffId      Int
   CredentialId Int
-  credentials  credentials @relation(fields: [CredentialId], references: [Id], onDelete: Cascade, map: "staffcredentials_ibfk_2")
-  staff        staff       @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffcredentials_ibfk_1")
+  credentials  credentials @relation(fields: [CredentialId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  staff        staff       @relation(fields: [StaffId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([CredentialId], map: "CredentialId")
-  @@index([StaffId], map: "StaffId")
+  @@index([StaffId], map: "scStaffId")
 }
 
 model staffrestrictions {
   Id            Int          @id @default(autoincrement())
   StaffId       Int
   RestrictionId Int
-  restrictions  restrictions @relation(fields: [RestrictionId], references: [Id], onDelete: Cascade, map: "staffrestrictions_ibfk_2")
-  staff         staff        @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffrestrictions_ibfk_1")
+  restrictions  restrictions @relation(fields: [RestrictionId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  staff         staff        @relation(fields: [StaffId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([RestrictionId], map: "RestrictionId")
-  @@index([StaffId], map: "StaffId")
+  @@index([StaffId], map: "srStaffId")
 }
 
 model staffskills {
   Id      Int    @id @default(autoincrement())
   StaffId Int
   SkillId Int
-  skills  skills @relation(fields: [SkillId], references: [Id], onDelete: Cascade, map: "staffskills_ibfk_2")
-  staff   staff  @relation(fields: [StaffId], references: [Id], onDelete: Cascade, map: "staffskills_ibfk_1")
+  skills  skills @relation(fields: [SkillId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  staff   staff  @relation(fields: [StaffId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([SkillId], map: "SkillId")
   @@index([StaffId], map: "StaffId")
@@ -140,7 +140,7 @@ model staffskills {
 
 model stafftype {
   Id    Int     @id @default(autoincrement())
-  Type  String  @unique(map: "Type") @db.VarChar(10)
+  Type  String  @unique(map: "Type") 
   staff staff[]
 }
 
@@ -148,8 +148,8 @@ model studentclasslist {
   Id         Int        @id @default(autoincrement())
   ClassId    Int
   StudentId  Int
-  musicclass musicclass @relation(fields: [ClassId], references: [Id], onDelete: Cascade, map: "studentclasslist_ibfk_1")
-  students   students   @relation(fields: [StudentId], references: [Id], onDelete: Cascade, map: "studentclasslist_ibfk_2")
+  musicclass musicclass @relation(fields: [ClassId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
+  students   students   @relation(fields: [StudentId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([ClassId], map: "ClassId")
   @@index([StudentId], map: "StudentId")
@@ -157,20 +157,20 @@ model studentclasslist {
 
 model students {
   Id               Int                @id @default(autoincrement())
-  FirstName        String             @db.VarChar(30)
-  LastName         String             @db.VarChar(30)
-  Gender           String             @db.VarChar(1)
-  DateOfBirth      DateTime           @db.DateTime(0)
-  ContactEmail     String             @db.VarChar(255)
-  ContactTelephone String             @db.VarChar(12)
-  PaymentMethod    String             @db.VarChar(16)
+  FirstName        String            
+  LastName         String            
+  Gender           String            
+  DateOfBirth      DateTime          
+  ContactEmail     String            
+  ContactTelephone String            
+  PaymentMethod    String            
   studentclasslist studentclasslist[]
 }
 
 model timeslot {
   Id           Int            @id @default(autoincrement())
-  StartDate    DateTime       @db.DateTime(0)
-  EndDate      DateTime       @db.DateTime(0)
+  StartDate    DateTime       
+  EndDate      DateTime       
   Duration     Int?
   WeekDay      Int?
   Attended     Boolean?       @default(false)
@@ -181,14 +181,14 @@ model timeslot {
 model timeslotmeta {
   Id            Int       @id @default(autoincrement())
   TimeSlotId    Int
-  RepeatStart   DateTime  @db.Date
-  RepeatEnd     DateTime? @db.Date
-  RepeatYear    Int?      @db.SmallInt
-  RepeatMonth   Int?      @db.TinyInt
-  RepeatDay     Int?      @db.TinyInt
-  RepeatWeek    Int?      @db.TinyInt
-  RepeatWeekday Int?      @db.TinyInt
-  timeslot      timeslot  @relation(fields: [TimeSlotId], references: [Id], onDelete: Cascade, map: "timeslotmeta_ibfk_1")
+  RepeatStart   DateTime  
+  RepeatEnd     DateTime? 
+  RepeatYear    Int?      
+  RepeatMonth   Int?      
+  RepeatDay     Int?      
+  RepeatWeek    Int?      
+  RepeatWeekday Int?      
+  timeslot      timeslot  @relation(fields: [TimeSlotId], references: [Id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([TimeSlotId], map: "TimeSlotId")
 }
