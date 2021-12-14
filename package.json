@@ -1,6 +1,5 @@
 {
   "name": "ymd-scheduler",
-  "productName": "ymd-scheduler",
   "version": "1.0.0",
   "description": "A scheduling application for a small music store.",
   "main": ".webpack/main",
@@ -12,8 +11,31 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "cross-env NODE_ENV=development eslint . --cache --ext .ts",
-    "postinstall": "install-app-deps",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "postinstall": "npx prisma db push",
+    "build-windows": "electron-builder -w",
+    "build-mac": "electron-builder -m",
+    "build-linux": "electron-builder -l"
+  },
+  "build": {
+    "appId": "com.durhamcollege.ymd-scheduler",
+    "productName": "Your Music Depot Scheduler",
+    "files": [
+        "public/icon.*"
+    ],
+    "win": {
+        "target": "nsis"
+    },
+    "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true,
+        "license": "LICENSE"
+    },
+    "directories": {
+        "buildResources": "src/assets/*"
+    },
+    "extraResources": [
+        "prisma/**/*"
+    ]
   },
   "keywords": [],
   "author": {
