@@ -16,6 +16,9 @@
     "build-mac": "electron-builder -m",
     "build-linux": "electron-builder -l"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "build": {
     "appId": "com.durhamcollege.ymd-scheduler",
     "productName": "Your Music Depot Scheduler",
