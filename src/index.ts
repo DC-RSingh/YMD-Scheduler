@@ -1,4 +1,4 @@
-import { app, BrowserWindow,  } from 'electron';
+import { app, BrowserWindow, dialog  } from 'electron';
 import isDev from "electron-is-dev";
 import { copyFileSync, constants } from 'fs';
 import { join } from 'path';
@@ -56,6 +56,8 @@ const createWindow = (): void => {
         mainWindow.setSize(MIN_WIDTH, MIN_HEIGHT);
         mainWindow.center();
         mainWindow.show();
+
+        dialog.showErrorBox('DB Path', dbPath);
 
         if (isDev) {
             // Open the DevTools.
