@@ -93,7 +93,7 @@ dist/
 
 # Ignore DB Files
 *.db
-src/database/client
+prisma/client
 
 # Ignore DB Journal FIles
 *.db-journal

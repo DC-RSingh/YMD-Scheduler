@@ -1,11 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  output = "../src/database/client"
+  output = "./client"
 }
 
 datasource db {
   provider = "sqlite"
-  url      = "file:../src/database/ymd-db.db"
+  url      = "file:./ymd-db.db"
 }
 
 model classtype {
