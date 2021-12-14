@@ -11,13 +11,13 @@
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "cross-env NODE_ENV=development eslint . --cache --ext .ts",
-    "postinstall": "npx prisma db push",
+    "postinstall": "npx prisma db push && npx prisma db seed",
     "build-windows": "electron-builder -w",
     "build-mac": "electron-builder -m",
     "build-linux": "electron-builder -l"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "seed": "cross-env NODE_ENV=development ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "build": {
     "appId": "com.durhamcollege.ymd-scheduler",
