@@ -61,7 +61,7 @@ const AddOverview: React.FC<AddOverviewProps> = (
                 <Grid container spacing={2}>
                     <>
 
-                    {/* Button for Adding Staff */}
+                    {/* Button for Adding Student */}
                     <Grid item xs={12}>
                         <Button
                             variant="contained"
