@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 const NUM_ROOMS = 10;
 const NUM_RECORDS = 100;
+const PHONE_FORMAT = '###-###-####';
 
 const GENDERS = ['Male', 'Female', 'Non-Binary'];
 const PAYMENT_METHODS = ['Credit', 'Debit', 'Cash', ' Mixed'];
@@ -95,7 +96,7 @@ async function main() {
                 Gender: faker.random.arrayElement(GENDERS),
                 DateOfBirth: faker.date.past(50),
                 ContactEmail: faker.internet.exampleEmail(),
-                ContactTelephone: faker.phone.phoneNumber(),
+                ContactTelephone: faker.phone.phoneNumber(PHONE_FORMAT),
                 PaymentMethod: faker.random.arrayElement(PAYMENT_METHODS),
             }
         });
@@ -114,7 +115,7 @@ async function main() {
                 },
                 DateOfBirth: faker.date.past(50),
                 Email: faker.internet.exampleEmail(), 
-                Telephone: faker.phone.phoneNumber(),
+                Telephone: faker.phone.phoneNumber(PHONE_FORMAT),
                 MaxHoursPerWeek: faker.datatype.number({min: 10, max: 40}),
                 // TODO: Generator for staff skills and available days
                 // For now, just have every staff member with the same skills and available days
