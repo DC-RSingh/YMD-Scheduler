@@ -2,7 +2,8 @@ import { computed, makeObservable } from "mobx";
 import { filterStudents } from "../../utils/table.utils";
 import { IStudent } from "../../interfaces/student.interface";
 import { RootStore } from "./rootStore";
-import STUDENT_DATA from './STUDENT_DATA.json';
+import { electronService } from "../../services/electron.service";
+// import STUDENT_DATA from './STUDENT_DATA.json';
 
 export class StudentStore {
     constructor(private rootStore: RootStore) {
@@ -10,7 +11,10 @@ export class StudentStore {
     }
 
     @computed get studentTableData(): IStudent[] {
-        const students: IStudent[] = STUDENT_DATA;
+        let students: IStudent[];
+        electronService.ipcRenderer.invoke('retrieve-students').then((result) => {
+            students = result;
+        });
 
         return filterStudents(students);
     }

@@ -4,31 +4,31 @@ import { Column } from 'react-table';
 const StudentTableColumns: Column<any>[] = [
     {
         Header: 'Id',
-        accessor: 'id',
+        accessor: 'Id',
     },
     {
         Header: 'First Name',
-        accessor: 'firstName',
+        accessor: 'FirstName',
     },
     {
         Header: 'Last Name',
-        accessor: 'lastName',
+        accessor: 'LastName',
     },
     {
         Header: 'Email',
-        accessor: 'contactEmail',
+        accessor: 'ContactEmail',
     },
     {
         Header: 'Gender',
-        accessor: 'gender',
+        accessor: 'Gender',
     },
     {
         Header: 'DOB',
-        accessor: 'dateOfBirth',
+        accessor: 'DateOfBirth',
     },
     {
         Header: 'Phone Number',
-        accessor: 'contactTelephone',
+        accessor: 'ContactTelephone',
     },
 ];
 

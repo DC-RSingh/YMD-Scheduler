@@ -9,6 +9,6 @@ export const filterStudents = (students: IStudent[]): IStudent[] => {
     const filterText = rootStore.uiStateStore.studentTableFilterText.toLowerCase();
 
     return students.filter((s) => {
-        return s.firstName.toLowerCase().includes(filterText) || s.lastName.toLowerCase().includes(filterText);
+        return s.FirstName.toLowerCase().includes(filterText) || s.LastName.toLowerCase().includes(filterText);
     });
 };

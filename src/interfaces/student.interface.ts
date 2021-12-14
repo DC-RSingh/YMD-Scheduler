@@ -1,9 +1,10 @@
 export interface IStudent {
-    id: number;
-    firstName: string;
-    lastName: string;
-    contactEmail: string;
-    gender: string;
-    dateOfBirth: string;
-    contactTelephone: string;
+    Id:                 number;
+    FirstName:          string;
+    LastName:           string;
+    ContactEmail:       string;
+    Gender:             string;
+    DateOfBirth:        string;
+    ContactTelephone:   string;
+    PaymentMethod:      string;
 }
