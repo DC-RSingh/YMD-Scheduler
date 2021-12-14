@@ -1,7 +1,11 @@
 import { app, BrowserWindow,  } from 'electron';
 import isDev from "electron-is-dev";
+import { copyFileSync, constants } from 'fs';
+import { join } from 'path';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
+
+export const dbPath = isDev ? join(__dirname, '../prisma/ymd-db.db') : join(app.getPath("userData"), "ymd-db.db");
 
 const MIN_HEIGHT = 860;
 const MIN_WIDTH = 1280;
@@ -17,6 +21,15 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
+}
+
+if (!isDev) {
+    try {
+        // If the database file does not exist, create it
+        copyFileSync(join(process.resourcesPath, '../prisma/ymd-db.db'), dbPath, constants.COPYFILE_EXCL);
+    } catch (_) {
+        // no op
+    }
 }
 
 const createWindow = (): void => {
@@ -46,6 +59,10 @@ const createWindow = (): void => {
         if (isDev) {
             // Open the DevTools.
             mainWindow.webContents.openDevTools();
+        }
+        else {  
+            // remove menu bar in productiona
+            mainWindow.removeMenu();
         }
     });
 };
