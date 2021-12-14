@@ -20,21 +20,21 @@
     "appId": "com.durhamcollege.ymd-scheduler",
     "productName": "Your Music Depot Scheduler",
     "files": [
-        "public/icon.*"
+      "public/icon.*"
     ],
     "win": {
-        "target": "nsis"
+      "target": "nsis"
     },
     "nsis": {
-        "oneClick": false,
-        "allowToChangeInstallationDirectory": true,
-        "license": "LICENSE"
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "license": "LICENSE"
     },
     "directories": {
-        "buildResources": "src/assets/*"
+      "buildResources": "src/assets/*"
     },
     "extraResources": [
-        "prisma/**/*"
+      "prisma/**/*"
     ]
   },
   "keywords": [],
@@ -119,7 +119,6 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.61",
-    "@testing-library/jest-dom": "^5.15.0",
     "@types/node": "^16.11.9",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
@@ -182,10 +181,7 @@
     "react-router-dom": "^5.1.2",
     "react-table": "^7.7.0",
     "reactour": "^1.18.6",
-    "rxjs": "^7.4.0",
-    "sqlite3": "^5.0.2",
     "ts-node": "^10.4.0",
-    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   }
 }
