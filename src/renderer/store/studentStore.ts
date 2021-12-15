@@ -10,7 +10,7 @@ export class StudentStore {
         makeObservable(this);
 
         electronService.ipcRenderer.invoke('retrieve-students').then((result) => {
-            result;
+            console.log(result);
         });
 
     }
