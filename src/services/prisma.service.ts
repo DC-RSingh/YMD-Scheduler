@@ -7,4 +7,5 @@ export const prisma = new PrismaClient({
             url: `file:${dbPath}`,
         },
     },
+    log: ['query', 'info', 'warn', 'error'],
 });
