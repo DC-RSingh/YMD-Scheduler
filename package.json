@@ -6,7 +6,7 @@
   "private": "true",
   "scripts": {
     "dev": "cross-env NODE_ENV=development electron-forge start -- --no-sandbox",
-    "start": "cross-env NODE_ENV=production electron-forge start",
+    "start": "cross-env NODE_ENV=development electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",

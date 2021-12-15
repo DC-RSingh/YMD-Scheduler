@@ -1,10 +1,6 @@
-// TODO: Seed the database with a package script
+// TODO: dbPath is not dynamic, will not work in packaged app
 
-// TODO: Fake Data for Database available as JSON/CSV for transfer into sqlite db
-    Certain tables need set data (or just do it with prisma)
-    Build the database with the fake values during the packaging process
-
-// TODO: SQLite3 + Prisma 
+// TODO: prisma in another version I guess, still using it to seed tho
 
 // TODO: Note, project does not work on node version 12 or lower 
 

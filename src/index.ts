@@ -1,12 +1,15 @@
-import { app, BrowserWindow, dialog  } from 'electron';
+import { app, BrowserWindow, ipcMain, } from 'electron';
 import isDev from "electron-is-dev";
 import { copyFileSync, constants } from 'fs';
 import { join } from 'path';
-import { getRooms, getStudents } from './database';
+import { getRooms, getStudents, manager } from './database';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 
-export const dbPath = isDev ? join(__dirname, '../prisma/ymd-db.db') : join(app.getPath("userData"), "ymd-db.db");
+const dbPath = isDev ? join(__dirname, '../prisma/ymd-db.db') : join(app.getPath("userData"), "ymd-db.db");
+
+// Open the connection with the SQLite3 Database
+manager.open('prisma/ymd-db.db');   // need dynamic path
 
 const MIN_HEIGHT = 860;
 const MIN_WIDTH = 1280;
@@ -57,8 +60,6 @@ const createWindow = (): void => {
         mainWindow.center();
         mainWindow.show();
 
-        dialog.showErrorBox('DB Path', dbPath);
-
         if (isDev) {
             // Open the DevTools.
             mainWindow.webContents.openDevTools();
@@ -68,6 +69,13 @@ const createWindow = (): void => {
             mainWindow.removeMenu();
         }
     });
+
+    ipcMain.on('app-globals', (e) => {
+
+        e.returnValue = {
+            dbPath
+        }
+    })
 
     getStudents();
     getRooms();
