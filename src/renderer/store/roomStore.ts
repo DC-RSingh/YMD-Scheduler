@@ -4,6 +4,7 @@ import { filterRooms } from "../../utils/table.utils";
 import { RootStore } from "./rootStore";
 import { electronService } from "../../services/electron.service";
 import { IType } from "../../interfaces/type.interface";
+import { IRoomForm } from "../components/add-dialog/add-room/RoomDialogContainer";
 
 export class RoomStore {
     constructor(private rootStore: RootStore) {
@@ -27,5 +28,12 @@ export class RoomStore {
         const { roomType } = electronService.ipcRenderer.sendSync('retrieve-roomType-by-id', value);
 
         return roomType[0].Type;
+    }
+
+    insertRoom(room: IRoomForm): void {
+        electronService.ipcRenderer.invoke('create-room', Object.values(room)).then(() => {
+            this.rootStore.uiStateStore.setCreatingRoom(false);
+            this.rootStore.uiStateStore.setRoomDialogOpen(false);
+        })
     }
 }

@@ -24,7 +24,8 @@ const RoomDialogContainer: React.FC = () => {
     }
 
     const onSubmit = (room: IRoomForm) => {
-        return;
+        uiStateStore.setCreatingRoom(true);
+        roomStore.insertRoom(room);
     }
 
     return (

@@ -109,6 +109,10 @@ export class UiStateStore {
 
         this.roomDialogOpen = open;
     }
+    @action
+    setCreatingRoom(creating: boolean): void {
+        this.creatingRoom = creating;
+    }
     //#endregion
     //#region Add Types Dialog Functions
     @action
