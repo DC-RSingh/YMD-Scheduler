@@ -45,6 +45,8 @@ export function getAll(query: string, params?: any): Promise<any[]> {
 
 export function createNew(query: string, params?: any): void {
 
+    console.log('Successful breach inside the create new function get down brrr');
+
     if (params) {
         manager.db.run(query, params, function(err)
         {

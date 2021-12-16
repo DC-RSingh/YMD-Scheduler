@@ -18,12 +18,12 @@ module.exports = [
       concurrency: 100,
     },
   }),
-  new CopyWebpackPlugin({
-    patterns: [
-      {
-        from: path.resolve(__dirname, '../prisma', 'ymd-db.db'),
-        to: path.resolve(__dirname, '../.webpack', 'prisma'),
-      }
-    ]
-  }),
+//   new CopyWebpackPlugin({
+//     patterns: [
+//       {
+//         from: path.resolve(__dirname, '../prisma', 'ymd-db.db'),
+//         to: path.resolve(__dirname, '../.webpack', 'prisma'),
+//       }
+//     ]
+//   }),
 ];

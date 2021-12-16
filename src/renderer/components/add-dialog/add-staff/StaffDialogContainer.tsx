@@ -12,10 +12,10 @@ export interface IStaffForm {
     Email:              string;
     Telephone:          string;
     MaxHoursPerWeek:    number;
-    AvailableDays:      [];
-    Skills:             [];
-    Credentials:        [];
-    Restrictions:       [];
+    // AvailableDays:      [];
+    // Skills:             [];
+    // Credentials:        [];
+    // Restrictions:       [];
 }
 
 const StaffDialogContainer: React.FC = () => {
@@ -33,14 +33,15 @@ const StaffDialogContainer: React.FC = () => {
         Email: '',         
         Telephone: '',     
         MaxHoursPerWeek: 0,
-        AvailableDays: [],
-        Skills: [],        
-        Credentials: [],   
-        Restrictions: [],   
+        // AvailableDays: [],
+        // Skills: [],        
+        // Credentials: [],   
+        // Restrictions: [],   
     }
 
     const onSubmit = (staff: IStaffForm) => {
-        return;
+        uiStateStore.setCreatingStaff(true);
+        staffStore.insertStaff(staff);
     }
 
     return (

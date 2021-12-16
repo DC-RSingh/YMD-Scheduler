@@ -85,6 +85,10 @@ export class UiStateStore {
 
         this.staffDialogOpen = open;
     }
+    @action
+    setCreatingStaff(creating: boolean): void {
+        this.creatingStaff = creating;
+    }
     //#endregion
     //#region Student Dialog Functions
     @action

@@ -27,14 +27,15 @@ const getStaffId = (): void => {
     });
 }
 
-const createStaffquery = "INSERT INTO staff(type, firstName, lastName, gender, dateOfBirth, email, telephone, maxHoursPerWeek) VALUES (?, ?, ?, ?, ?, ?, ?)";
+// FIXME: use prepared statements and named params so we can use objects
+const createStaffquery = "INSERT INTO staff(type, firstName, lastName, gender, dateOfBirth, email, telephone, maxHoursPerWeek) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createStaff = (): void => {
-    ipcMain.on('create-staff', async (e, staffParams) => {
+    ipcMain.handle('create-staff', async (e, staffParams) => {
+        console.log(staffParams);
         createNew(createStaffquery, staffParams);
-        // console.log(students);
     });
 }
 

@@ -54,8 +54,8 @@ const StaffDialog = ({
     LastName: Yup.string().required('Last Name is required'),
     Gender: Yup.string().required('Gender is required'),
     DateOfBirth: Yup.date().required('Date of Birth is required'),
-    Email: Yup.string().length(255, 'Max 255 Characters.').required('Email is required.'),
-    Telephone: Yup.string().length(10, 'Max 10 characters. Only enter the number.').required('Telephone Number is required'),
+    Email: Yup.string().email().max(255, 'Max 255 Characters.').required('Email is required.'),
+    Telephone: Yup.string().length(10, 'Must be 10 characters. Only enter the number.').required('Telephone Number is required'),
     MaxHoursPerWeek: Yup.number().positive().required('Max Hours per Week is required'),
     Type: Yup.number().required('Staff Type is required.'),
   });
@@ -90,7 +90,7 @@ const StaffDialog = ({
                 name="FirstName"
                 type="text"
                 label={"First Name"}
-                placeholder={"Enter your First Name here"}
+                placeholder={"Enter Staff First Name here"}
                 handleBlur={handleStaffExists}
                 required
                 autoFocus
@@ -101,7 +101,7 @@ const StaffDialog = ({
                 name="LastName"
                 type="text"
                 label={"Last Name"}
-                placeholder={"Enter your Last Name here"}
+                placeholder={"Enter Staff Last Name here"}
                 handleBlur={handleStaffExists}
                 required
             />
@@ -175,7 +175,6 @@ const StaffDialog = ({
             <SelectField
                 name="AvailableDays"
                 label="Staff Available Days"
-                required
             />
             
             {/* Staff Skills Field */}
