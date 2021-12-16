@@ -17,6 +17,7 @@ import { IStudentForm } from './StudentDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
 import DatePickerField from '../../datepicker-field/DatePickerField';
+//import { createStudent } from '../../../../database/student';
 
 type StudentDialogProps = {
   show: boolean;
@@ -162,6 +163,11 @@ const StudentDialog = ({
                 loading={loading}
                 loadingPosition="end"
                 endIcon={<SaveIcon />}
+                onClick={
+                  () => {
+                    //createStudent();
+                  }
+                }
               >
                 {dialogType}
               </LoadingButton>
