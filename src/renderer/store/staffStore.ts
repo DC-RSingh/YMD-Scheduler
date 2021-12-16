@@ -42,6 +42,12 @@ export class StaffStore {
         return staffType[0].Type; // FIXME: this is cryptic and needs to be changed from src/database/staffType.ts
     }
 
+    getStaffById(value: any): IStaff {
+        const { staff } = electronService.ipcRenderer.sendSync('retrieve-staff-by-id', value);
+
+        return staff;
+    }
+
     insertStaff(staff: IStaffForm): void {
         electronService.ipcRenderer.invoke('create-staff', Object.values(staff)).then(() => {
             this.rootStore.uiStateStore.setCreatingStaff(false);

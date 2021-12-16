@@ -43,6 +43,12 @@ export class RoomStore {
         return roomType[0].Type;
     }
 
+    getRoomById(value: any): IRoom {
+        const { room } = electronService.ipcRenderer.sendSync('retrieve-room-by-id', value);
+
+        return room[0];
+    }
+
     insertRoom(room: IRoomForm): void {
         electronService.ipcRenderer.invoke('create-room', Object.values(room)).then(() => {
             this.rootStore.uiStateStore.setCreatingRoom(false);

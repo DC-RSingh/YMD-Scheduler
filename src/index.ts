@@ -94,9 +94,18 @@ const createWindow = (): void => {
     db.getStaff();
     db.createStaff();
 
+    db.getStaffId();
     db.getStaffTypeId();
     db.getStaffTypes();
     db.createStaffType();
+
+    // Music Class Channels
+    db.getMusicClasses();
+    db.getTimeSlots();
+    db.getTimeSlotId();
+
+    // Skill Channels
+    db.getSkillId();
 
 };
 

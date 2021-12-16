@@ -1,20 +1,20 @@
 import { ipcMain } from "electron";
 import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
-const getAllquery = "SELECT * FROM musicClass";
+const getAllquery = "SELECT * FROM musicclass";
 
 const getMusicClasses = (): void => {
-    ipcMain.on('retrieve-musicClass', async (e) => {
-        const musicClass: any[] = await getAll(getAllquery);
+    ipcMain.on('retrieve-musicClasses', async (e) => {
+        const musicClasses: any[] = await getAll(getAllquery);
          //console.log(staffType);
         
         e.returnValue = {
-            musicClass
+            musicClasses
         };
     });
 }
 
-const getSelectedquery = "SELECT * FROM musicClass WHERE id=?";
+const getSelectedquery = "SELECT * FROM musicclass WHERE id=?";
 
 const getMusicClassId = (): void => {
     ipcMain.on('retrieve-musicClass-by-id', async (e, param) => {
@@ -27,7 +27,7 @@ const getMusicClassId = (): void => {
     });
 }
 
-const createStaffTypequery = "INSERT INTO musicClass(classType, staffID, timeSlotId, roomId, classSize) VALUES (?, ?, ?, ?, ?)";
+const createStaffTypequery = "INSERT INTO musicclass(classType, staffID, timeSlotId, roomId, classSize) VALUES (?, ?, ?, ?, ?)";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
@@ -38,7 +38,7 @@ const createMusicClass = (): void => {
     });
 }
 
-const deleteQuery = "DELETE FROM musicClass WHERE id=?";
+const deleteQuery = "DELETE FROM musicclass WHERE id=?";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
@@ -49,7 +49,7 @@ const deleteMusicClass = (): void => {
     });
 }
 
-const updateQuery = "UPDATE musicClass SET classType=?, staffID=?, timeSlotId=?, roomId=?, classSize=? WHERE id=?";
+const updateQuery = "UPDATE musicclass SET classType=?, staffID=?, timeSlotId=?, roomId=?, classSize=? WHERE id=?";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
