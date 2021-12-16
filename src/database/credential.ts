@@ -32,7 +32,7 @@ const createCredquery = "INSERT INTO credentials(credential) VALUES (?)";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createCredential = (): void => {
-    ipcMain.on('create-credential', async (e, credentialParams) => {
+    ipcMain.handle('create-credential', async (e, credentialParams) => {
         createNew(createCredquery, credentialParams);
         // console.log(students);
     });

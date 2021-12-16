@@ -32,7 +32,7 @@ const createSkillquery = "INSERT INTO skill(skill) VALUES (?)";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createSkill = (): void => {
-    ipcMain.on('create-skill', async (e, skillParams) => {
+    ipcMain.handle('create-skill', async (e, skillParams) => {
         createNew(createSkillquery, skillParams);
         // console.log(students);
     });

@@ -40,7 +40,7 @@ const getRoomId = (): void => {
 const createRoomquery = "INSERT INTO room(type, name, roomSize, hasPiano) VALUES (?, ?, ?, ?)";
 
 const createRoom = (): void => {
-    ipcMain.on('create-room', async (e, roomParams) => {
+    ipcMain.handle('create-room', async (e, roomParams) => {
         createNew(createRoomquery, roomParams);
         // console.log(students);
 

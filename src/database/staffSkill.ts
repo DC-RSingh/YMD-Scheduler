@@ -32,7 +32,7 @@ const createStaffTypequery = "INSERT INTO staffSkills(staffId, skillId) VALUES (
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createStaffSkill = (): void => {
-    ipcMain.on('create-staffSkill', async (e, params) => {
+    ipcMain.handle('create-staffSkill', async (e, params) => {
         createNew(createStaffTypequery, params);
         // console.log(students);
     });

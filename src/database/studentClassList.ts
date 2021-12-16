@@ -32,7 +32,7 @@ const createStaffTypequery = "INSERT INTO studentClassList(classId, studentId) V
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createStudentClassList = (): void => {
-    ipcMain.on('create-studentClassList', async (e, params) => {
+    ipcMain.handle('create-studentClassList', async (e, params) => {
         createNew(createStaffTypequery, params);
         // console.log(students);
     });

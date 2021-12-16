@@ -32,7 +32,7 @@ const createStaffTypequery = "INSERT INTO staffRestrictions(staffId, restriction
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createStaffRestriction = (): void => {
-    ipcMain.on('create-staffRestriction', async (e, params) => {
+    ipcMain.handle('create-staffRestriction', async (e, params) => {
         createNew(createStaffTypequery, params);
         // console.log(students);
     });

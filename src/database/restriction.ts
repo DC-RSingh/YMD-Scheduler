@@ -32,7 +32,7 @@ const createRestrictionquery = "INSERT INTO restrictions(restrictions) VALUES (?
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createRestriction = (): void => {
-    ipcMain.on('create-restriction', async (e, restrictionParams) => {
+    ipcMain.handle('create-restriction', async (e, restrictionParams) => {
         createNew(createRestrictionquery, restrictionParams);
         // console.log(students);
     });

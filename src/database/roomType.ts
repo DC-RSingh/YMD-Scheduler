@@ -32,7 +32,7 @@ const createRoomTypequery = "INSERT INTO roomtype(type) VALUES (?)";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createRoomType = (): void => {
-    ipcMain.on('create-roomType', async (e, roomTypeParams) => {
+    ipcMain.handle('create-roomType', async (e, roomTypeParams) => {
         createNew(createRoomTypequery, roomTypeParams);
         // console.log(students);
     });

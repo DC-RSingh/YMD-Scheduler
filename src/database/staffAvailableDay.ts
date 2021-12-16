@@ -32,7 +32,7 @@ const createStaffTypequery = "INSERT INTO staffAvailableDays(staffId, dayId) VAL
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createStaffAvailableDays = (): void => {
-    ipcMain.on('create-staffAvailableDays', async (e, params) => {
+    ipcMain.handle('create-staffAvailableDays', async (e, params) => {
         createNew(createStaffTypequery, params);
         // console.log(students);
     });
