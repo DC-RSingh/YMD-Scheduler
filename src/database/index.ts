@@ -22,17 +22,17 @@ export { createStudent } from './student';
 export { deleteStudent } from './student'; 
 export { updateStudent } from './student';
 
-export { getCredentials } from './credentials';
-export { getCredentialId } from './credentials';
-export { createCredential} from './credentials'; 
-export { deleteCredential } from './credentials'; 
-export { updateCredential } from './credentials';
+export { getCredentials } from './credential';
+export { getCredentialId } from './credential';
+export { createCredential} from './credential'; 
+export { deleteCredential } from './credential'; 
+export { updateCredential } from './credential';
 
-export { getRestrictions } from './restrictions';
-export { getRestrictionId } from './restrictions';
-export { createRestriction} from './restrictions'; 
-export { deleteRestriction } from './restrictions'; 
-export { updateRestriction } from './restrictions';
+export { getRestrictions } from './restriction';
+export { getRestrictionId } from './restriction';
+export { createRestriction} from './restriction'; 
+export { deleteRestriction } from './restriction'; 
+export { updateRestriction } from './restriction';
 
 export { getSkills } from './skill';
 export { getSkillId } from './skill';
@@ -52,7 +52,7 @@ export { createRoomType } from './roomType';
 export { deleteRoomType } from './roomType'; 
 export { updateRoomType } from './roomType';
 
-export { getStaffAvailableDays, getStaffAvailableDaysId, createStaffAvailableDays, deleteStaffAvailableDays, updateStaffAvailableDays } from './staffAvailableDays';
+export { getStaffAvailableDays, getStaffAvailableDaysId, createStaffAvailableDays, deleteStaffAvailableDays, updateStaffAvailableDays } from './staffAvailableDay';
 
 export { getStaff, getStaffId, createStaff, deleteStaff, updateStaff, getStaffSchedule } from './staff';
 
@@ -62,5 +62,11 @@ export { getStudentClassList, getStudentClassListId, createStudentClassList, del
 
 export { getTimeSlots, getTimeSlotId } from './timeSlot';
 
-export { getDays, getDayId } from './days';
+export { getDays, getDayId } from './day';
 
+export { getStaffSkills, getStaffSkillId, createStaffSkill, deleteStaffSkill, updateStaffSkill } from './staffSkill';
+
+export { getStaffCredentials, getStaffCredentialId, createStaffCredential, deleteStaffCredential, updateStaffCredential } from './staffCredential';
+
+
+export { getStaffRestrictions, getStaffRestrictionId, createStaffRestriction, deleteStaffRestriction, updateStaffRestriction } from './staffRestriction';

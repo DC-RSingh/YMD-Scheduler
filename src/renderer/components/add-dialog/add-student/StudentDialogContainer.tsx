@@ -2,6 +2,8 @@ import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { useStores } from '../../../store'
 import StudentDialog from './StudentDialog'
+import { electronService } from '../../../../services/electron.service';
+import { dialog  } from 'electron';
 
 export interface IStudentForm {
     firstName: string;
@@ -27,7 +29,16 @@ const StudentDialogContainer: React.FC = () => {
     }
 
     const onSubmit = (student: IStudentForm) => {
-        return;
+
+        const x = student.firstName;
+
+        //dialog.showErrorBox('DB Path', x);
+
+
+        //electronService.ipcRenderer.sendSync('create-student', ["Greggers", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
+
+
+        return electronService.ipcRenderer.sendSync('create-student', ["Greggers", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
     }
 
     return (

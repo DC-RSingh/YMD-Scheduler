@@ -18,6 +18,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
 import DatePickerField from '../../datepicker-field/DatePickerField';
 import { electronService } from '../../../../services/electron.service';
+import { dialog } from 'electron/main';
 
 type StudentDialogProps = {
   show: boolean;
@@ -45,7 +46,6 @@ const StudentDialog = ({
   loading,
 }: StudentDialogProps) => {
   const classes = useStyles();
-  //const x = createStudent(["Mark", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required('First Name is required'),
@@ -164,11 +164,14 @@ const StudentDialog = ({
                 loading={loading}
                 loadingPosition="end"
                 endIcon={<SaveIcon />}
+                /*
                 onClick={
+                  
                   () => {
                     
-
-                    electronService.ipcRenderer.sendSync('create-student', ["Jimmy", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
+                    
+                      
+                    //electronService.ipcRenderer.sendSync('create-student', ["Philia", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
 
                     //electronService.ipcRenderer.sendSync('delete-student', 101);
 
@@ -176,7 +179,7 @@ const StudentDialog = ({
                     //createStudent(["Mark", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
                     
                   }
-                }
+                }*/
               >
                 {dialogType}
               </LoadingButton>
