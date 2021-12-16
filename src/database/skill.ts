@@ -6,7 +6,7 @@ const getAllquery = "SELECT * FROM skills";
 const getSkills = (): void => {
     ipcMain.on('retrieve-skill', async (e) => {
         const skill: any[] = await getAll(getAllquery);
-         console.log(skill);
+        //  console.log(skill);
         
         e.returnValue = {
             skill

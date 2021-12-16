@@ -6,7 +6,7 @@ const getAllquery = "SELECT * FROM restrictions";
 const getRestrictions = (): void => {
     ipcMain.on('retrieve-restrictions', async (e) => {
         const restrictions: any[] = await getAll(getAllquery);
-         console.log(restrictions);
+        //  console.log(restrictions);
         
         e.returnValue = {
             restrictions

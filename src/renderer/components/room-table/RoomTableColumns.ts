@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Column } from 'react-table';
-import { electronService } from '../../../services/electron.service';
+import { rootStore } from '../../store';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const RoomTableColumns: Column<any>[] = [
@@ -16,8 +16,7 @@ const RoomTableColumns: Column<any>[] = [
         Header: 'Type',
         accessor: 'Type',
         Cell: (props): string => {
-            const { roomType } = electronService.ipcRenderer.sendSync('retrieve-roomType-by-id', props.value);
-            return roomType[0].Type; // FIXME: this is cryptic and needs to be changed from src/database/roomType.ts
+            return rootStore.roomStore.getRoomTypeById(props.value)
         }
     },
     {

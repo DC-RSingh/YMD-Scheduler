@@ -1,15 +1,15 @@
 import { ipcMain } from "electron";
 import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
-const getAllquery = "SELECT * FROM roomType";
+const getAllquery = "SELECT * FROM roomtype";
 
 const getRoomTypes = (): void => {
-    ipcMain.on('retrieve-roomType', async (e) => {
-        const roomType: any[] = await getAll(getAllquery);
-         console.log(roomType);
+    ipcMain.on('retrieve-roomTypes', async (e) => {
+        const roomTypes: any[] = await getAll(getAllquery);
+        //  console.log(roomType);
         
         e.returnValue = {
-            roomType
+            roomTypes
         };
     });
 }

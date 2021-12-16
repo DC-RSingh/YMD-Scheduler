@@ -6,7 +6,7 @@ const getAllquery = "SELECT * FROM credentials";
 const getCredentials = (): void => {
     ipcMain.on('retrieve-credentials', async (e) => {
         const credentials: any[] = await getAll(getAllquery);
-         console.log(credentials);
+        //  console.log(credentials);
         
         e.returnValue = {
             credentials

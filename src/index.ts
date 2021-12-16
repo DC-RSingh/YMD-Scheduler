@@ -86,6 +86,7 @@ const createWindow = (): void => {
     db.getRoomId();
     db.createRoom();
 
+    db.getRoomTypes();
     db.getRoomTypeId();
 
     // Staff Channels

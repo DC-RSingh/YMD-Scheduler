@@ -6,7 +6,7 @@ const getAllquery = "SELECT * FROM stafftype";
 const getStaffTypes = (): void => {
     ipcMain.on('retrieve-staffType', async (e) => {
         const staffType: any[] = await getAll(getAllquery);
-         console.log(staffType);
+        //  console.log(staffType);
         
         e.returnValue = {
             staffType

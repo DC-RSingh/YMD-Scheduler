@@ -6,7 +6,7 @@ const getAllquery = "SELECT * FROM students";
 const getStudents = (): void => {
     ipcMain.on('retrieve-students', async (e) => {
         const students: any[] = await getAll(getAllquery);
-         console.log(students);
+        //  console.log(students);
         
         e.returnValue = {
             students

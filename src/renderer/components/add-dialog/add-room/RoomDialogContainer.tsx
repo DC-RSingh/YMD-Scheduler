@@ -1,19 +1,26 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useStores } from '../../../store'
 import RoomDialog from './RoomDialog'
 
 export interface IRoomForm {
-    firstName: string;
-    lastName: string;
+    Type: number;
+    Name: string;
+    RoomSize: number;
+    hasPiano: boolean;
 }
 
 const RoomDialogContainer: React.FC = () => {
-    const { uiStateStore } = useStores();
+    const { uiStateStore, roomStore } = useStores();
+
+    const types = roomStore.roomTypes;
+    const roomTypes = useMemo(() => types, [types])
 
     const initialValues: IRoomForm = {
-        firstName: '',
-        lastName: '',
+        Type: 0,
+        Name: '',
+        RoomSize: 0,
+        hasPiano: false
     }
 
     const onSubmit = (room: IRoomForm) => {
@@ -27,6 +34,7 @@ const RoomDialogContainer: React.FC = () => {
             onSubmit={(room: IRoomForm) => onSubmit(room)}
             initialValues={initialValues}
             dialogType={uiStateStore.roomDialogType}
+            roomTypes={roomTypes}
             handleRoomExists={null}
             handleClearError={null}
             loading={uiStateStore.creatingRoom}

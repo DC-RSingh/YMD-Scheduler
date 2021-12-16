@@ -17,6 +17,8 @@ import { IRoomForm } from './RoomDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
 import CheckboxField from '../../checkbox-field/CheckboxField';
+import { IType } from '../../../../interfaces/type.interface';
+import { ISelectOption } from '../../../../interfaces/select-option.interface';
 
 type RoomDialogProps = {
   show: boolean;
@@ -27,6 +29,7 @@ type RoomDialogProps = {
   handleRoomExists: (someIdentifier: string) => void;  // TODO: Make this some clear reproducable identifier
   handleClearError: () => void; // TODO: Instead of this, remember how errors are handled by the field components
   loading: boolean;
+  roomTypes: IType[];
   roomError?: Error;
   roomExists?: boolean;
 };
@@ -39,15 +42,17 @@ const RoomDialog = ({
   roomError,
   roomExists,
   dialogType,
+  roomTypes,
   handleRoomExists,
   handleClearError,
   loading,
 }: RoomDialogProps) => {
-  const roomes = useStyles();
+  const classes = useStyles();
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First Name is required'),
-    lastName: Yup.string().required('Last Name is required'),
+    Name: Yup.string().required('Name is required'),
+    Type: Yup.number().required('Type is required'),
+    RoomSize: Yup.number().required('Room Size is required').positive(),
   });
 
   const getRoomExistsError = () => {
@@ -77,7 +82,7 @@ const RoomDialog = ({
 
                 {/* Room Name field */}
                 <SimpleField
-                    name="name"
+                    name="Name"
                     type="text"
                     label={"Room Name"}
                     placeholder={"Enter the Room Name here"}
@@ -88,7 +93,7 @@ const RoomDialog = ({
 
                 {/* Room Size Field */}
                 <SimpleField
-                    name="roomSize"
+                    name="RoomSize"
                     type="number"
                     label={"Room Size"}
                     placeholder={"Enter the Room Size here"}
@@ -99,8 +104,15 @@ const RoomDialog = ({
                 {/* Room Type Field */}
                 {/* To be replaced with special dropdown component */}
                 <SelectField
-                    name="roomType"
+                    name="Type"
                     label="Room Type"
+                    options={roomTypes?.map((r) => {
+                        return {
+                            id: r.Id.toString(),
+                            value: r.Id,
+                            label: r.Type,
+                        } as ISelectOption
+                    })}
                 />
 
                 {/* Has Piano Field */}
@@ -111,7 +123,7 @@ const RoomDialog = ({
 
                 </DialogContent>
                 
-                <DialogActions className={roomes.dialogActions}>
+                <DialogActions className={classes.dialogActions}>
                 <Button onClick={onClose}>{"Close"}</Button>
                 <LoadingButton
                     type="submit"
