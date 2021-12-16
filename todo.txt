@@ -50,7 +50,7 @@ Luxury
 
 ------------------------------------------------ IMPORTANT NOTES ------------------------------------------------
 
-// TODO: Users need python in order for node-gyp to build sqlite2 binaries, add
+// TODO: Users need python in order for node-gyp to build sqlite3 binaries, add
 
 // TODO: Note, project does not work on node version 11 or lower 
 
@@ -59,4 +59,6 @@ Luxury
 // TODO: add docs folder with docs written in Markdown
 
 // TODO: add a final project release so we know how bad it was when we submitted it
+
+// TODO: Change queries in database to use prepared statements
 

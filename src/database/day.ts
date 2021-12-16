@@ -1,9 +1,5 @@
 import { ipcMain } from "electron";
 import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { getSchedule } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
 
 const getAllquery = "SELECT * FROM days";
 

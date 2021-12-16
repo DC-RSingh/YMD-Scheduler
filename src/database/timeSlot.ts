@@ -1,14 +1,10 @@
 import { ipcMain } from "electron";
 import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { getSchedule } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
 
-const getAllquery = "SELECT * FROM timeSlot";
+const getAllquery = "SELECT * FROM timeslot";
 
 const getTimeSlots = (): void => {
-    ipcMain.on('retrieve-timeSlot', async (e) => {
+    ipcMain.on('retrieve-timeslot', async (e) => {
         const staff: any[] = await getAll(getAllquery);
       //   console.log(staff);
         
@@ -18,10 +14,10 @@ const getTimeSlots = (): void => {
     });
 }
 
-const getSelectedquery = "SELECT * FROM timeSlot WHERE id=?";
+const getSelectedquery = "SELECT * FROM timeslot WHERE id=?";
 
 const getTimeSlotId = (): void => {
-    ipcMain.on('retrieve-timeSlotId', async (e, param) => {
+    ipcMain.on('retrieve-timeSlot-by-id', async (e, param) => {
         const staff: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

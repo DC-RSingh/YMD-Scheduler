@@ -82,7 +82,6 @@ const createWindow = (): void => {
     createStudent();
     deleteStudent();
 
-    console.log("test log");
 };
 
 // If another app has the lock, quit this instance

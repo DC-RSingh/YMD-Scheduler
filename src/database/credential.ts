@@ -1,8 +1,5 @@
 import { ipcMain } from "electron";
-import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
+import { getAll, createNew, updateSelected, deleteSelected } from './wrappers';
 
 const getAllquery = "SELECT * FROM credentials";
 

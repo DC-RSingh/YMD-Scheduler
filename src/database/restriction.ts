@@ -1,8 +1,5 @@
 import { ipcMain } from "electron";
-import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
+import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
 const getAllquery = "SELECT * FROM restrictions";
 
@@ -46,8 +43,8 @@ const deleteQuery = "DELETE FROM restrictions WHERE id=?";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const deleteRestriction = (): void => {
-    ipcMain.on('delete-restriction', async (e, credentialParams) => {
-        deleteSelected(deleteQuery, credentialParams);
+    ipcMain.on('delete-restriction', async (e, params) => {
+        deleteSelected(deleteQuery, params);
         // console.log(students);
     });
 }
@@ -57,8 +54,8 @@ const updateQuery = "UPDATE restrictions SET restriction=?";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const updateRestriction = (): void => {
-    ipcMain.on('update-restriction', async (e, credentialParams) => {
-        updateSelected(updateQuery, credentialParams);
+    ipcMain.on('update-restriction', async (e, params) => {
+        updateSelected(updateQuery, params);
         // console.log(students);
     });
 }

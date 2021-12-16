@@ -1,9 +1,5 @@
 import { ipcMain } from "electron";
-import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { getSchedule } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
+import { getAll, createNew, updateSelected, deleteSelected } from './wrappers';
 
 const getAllquery = "SELECT * FROM staff";
 
@@ -21,7 +17,7 @@ const getStaff = (): void => {
 const getSelectedquery = "SELECT * FROM staff WHERE id=?";
 
 const getStaffId = (): void => {
-    ipcMain.on('retrieve-staffId', async (e, param) => {
+    ipcMain.on('retrieve-staff-by-id', async (e, param) => {
         const staff: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         
@@ -45,8 +41,8 @@ const createStaff = (): void => {
     const getSchedulequery = "SELECT * FROM musicclass WHERE staffId = ?";
 
 const getStaffSchedule = (): void => {
-    ipcMain.on('retrieve-schedule', async (e, staffId) => {
-        const schedule: any[] = await getSchedule(getSchedulequery, staffId);
+    ipcMain.on('retrieve-staff-schedule', async (e, staffId) => {
+        const schedule: any[] = await getAll(getSchedulequery, staffId);
          console.log(schedule);
         
         e.returnValue = {
@@ -61,8 +57,8 @@ const deleteQuery = "DELETE FROM staff WHERE id=?";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const deleteStaff = (): void => {
-    ipcMain.on('delete-staff', async (e, credentialParams) => {
-        deleteSelected(deleteQuery, credentialParams);
+    ipcMain.on('delete-staff', async (e, params) => {
+        deleteSelected(deleteQuery, params);
         // console.log(students);
     });
 }
@@ -72,8 +68,8 @@ const updateQuery = "UPDATE staff SET type=?, firstName=?, lastName=?, gender=?,
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const updateStaff = (): void => {
-    ipcMain.on('update-staff', async (e, credentialParams) => {
-        updateSelected(updateQuery, credentialParams);
+    ipcMain.on('update-staff', async (e, params) => {
+        updateSelected(updateQuery, params);
         // console.log(students);
     });
 }

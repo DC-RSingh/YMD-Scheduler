@@ -1,8 +1,5 @@
 import { ipcMain } from "electron";
-import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
+import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
 const getAllquery = "SELECT * FROM staffCredentials";
 
@@ -20,7 +17,7 @@ const getStaffCredentials = (): void => {
 const getSelectedquery = "SELECT * FROM staffCredentials WHERE id=?";
 
 const getStaffCredentialId = (): void => {
-    ipcMain.on('retrieve-staffCredentialId', async (e, param) => {
+    ipcMain.on('retrieve-staffCredential-by-id', async (e, param) => {
         const staffCredential: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         
@@ -35,8 +32,8 @@ const createStaffTypequery = "INSERT INTO staffCredentials(staffId, credentialId
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const createStaffCredential = (): void => {
-    ipcMain.on('create-staffCredential', async (e, staffTypeParams) => {
-        createNew(createStaffTypequery, staffTypeParams);
+    ipcMain.on('create-staffCredential', async (e, params) => {
+        createNew(createStaffTypequery, params);
         // console.log(students);
     });
 }

@@ -1,8 +1,5 @@
 import { ipcMain } from "electron";
-import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
+import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
 const getAllquery = "SELECT * FROM skills";
 
@@ -46,8 +43,8 @@ const deleteQuery = "DELETE FROM skills WHERE id=?";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const deleteSkill = (): void => {
-    ipcMain.on('delete-skill', async (e, credentialParams) => {
-        deleteSelected(deleteQuery, credentialParams);
+    ipcMain.on('delete-skill', async (e, params) => {
+        deleteSelected(deleteQuery, params);
         // console.log(students);
     });
 }
@@ -57,8 +54,8 @@ const updateQuery = "UPDATE skills SET skill=? WHERE id=?";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const updateSkill = (): void => {
-    ipcMain.on('update-skill', async (e, credentialParams) => {
-        updateSelected(updateQuery, credentialParams);
+    ipcMain.on('update-skill', async (e, params) => {
+        updateSelected(updateQuery, params);
         // console.log(students);
     });
 }

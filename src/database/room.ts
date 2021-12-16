@@ -1,9 +1,5 @@
 import { ipcMain } from "electron";
-import { manager } from '.';
-import { getAll } from './wrappers';
-import { createNew } from './wrappers';
-import { deleteSelected } from './wrappers';
-import { updateSelected } from './wrappers';
+import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
 /*
 const getRooms = (): void => {
@@ -57,8 +53,8 @@ const deleteQuery = "DELETE FROM room WHERE id=?";
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const deleteRoom = (): void => {
-    ipcMain.on('delete-room', async (e, credentialParams) => {
-        deleteSelected(deleteQuery, credentialParams);
+    ipcMain.on('delete-room', async (e, params) => {
+        deleteSelected(deleteQuery, params);
         // console.log(students);
     });
 }
@@ -68,8 +64,8 @@ const updateQuery = "UPDATE room SET type=?, name=?, roomSize=?, hasPiano=? WHER
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
 const updateRoom = (): void => {
-    ipcMain.on('update-room', async (e, credentialParams) => {
-        updateSelected(updateQuery, credentialParams);
+    ipcMain.on('update-room', async (e, params) => {
+        updateSelected(updateQuery, params);
         // console.log(students);
     });
 }
