@@ -30,7 +30,7 @@ const StudentDialogContainer: React.FC = () => {
 
     const onSubmit = (student: IStudentForm) => {
 
-        const x = student.firstName;
+        //const x = student.firstName;
 
         //dialog.showErrorBox('DB Path', x);
 
@@ -38,7 +38,7 @@ const StudentDialogContainer: React.FC = () => {
         //electronService.ipcRenderer.sendSync('create-student', ["Greggers", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
 
 
-        return electronService.ipcRenderer.sendSync('create-student', ["Greggers", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
+        return;
     }
 
     return (
