@@ -52,6 +52,8 @@ Luxury
 
 // TODO: Users need python in order for node-gyp to build sqlite3 binaries, add
 
+// TODO: columns component to reduce redundancy and keep cell manipulating logic in the same place
+
 // TODO: Note, project does not work on node version 11 or lower 
 
 // TODO: cleanup this todo file lol
