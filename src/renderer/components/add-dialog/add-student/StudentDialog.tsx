@@ -17,7 +17,7 @@ import { IStudentForm } from './StudentDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
 import DatePickerField from '../../datepicker-field/DatePickerField';
-//import { createStudent } from '../../../../database/student';
+import { createStudent } from '../../../../database';
 
 type StudentDialogProps = {
   show: boolean;
@@ -45,6 +45,7 @@ const StudentDialog = ({
   loading,
 }: StudentDialogProps) => {
   const classes = useStyles();
+  //const x = createStudent(["Mark", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required('First Name is required'),
@@ -165,7 +166,9 @@ const StudentDialog = ({
                 endIcon={<SaveIcon />}
                 onClick={
                   () => {
-                    //createStudent();
+                    
+                    //createStudent(["Mark", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
+                    
                   }
                 }
               >

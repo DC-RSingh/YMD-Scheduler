@@ -12,3 +12,4 @@ export const manager = new DBManager();
 
 export { getRooms } from './room';
 export { getStudents } from './student';
+export { createStudent } from './student'; 
