@@ -4,31 +4,31 @@ import { useStores } from '../../../store';
 import StudentDialog from './StudentDialog';
 
 export interface IStudentForm {
-    firstName: string;
-    lastName: string;
-    gender: string;
-    dateOfBirth: string;
-    contactEmail: string;
-    contactTelephone: string;
-    paymentMethod: string;
+    FirstName: string;
+    LastName: string;
+    Gender: string;
+    DateOfBirth: string;
+    ContactEmail: string;
+    ContactTelephone: string;
+    PaymentMethod: string;
 }
 
 const StudentDialogContainer: React.FC = () => {
-    const { uiStateStore } = useStores();
+    const { uiStateStore, studentStore } = useStores();
 
     const initialValues: IStudentForm = {
-        firstName: '',
-        lastName: '',
-        gender: '',
-        dateOfBirth: '',
-        contactEmail: '',
-        contactTelephone: '',
-        paymentMethod: '',
+        FirstName: '',
+        LastName: '',
+        Gender: '',
+        DateOfBirth: '',
+        ContactEmail: '',
+        ContactTelephone: '',
+        PaymentMethod: '',
     }
 
     const onSubmit = (student: IStudentForm) => {
-
-        return;
+        uiStateStore.setCreatingStudent(true);
+        studentStore.insertStudent(student);
     }
 
     return (

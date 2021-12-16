@@ -112,9 +112,9 @@ const StaffDialog = ({
                 label="Select Staff Gender"
                 options={
                     [
-                        {id: 'male', value: 'M', label: 'Male'},
-                        {id: 'female', value: 'F', label: 'Female'},
-                        {id: 'other', value: 'O', label: 'Other'}
+                        {id: 'male', value: 'Male', label: 'Male'},
+                        {id: 'female', value: 'Female', label: 'Female'},
+                        {id: 'non-binary', value: 'Non-Binary', label: 'Non-Binary'}
                     ]
                 }
                 required

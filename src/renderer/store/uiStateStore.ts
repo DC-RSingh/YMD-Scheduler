@@ -99,6 +99,10 @@ export class UiStateStore {
 
         this.studentDialogOpen = open;
     }
+    @action
+    setCreatingStudent(creating: boolean): void {
+        this.creatingStudent= creating;
+    }
     //#endregion
     //#region Room Dialog Functions
     @action

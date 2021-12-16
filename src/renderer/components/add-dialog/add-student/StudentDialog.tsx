@@ -46,8 +46,14 @@ const StudentDialog = ({
   const classes = useStyles();
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First Name is required'),
-    lastName: Yup.string().required('Last Name is required'),
+    FirstName: Yup.string().required('First Name is required'),
+    LastName: Yup.string().required('Last Name is required'),
+    ContactEmail: Yup.string().email().required('Contact Email is required'),
+    ContactTelephone: Yup.string().length(10, 'Contact Telephone must be 10 characters. Only enter the number')
+        .required('Contact Telephone is required'),
+    DateOfBirth: Yup.date().required('Date of Birth is required'),
+    Gender: Yup.string().required('Gender is required'),
+
   });
 
   const getStudentExistsError = () => {
@@ -77,7 +83,7 @@ const StudentDialog = ({
 
             {/* First Name field */}
             <SimpleField
-              name="firstName"
+              name="FirstName"
               type="text"
               label={"First Name"}
               placeholder={"Enter Student First Name here"}
@@ -88,7 +94,7 @@ const StudentDialog = ({
 
             {/* Last Name Field */}
             <SimpleField
-                name="lastName"
+                name="LastName"
                 type="text"
                 label={"Last Name"}
                 placeholder={"Enter Student Last Name here"}
@@ -98,7 +104,7 @@ const StudentDialog = ({
 
             {/* Gender Field */}
             <SelectField 
-                name="gender"
+                name="Gender"
                 label="Select Student Gender"
                 options={
                     [
@@ -112,13 +118,13 @@ const StudentDialog = ({
 
             {/* Date of Birth Field */}
             <DatePickerField 
-                name="dateOfBirth"
+                name="DateOfBirth"
                 label="Date Of Birth"
             />
 
             {/* Student Contact Email Field */}
             <SimpleField
-                name="contactEmail"
+                name="ContactEmail"
                 type="text"
                 label={"Contact Email"}
                 placeholder={"Enter Student Contact Email here"}
@@ -128,7 +134,7 @@ const StudentDialog = ({
 
             {/* Student Contact Telephone Field */}
             <SimpleField
-                name="contactTelephone"
+                name="ContactTelephone"
                 type="text"
                 label={"Contact Telephone"}
                 placeholder={"Enter Student Contact Telephone here"}
@@ -138,7 +144,7 @@ const StudentDialog = ({
 
             {/* Student Payment Method Field */}
             <SelectField
-                name="paymentMethod"
+                name="PaymentMethod"
                 label="Select Student Payment Method"
                 options={
                     [
