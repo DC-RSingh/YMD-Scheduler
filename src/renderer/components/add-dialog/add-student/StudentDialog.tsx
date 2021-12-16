@@ -168,7 +168,9 @@ const StudentDialog = ({
                   () => {
                     
 
-                    electronService.ipcRenderer.sendSync('create-student', ["Mark", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
+                    electronService.ipcRenderer.sendSync('create-student', ["Jimmy", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);
+
+                    //electronService.ipcRenderer.sendSync('delete-student', 101);
 
 
                     //createStudent(["Mark", "Cuban", "M", "07-07-2000", "MC@gmail.com", "9995551234", "Cash"]);

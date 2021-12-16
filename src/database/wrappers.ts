@@ -71,6 +71,60 @@ export function createNew(query: string, params?: any): void {
 
 }
 
+export function deleteSelected(query: string, params?: any): void {
+
+    
+    
+    if (params) {
+        manager.db.run(query, params, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been deleted`);
+        });
+    }
+    else {
+        manager.db.run(query, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been deleted`);
+        });
+    }       
+
+}
+
+export function updateSelected(query: string, params?: any): void {
+
+    
+    
+    if (params) {
+        manager.db.run(query, params, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been updated`);
+        });
+    }
+    else {
+        manager.db.run(query, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been updated`);
+        });
+    }       
+
+}
+
 export function getSchedule(query: string, params?: any): Promise<any[]> {
 
     return new Promise((resolve, reject) => {

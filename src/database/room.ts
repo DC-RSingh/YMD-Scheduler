@@ -2,6 +2,8 @@ import { ipcMain } from "electron";
 import { manager } from '.';
 import { getAll } from './wrappers';
 import { createNew } from './wrappers';
+import { deleteSelected } from './wrappers';
+import { updateSelected } from './wrappers';
 
 /*
 const getRooms = (): void => {
@@ -25,11 +27,24 @@ const getRooms = (): void => {
     });
 }
 
+const getSelectedquery = "SELECT * FROM rooms WHERE id=?";
+
+const getRoomId = (): void => {
+    ipcMain.on('retrieve-roomId', async (e, param) => {
+        const room: any[] = await getAll(getSelectedquery, param);
+         //console.log(credentials);
+        
+        e.returnValue = {
+            room
+        };
+    });
+}
+
+
 const createRoomquery = "INSERT INTO room(type, name, roomSize, hasPiano) VALUES (?, ?, ?, ?)";
 
-
-const createRoom = (roomParams: String[]): void => {
-    ipcMain.on('create-room', async (e) => {
+const createRoom = (): void => {
+    ipcMain.on('create-room', async (e, roomParams) => {
         createNew(createRoomquery, roomParams);
         // console.log(students);
 
@@ -37,4 +52,26 @@ const createRoom = (roomParams: String[]): void => {
     });
 }
 
-export { getRooms, createRoom };
+const deleteQuery = "DELETE FROM room WHERE id=?";
+
+//const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
+
+const deleteRoom = (): void => {
+    ipcMain.on('delete-room', async (e, credentialParams) => {
+        deleteSelected(deleteQuery, credentialParams);
+        // console.log(students);
+    });
+}
+
+const updateQuery = "UPDATE room SET type=?, name=?, roomSize=?, hasPiano=? WHERE id=?";
+
+//const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
+
+const updateRoom = (): void => {
+    ipcMain.on('update-room', async (e, credentialParams) => {
+        updateSelected(updateQuery, credentialParams);
+        // console.log(students);
+    });
+}
+
+export { getRooms, createRoom, deleteRoom, updateRoom, getRoomId };
