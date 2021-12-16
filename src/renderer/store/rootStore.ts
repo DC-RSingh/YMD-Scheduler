@@ -3,6 +3,7 @@ import { CounterStore } from "./counterStore";
 import { UiStateStore } from "./uiStateStore";
 import { RouteStore } from "./routeStore";
 import { StudentStore } from "./studentStore";
+import { StaffStore } from "./staffStore";
 
 export class RootStore {
 
@@ -31,11 +32,14 @@ export class RootStore {
 
     studentStore: StudentStore;
 
+    staffStore: StaffStore;
+
     constructor() {
         this.userStore = new UserStore(this);
         this.counterStore = new CounterStore(this);
         this.uiStateStore = new UiStateStore(this);
         this.routeStore = new RouteStore(this);
         this.studentStore = new StudentStore(this);
+        this.staffStore = new StaffStore(this);
     }
 }

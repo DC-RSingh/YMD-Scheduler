@@ -1,16 +1,29 @@
 import { IStudent } from "../interfaces/student.interface";
+import { IStaff } from "../interfaces/staff.interface";
 import { rootStore } from "../renderer/store";
 
-// Might be able to remove this and just use prisma filtering 
 export const filterStudents = (students: IStudent[]): IStudent[] => {
     if (students.length === 0) {
         return [];
     }
-    const filterText = rootStore.uiStateStore.studentTableFilterText.toLowerCase();
+    const filterText = rootStore.uiStateStore.studentTableFilterText.toLowerCase().trim();
 
     return students.filter((s) => {
         const firstName = s.FirstName.toLowerCase();
         const lastName = s.LastName.toLowerCase();
-        return `${firstName} ${lastName}`.includes(filterText.trim());
+        return `${firstName} ${lastName}`.includes(filterText);
+    });
+};
+
+export const filterStaff = (staff: IStaff[]): IStaff[] => {
+    if (staff.length === 0) {
+        return [];
+    }
+    const filterText = rootStore.uiStateStore.staffTableFilterText.toLowerCase().trim();
+
+    return staff.filter((s) => {
+        const firstName = s.FirstName.toLowerCase();
+        const lastName = s.LastName.toLowerCase();
+        return `${firstName} ${lastName}`.includes(filterText);
     });
 };

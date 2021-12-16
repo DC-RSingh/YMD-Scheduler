@@ -44,6 +44,9 @@ export class UiStateStore {
     //#region StudentTable States
     @observable studentTableFilterText = '';
     //#endregion
+    //#region StaffTable States
+    @observable staffTableFilterText = '';
+    //#endregion
 
     //#region LoginDialog Functions
     @action
@@ -110,6 +113,12 @@ export class UiStateStore {
     @action
     setStudentTableFilterText(text: string): void {
       this.studentTableFilterText = text;
+    }
+    //#endregion
+    //#region Student Table Functions
+    @action
+    setStaffTableFilterText(text: string): void {
+      this.staffTableFilterText = text;
     }
     //#endregion
 }
