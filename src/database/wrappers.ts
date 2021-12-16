@@ -42,3 +42,112 @@ export function getAll(query: string, params?: any): Promise<any[]> {
     });
 
 }
+
+
+export function createNew(query: string, params?: any): void {
+
+    
+    
+        if (params) {
+            manager.db.run(query, params, function(err)
+            {
+                if (err) {
+                    return console.log(err.message);
+                  }
+                  // get the last insert id
+                  console.log(`A row has been inserted with rowid ${this.lastID}`);
+            });
+        }
+        else {
+            manager.db.run(query, function(err)
+            {
+                if (err) {
+                    return console.log(err.message);
+                  }
+                  // get the last insert id
+                  console.log(`A row has been inserted with rowid ${this.lastID}`);
+            });
+        }       
+
+}
+
+export function deleteSelected(query: string, params?: any): void {
+
+    
+    
+    if (params) {
+        manager.db.run(query, params, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been deleted`);
+        });
+    }
+    else {
+        manager.db.run(query, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been deleted`);
+        });
+    }       
+
+}
+
+export function updateSelected(query: string, params?: any): void {
+
+    
+    
+    if (params) {
+        manager.db.run(query, params, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been updated`);
+        });
+    }
+    else {
+        manager.db.run(query, function(err)
+        {
+            if (err) {
+                return console.log(err.message);
+              }
+              // get the last insert id
+              //console.log(`A row has been updated`);
+        });
+    }       
+
+}
+
+export function getSchedule(query: string, params?: any): Promise<any[]> {
+
+    return new Promise((resolve, reject) => {
+
+        if (params) {
+            manager.db.all(query, params, (err, rows) => {
+                if (err) {
+                    reject(err);
+                }
+    
+                resolve(rows);
+            });
+        }
+        else {
+            manager.db.all(query, (err, rows) => {
+                if (err) {
+                    reject(err);
+                }
+    
+                resolve(rows);
+            });
+        }
+        
+    });
+
+}

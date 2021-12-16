@@ -2,7 +2,7 @@ import { app, BrowserWindow, ipcMain, } from 'electron';
 import isDev from "electron-is-dev";
 import { copyFileSync, constants } from 'fs';
 import { join } from 'path';
-import { getRooms, getStudents, manager } from './database';
+import { deleteStudent, createStudent, getRooms, getStudents, manager } from './database';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 
@@ -79,6 +79,10 @@ const createWindow = (): void => {
 
     getStudents();
     getRooms();
+    createStudent();
+    deleteStudent();
+
+    console.log("test log");
 };
 
 // If another app has the lock, quit this instance
