@@ -5,6 +5,7 @@ import { RouteStore } from "./routeStore";
 import { StudentStore } from "./studentStore";
 import { StaffStore } from "./staffStore";
 import { RoomStore } from "./roomStore";
+import { MusicClassStore } from "./musicClassStore";
 
 export class RootStore {
 
@@ -37,6 +38,8 @@ export class RootStore {
 
     roomStore: RoomStore;
 
+    musicClassStore: MusicClassStore;
+
     constructor() {
         this.userStore = new UserStore(this);
         this.counterStore = new CounterStore(this);
@@ -45,5 +48,6 @@ export class RootStore {
         this.studentStore = new StudentStore(this);
         this.staffStore = new StaffStore(this);
         this.roomStore = new RoomStore(this);
+        this.musicClassStore = new MusicClassStore(this);
     }
 }

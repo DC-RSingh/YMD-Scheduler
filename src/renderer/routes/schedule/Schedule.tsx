@@ -1,22 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import {
-    Inject, 
-    ScheduleComponent, 
-    Day, 
-    Week, 
-    WorkWeek, 
-    Month, 
-    Agenda, 
-} from '@syncfusion/ej2-react-schedule';
+import ScheduleContainer from '../../components/scheduler/ScheduleContainer';
 
 const Schedule: React.FC = () => {
 
-
     return (
-        <ScheduleComponent data-tour-elem="scheduleArea">
-            <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
-        </ScheduleComponent>
+        <ScheduleContainer />
     );
 }
 

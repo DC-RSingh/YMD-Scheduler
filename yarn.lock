@@ -1098,154 +1098,6 @@
   "resolved" "https://registry.npmjs.org/@sweetalert2/themes/-/themes-5.0.8.tgz"
   "version" "5.0.8"
 
-"@syncfusion/ej2-base@~19.3.53", "@syncfusion/ej2-base@~19.3.54", "@syncfusion/ej2-base@~19.3.56":
-  "integrity" "sha512-wQ/LH1p3YnYL9AmDRZO2MvelRaS2bVjpoyW+4m56JNk5CrAhFo7R//iKoDdQXaCjIVxycYdDWmI58cK7TfDsnQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-base/-/ej2-base-19.3.56.tgz"
-  "version" "19.3.56"
-  dependencies:
-    "@syncfusion/ej2-icons" "~19.3.53"
-
-"@syncfusion/ej2-buttons@~19.3.53":
-  "integrity" "sha512-abWqinbJL7nftz6alzvvyQRH/LOM6rDUwQ9ZY9CnPga6OkKfe57XGwt1rn6F/LsjgtLVxmykIPSdKlJBe8Q/vQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-buttons/-/ej2-buttons-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.53"
-
-"@syncfusion/ej2-calendars@~19.3.55":
-  "integrity" "sha512-XJj4Bl6hl3M5e+VAMOh5/JM3uR1C6v2unCl3JuHk+lCV+WLWcaboBC3XB2ZsZ0Sni2snSi25+yk8K3Ia9LiY5g=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-calendars/-/ej2-calendars-19.3.56.tgz"
-  "version" "19.3.56"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.56"
-    "@syncfusion/ej2-buttons" "~19.3.53"
-    "@syncfusion/ej2-inputs" "~19.3.53"
-    "@syncfusion/ej2-lists" "~19.3.53"
-    "@syncfusion/ej2-popups" "~19.3.53"
-
-"@syncfusion/ej2-compression@~19.3.53":
-  "integrity" "sha512-AzFdUBKpB/4I6Okn/5P1s+o+i856LYRWNyw/xWp+BUQd/1/NhcBdBVDX/F/dx06RtYm8fHNJjyZe91CkK6ROjA=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-compression/-/ej2-compression-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-file-utils" "~19.3.53"
-
-"@syncfusion/ej2-data@~19.3.53", "@syncfusion/ej2-data@~19.3.56":
-  "integrity" "sha512-p9pvKmBjDuxj0/XEd+M8HhZjPKOPmCpDHrKJG+uhZspUnkKd/UcFHgz5Lbp/Qu+2h3WpZ9KupOxD66K3tBpzHA=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-data/-/ej2-data-19.3.56.tgz"
-  "version" "19.3.56"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.56"
-
-"@syncfusion/ej2-dropdowns@~19.3.55":
-  "integrity" "sha512-rAVTJY6lbM6a3O621jJV3P1zrTzO0vI0dr3hsrgvgnhEiRebqxootmbzCiogpOCU5VLMIHDrWXMspJUBrE7tlQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-dropdowns/-/ej2-dropdowns-19.3.56.tgz"
-  "version" "19.3.56"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.56"
-    "@syncfusion/ej2-data" "~19.3.56"
-    "@syncfusion/ej2-inputs" "~19.3.53"
-    "@syncfusion/ej2-lists" "~19.3.53"
-    "@syncfusion/ej2-navigations" "~19.3.56"
-    "@syncfusion/ej2-popups" "~19.3.53"
-
-"@syncfusion/ej2-excel-export@~19.3.53":
-  "integrity" "sha512-xjzsLJLQgoZhkweyVeAnbL0/54Ih3Rh6CbWbVURuujnpMyJnIOJ8y9OFMF1Ff0oPiIr4KBWI+6uUuKnOxbroZQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-excel-export/-/ej2-excel-export-19.3.56.tgz"
-  "version" "19.3.56"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.56"
-    "@syncfusion/ej2-compression" "~19.3.53"
-
-"@syncfusion/ej2-file-utils@~19.3.53":
-  "integrity" "sha512-s9Ool8eU913pQWt4GKEEYEgkKZDJqTpbWo6vfXNE+3GEAOO38F+MbuMfAgM6aFiJMWXWxPJO1/koQt3aF6WRZg=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-file-utils/-/ej2-file-utils-19.3.53.tgz"
-  "version" "19.3.53"
-
-"@syncfusion/ej2-icons@~19.3.53":
-  "integrity" "sha512-W4+JkzTurFcpCfrgdD/0uDX4LQ/OSez/Kx5qm0ZGaWHBCWdUy9+qvBeZGpl8Yv+iuvOvuVpdqilpZ/RoCSnWvQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-icons/-/ej2-icons-19.3.53.tgz"
-  "version" "19.3.53"
-
-"@syncfusion/ej2-inputs@~19.3.53":
-  "integrity" "sha512-6PhMb9k8qN3cv4mNM8dZSUYz3tGyLtv4CJ35ycgzxt9dGdjowf50Vy/UYS6aswK6IcJ0RpNqUd93vPboyrdYMA=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-inputs/-/ej2-inputs-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.53"
-    "@syncfusion/ej2-buttons" "~19.3.53"
-    "@syncfusion/ej2-popups" "~19.3.53"
-    "@syncfusion/ej2-splitbuttons" "~19.3.53"
-
-"@syncfusion/ej2-lists@~19.3.53":
-  "integrity" "sha512-iq/M/nMhKxWUBkNHddkubA+v+19vn1bGb2xEAawPn5zFbfeqGsm+eMa5+5UF73Q6VSxs6M1UJcq3TmIpMFRtVw=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-lists/-/ej2-lists-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.53"
-    "@syncfusion/ej2-buttons" "~19.3.53"
-    "@syncfusion/ej2-data" "~19.3.53"
-
-"@syncfusion/ej2-navigations@~19.3.54", "@syncfusion/ej2-navigations@~19.3.56":
-  "integrity" "sha512-7B6tKNwScWHPELOQpQwNLbkkAisLEF4SQHlR6bRVmKX+rIy8claZDaYNSWZjsfpb3X0hS81wEfMNrhykvCwPtQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-navigations/-/ej2-navigations-19.3.56.tgz"
-  "version" "19.3.56"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.56"
-    "@syncfusion/ej2-buttons" "~19.3.53"
-    "@syncfusion/ej2-data" "~19.3.56"
-    "@syncfusion/ej2-inputs" "~19.3.53"
-    "@syncfusion/ej2-lists" "~19.3.53"
-    "@syncfusion/ej2-popups" "~19.3.53"
-
-"@syncfusion/ej2-popups@~19.3.53":
-  "integrity" "sha512-gNy770FdSnmAr2PXbBvAfuz6gFNEq5DWWu+pa3ZW+6GH+VQKorXwCyLQoESrUIpWnwibMIg8fkOTGe/Avzl7Sg=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-popups/-/ej2-popups-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.53"
-    "@syncfusion/ej2-buttons" "~19.3.53"
-
-"@syncfusion/ej2-react-base@~19.3.53":
-  "integrity" "sha512-q6Sgnr9NG+6UQEJZUuFNfYLCbSsTde0Ohe0BUuMWJs8DxUHdY3h13wrx0E4Cx3lo5PotAr8UaRXcSxkL9k6ffg=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-react-base/-/ej2-react-base-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.53"
-
-"@syncfusion/ej2-react-schedule@^19.3.55":
-  "integrity" "sha512-jnnk4XEy4InapWnkjQ3sVG2d+ST5TcA8cJnBHKiLsnEzJ0vhznVeDboEVzXeQ2tFJvjYCMkfm3bcTHg9dcKu1g=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-react-schedule/-/ej2-react-schedule-19.3.55.tgz"
-  "version" "19.3.55"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.54"
-    "@syncfusion/ej2-react-base" "~19.3.53"
-    "@syncfusion/ej2-schedule" "19.3.55"
-
-"@syncfusion/ej2-schedule@19.3.55":
-  "integrity" "sha512-IrT+5cEMmStRCodu7H0fUvsLnSWsXuh9WWOSRH2Cm1/v2DKPt3UiYIjsb1NQR/6wXg8G6PUvoxaYRYh7LPu/VQ=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-schedule/-/ej2-schedule-19.3.55.tgz"
-  "version" "19.3.55"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.54"
-    "@syncfusion/ej2-buttons" "~19.3.53"
-    "@syncfusion/ej2-calendars" "~19.3.55"
-    "@syncfusion/ej2-data" "~19.3.53"
-    "@syncfusion/ej2-dropdowns" "~19.3.55"
-    "@syncfusion/ej2-excel-export" "~19.3.53"
-    "@syncfusion/ej2-inputs" "~19.3.53"
-    "@syncfusion/ej2-lists" "~19.3.53"
-    "@syncfusion/ej2-navigations" "~19.3.54"
-    "@syncfusion/ej2-popups" "~19.3.53"
-
-"@syncfusion/ej2-splitbuttons@~19.3.53":
-  "integrity" "sha512-HOFBRW6M1PN83fAEZz8r/YahDntvssKfdk2nWRI6iqgwhjicmWLw1ihMSOyAvMZGrQf56hmBVAWUL/XKuK+lkA=="
-  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-splitbuttons/-/ej2-splitbuttons-19.3.53.tgz"
-  "version" "19.3.53"
-  dependencies:
-    "@syncfusion/ej2-base" "~19.3.53"
-    "@syncfusion/ej2-popups" "~19.3.53"
-
 "@szmarczak/http-timer@^1.1.2":
   "integrity" "sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA=="
   "resolved" "https://registry.npmjs.org/@szmarczak/http-timer/-/http-timer-1.1.2.tgz"
@@ -7192,16 +7044,6 @@
     "object-assign" "^4.1.1"
     "scheduler" "^0.20.2"
 
-"react-dom@15.5.4 - 16.13.1":
-  "integrity" "sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag=="
-  "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz"
-  "version" "16.13.1"
-  dependencies:
-    "loose-envify" "^1.1.0"
-    "object-assign" "^4.1.1"
-    "prop-types" "^15.6.2"
-    "scheduler" "^0.19.1"
-
 "react-fast-compare@^2.0.1":
   "integrity" "sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw=="
   "resolved" "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz"
@@ -7290,15 +7132,6 @@
   dependencies:
     "loose-envify" "^1.1.0"
     "object-assign" "^4.1.1"
-
-"react@^16.13.1", "react@15.5.4 - 16.13.1":
-  "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
-  "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
-  "version" "16.13.1"
-  dependencies:
-    "loose-envify" "^1.1.0"
-    "object-assign" "^4.1.1"
-    "prop-types" "^15.6.2"
 
 "reactour@^1.18.6":
   "integrity" "sha512-6Dm3bkqf3wKfzLL6laMez2xVO6iZ9o5CFG4Na1ttE0OcdJ2VriY/aOeHSPW6O7kwnDqiy4z+sdvzhqaHuVl0fg=="
@@ -7742,14 +7575,6 @@
   "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
   "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
   "version" "1.2.4"
-
-"scheduler@^0.19.1":
-  "integrity" "sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA=="
-  "resolved" "https://registry.npmjs.org/scheduler/-/scheduler-0.19.1.tgz"
-  "version" "0.19.1"
-  dependencies:
-    "loose-envify" "^1.1.0"
-    "object-assign" "^4.1.1"
 
 "scheduler@^0.20.2":
   "integrity" "sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ=="

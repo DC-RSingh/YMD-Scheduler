@@ -168,7 +168,6 @@
     "@mui/styles": "^5.2.2",
     "@prisma/client": "^3.6.0",
     "@sweetalert2/themes": "^5.0.8",
-    "@syncfusion/ej2-react-schedule": "^19.3.55",
     "@types/reactour": "^1.18.2",
     "clsx": "^1.1.1",
     "copy-webpack-plugin": "^10.0.0",
