@@ -19,8 +19,8 @@ const createStudentquery = "INSERT INTO students(firstName, lastName, gender, da
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
-const createStudent = (studentParams: String[]): void => {
-    ipcMain.on('create-student', async (e) => {
+const createStudent = (): void => {
+    ipcMain.on('create-student', async (e, studentParams) => {
         createNew(createStudentquery, studentParams);
         // console.log(students);
 

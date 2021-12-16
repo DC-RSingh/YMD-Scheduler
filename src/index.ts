@@ -79,7 +79,7 @@ const createWindow = (): void => {
 
     getStudents();
     getRooms();
-    //createStudent();
+    createStudent();
 
     console.log("test log");
 };
