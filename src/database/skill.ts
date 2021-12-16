@@ -17,7 +17,7 @@ const getSkills = (): void => {
 const getSelectedquery = "SELECT * FROM skills WHERE id=?";
 
 const getSkillId = (): void => {
-    ipcMain.on('retrieve-skillId', async (e, param) => {
+    ipcMain.on('retrieve-skill-by-id', async (e, param) => {
         const skill: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

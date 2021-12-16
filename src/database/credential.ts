@@ -17,7 +17,7 @@ const getCredentials = (): void => {
 const getSelectedquery = "SELECT * FROM credentials WHERE id=?";
 
 const getCredentialId = (): void => {
-    ipcMain.on('retrieve-credentialId', async (e, param) => {
+    ipcMain.on('retrieve-credential-by-id', async (e, param) => {
         const credential: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

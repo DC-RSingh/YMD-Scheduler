@@ -23,10 +23,10 @@ const getRooms = (): void => {
     });
 }
 
-const getSelectedquery = "SELECT * FROM rooms WHERE id=?";
+const getSelectedquery = "SELECT * FROM room WHERE id=?";
 
 const getRoomId = (): void => {
-    ipcMain.on('retrieve-roomId', async (e, param) => {
+    ipcMain.on('retrieve-room-by-id', async (e, param) => {
         const room: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

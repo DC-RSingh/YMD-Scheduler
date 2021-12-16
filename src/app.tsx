@@ -17,6 +17,7 @@ import { create } from "mobx-persist";
 import Logout from "./renderer/routes/logout/Logout";
 import Student from "./renderer/routes/student/Student";
 import Staff from "./renderer/routes/staff/Staff";
+import Room from "./renderer/routes/room/Room";
 
 configure({enforceActions: 'observed'});
 
@@ -59,7 +60,7 @@ const App: React.FC = () => {
                         <Route path="/schedule" exact component={Schedule}/>
                         <Route path="/student" exact component={Student} />
                         <Route path="/staff" exact component={Staff} />
-                        <Route path="/room" exact component={Schedule} />
+                        <Route path="/room" exact component={Room} />
                         <Route path="/settings" component={Schedule} />
                         <Route path="/logout" component={Logout} />
                         <Route path="/" exact

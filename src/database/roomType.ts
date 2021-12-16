@@ -17,7 +17,7 @@ const getRoomTypes = (): void => {
 const getSelectedquery = "SELECT * FROM roomType WHERE id=?";
 
 const getRoomTypeId = (): void => {
-    ipcMain.on('retrieve-roomTypeId', async (e, param) => {
+    ipcMain.on('retrieve-roomType-by-id', async (e, param) => {
         const roomType: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

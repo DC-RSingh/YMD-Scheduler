@@ -17,7 +17,7 @@ const getMusicClasses = (): void => {
 const getSelectedquery = "SELECT * FROM musicClass WHERE id=?";
 
 const getMusicClassId = (): void => {
-    ipcMain.on('retrieve-musicClassId', async (e, param) => {
+    ipcMain.on('retrieve-musicClass-by-id', async (e, param) => {
         const musicClass: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

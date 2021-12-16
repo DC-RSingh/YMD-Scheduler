@@ -11,8 +11,8 @@ export class RoomStore {
 
     @computed get roomTableData(): IRoom[] {
 
-        const { room } = electronService.ipcRenderer.sendSync('retrieve-room', '');
+        const { rooms } = electronService.ipcRenderer.sendSync('retrieve-rooms', '');
 
-        return filterRooms(room);
+        return filterRooms(rooms);
     }
 }

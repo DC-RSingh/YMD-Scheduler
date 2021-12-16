@@ -17,7 +17,7 @@ const getDays = (): void => {
 const getSelectedquery = "SELECT * FROM days WHERE id=?";
 
 const getDayId = (): void => {
-    ipcMain.on('retrieve-dayId', async (e, param) => {
+    ipcMain.on('retrieve-day-by-id', async (e, param) => {
         const staff: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         

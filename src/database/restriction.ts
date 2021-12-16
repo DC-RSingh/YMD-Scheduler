@@ -17,7 +17,7 @@ const getRestrictions = (): void => {
 const getSelectedquery = "SELECT * FROM restrictions WHERE id=?";
 
 const getRestrictionId = (): void => {
-    ipcMain.on('retrieve-restrictionId', async (e, param) => {
+    ipcMain.on('retrieve-restriction-by-id', async (e, param) => {
         const restriction: any[] = await getAll(getSelectedquery, param);
          //console.log(credentials);
         
