@@ -16,6 +16,7 @@ import localForage from 'localforage';
 import { create } from "mobx-persist";
 import Logout from "./renderer/routes/logout/Logout";
 import Student from "./renderer/routes/student/Student";
+import Staff from "./renderer/routes/staff/Staff";
 
 configure({enforceActions: 'observed'});
 
@@ -57,7 +58,7 @@ const App: React.FC = () => {
                         <ToolbarContainer />
                         <Route path="/schedule" exact component={Schedule}/>
                         <Route path="/student" exact component={Student} />
-                        <Route path="/staff" exact component={Schedule} />
+                        <Route path="/staff" exact component={Staff} />
                         <Route path="/room" exact component={Schedule} />
                         <Route path="/settings" component={Schedule} />
                         <Route path="/logout" component={Logout} />

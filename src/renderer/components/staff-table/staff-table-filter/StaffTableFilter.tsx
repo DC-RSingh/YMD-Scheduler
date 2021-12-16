@@ -6,20 +6,20 @@ import { observer } from 'mobx-react-lite';
 import React, { ChangeEvent } from 'react';
 import * as Yup from 'yup';
 import { useStores } from '../../../store';
-import useStyles from './StudentTableFilter.styles';
+import useStyles from './StaffTableFilter.styles';
 
 export type TableFilterProps = {
   handleFilter: (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
   clearFilter: () => void;
 };
 
-const StudentTableFilter = ({ handleFilter, clearFilter }: TableFilterProps) => {
+const StaffTableFilter = ({ handleFilter, clearFilter }: TableFilterProps) => {
   const { uiStateStore } = useStores();
   const classes = useStyles();
 
   const formik = useFormik({
     initialValues: {
-      searchText: uiStateStore.studentTableFilterText,
+      searchText: uiStateStore.staffTableFilterText,
     },
 
     onSubmit: (): void => {
@@ -42,7 +42,7 @@ const StudentTableFilter = ({ handleFilter, clearFilter }: TableFilterProps) => 
           handleFilter(e);
         }}
         name="searchText"
-        placeholder={"Search students..."}
+        placeholder={"Search staff..."}
         className={classes.searchField}
         value={formik.values.searchText}
         InputProps={{
@@ -79,4 +79,4 @@ const StudentTableFilter = ({ handleFilter, clearFilter }: TableFilterProps) => 
   );
 };
 
-export default observer(StudentTableFilter);
+export default observer(StaffTableFilter);

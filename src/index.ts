@@ -2,7 +2,7 @@ import { app, BrowserWindow, ipcMain, } from 'electron';
 import isDev from "electron-is-dev";
 import { copyFileSync, constants } from 'fs';
 import { join } from 'path';
-import { deleteStudent, createStudent, getRooms, getStudents, manager } from './database';
+import { deleteStudent, createStudent, getRooms, getStudents, manager, getStaff } from './database';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 
@@ -77,10 +77,16 @@ const createWindow = (): void => {
         }
     })
 
+    // Student Channels
     getStudents();
-    getRooms();
     createStudent();
     deleteStudent();
+
+    // Room Channels
+    getRooms();
+
+    // Staff Channels
+    getStaff();
 
 };
 
