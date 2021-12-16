@@ -1,19 +1,42 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useStores } from '../../../store'
 import StaffDialog from './StaffDialog'
 
 export interface IStaffForm {
-    firstName: string;
-    lastName: string;
+    Type:               number;
+    FirstName:          string;
+    LastName:           string;
+    Gender:             string;
+    DateOfBirth:        Date;
+    Email:              string;
+    Telephone:          string;
+    MaxHoursPerWeek:    number;
+    AvailableDays:      [];
+    Skills:             [];
+    Credentials:        [];
+    Restrictions:       [];
 }
 
 const StaffDialogContainer: React.FC = () => {
-    const { uiStateStore } = useStores();
+    const { uiStateStore, staffStore } = useStores();
+
+    const types = staffStore.staffTypes;
+    const staffTypes = useMemo(() => types, [types])
 
     const initialValues: IStaffForm = {
-        firstName: '',
-        lastName: '',
+        Type:  0,        
+        FirstName: '',  
+        LastName: '',    
+        Gender: '',        
+        DateOfBirth: null, 
+        Email: '',         
+        Telephone: '',     
+        MaxHoursPerWeek: 0,
+        AvailableDays: [],
+        Skills: [],        
+        Credentials: [],   
+        Restrictions: [],   
     }
 
     const onSubmit = (staff: IStaffForm) => {
@@ -27,6 +50,7 @@ const StaffDialogContainer: React.FC = () => {
             onSubmit={(staff: IStaffForm) => onSubmit(staff)}
             initialValues={initialValues}
             dialogType={uiStateStore.staffDialogType}
+            staffTypes={staffTypes}
             handleStaffExists={null}
             handleClearError={null}
             loading={uiStateStore.creatingStaff}

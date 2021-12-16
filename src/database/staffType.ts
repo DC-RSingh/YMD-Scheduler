@@ -4,12 +4,12 @@ import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 const getAllquery = "SELECT * FROM stafftype";
 
 const getStaffTypes = (): void => {
-    ipcMain.on('retrieve-staffType', async (e) => {
-        const staffType: any[] = await getAll(getAllquery);
+    ipcMain.on('retrieve-staffTypes', async (e) => {
+        const staffTypes: any[] = await getAll(getAllquery);
         //  console.log(staffType);
         
         e.returnValue = {
-            staffType
+            staffTypes
         };
     });
 }

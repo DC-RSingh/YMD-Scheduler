@@ -92,7 +92,9 @@ const createWindow = (): void => {
     // Staff Channels
     db.getStaff();
     db.createStaff();
+
     db.getStaffTypeId();
+    db.getStaffTypes();
 
 };
 

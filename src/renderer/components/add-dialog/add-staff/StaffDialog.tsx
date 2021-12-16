@@ -17,11 +17,14 @@ import { IStaffForm } from './StaffDialogContainer';
 import SaveIcon from '@mui/icons-material/Save';
 import { AddDialogType } from '../../../store/uiStateStore';
 import DatePickerField from '../../datepicker-field/DatePickerField';
+import { IType } from '../../../../interfaces/type.interface';
+import { ISelectOption } from '../../../../interfaces/select-option.interface';
 
 type StaffDialogProps = {
   show: boolean;
   initialValues: IStaffForm;
   dialogType: AddDialogType;
+  staffTypes: IType[];
   onClose: () => void;
   onSubmit: (staff: IStaffForm) => void;
   handleStaffExists: (someIdentifier: string) => void;  // TODO: Make this some clear reproducable identifier
@@ -39,6 +42,7 @@ const StaffDialog = ({
   staffError,
   staffExists,
   dialogType,
+  staffTypes,
   handleStaffExists,
   handleClearError,
   loading,
@@ -46,8 +50,14 @@ const StaffDialog = ({
   const classes = useStyles();
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First Name is required'),
-    lastName: Yup.string().required('Last Name is required'),
+    FirstName: Yup.string().required('First Name is required'),
+    LastName: Yup.string().required('Last Name is required'),
+    Gender: Yup.string().required('Gender is required'),
+    DateOfBirth: Yup.date().required('Date of Birth is required'),
+    Email: Yup.string().length(255, 'Max 255 Characters.').required('Email is required.'),
+    Telephone: Yup.string().length(10, 'Max 10 characters. Only enter the number.').required('Telephone Number is required'),
+    MaxHoursPerWeek: Yup.number().positive().required('Max Hours per Week is required'),
+    Type: Yup.number().required('Staff Type is required.'),
   });
 
   const getStaffExistsError = () => {
@@ -77,7 +87,7 @@ const StaffDialog = ({
 
             {/* First Name field */}
             <SimpleField
-                name="firstName"
+                name="FirstName"
                 type="text"
                 label={"First Name"}
                 placeholder={"Enter your First Name here"}
@@ -88,7 +98,7 @@ const StaffDialog = ({
 
             {/* Last Name Field */}
             <SimpleField
-                name="lastName"
+                name="LastName"
                 type="text"
                 label={"Last Name"}
                 placeholder={"Enter your Last Name here"}
@@ -98,7 +108,7 @@ const StaffDialog = ({
 
             {/* Gender Field */}
             <SelectField 
-                name="gender"
+                name="Gender"
                 label="Select Staff Gender"
                 options={
                     [
@@ -110,35 +120,49 @@ const StaffDialog = ({
                 required
             />
 
+            {/* Staff Type Field */}
+            {/* To be replaced with special dropdown component */}
+            <SelectField
+                name="Type"
+                label="Staff Type"
+                options={staffTypes?.map((r) => {
+                    return {
+                        id: r.Id.toString(),
+                        value: r.Id,
+                        label: r.Type,
+                    } as ISelectOption
+                })}
+            />
+
             {/* Staff Date of Birth Field */}
             <DatePickerField 
-                name="dateOfBirth"
+                name="DateOfBirth"
                 label="Date Of Birth"
             />
 
             {/* Staff Email Field */}
             <SimpleField
-                name="email"
+                name="Email"
                 type="text"
-                label={"Contact Email"}
-                placeholder={"Enter Student Contact Email here"}
+                label={"Email"}
+                placeholder={"Enter Staff Contact Email here"}
                 handleBlur={handleStaffExists}
                 required
             />
 
             {/* Staff Telephone Field */}
             <SimpleField
-                name="telephone"
+                name="Telephone"
                 type="text"
-                label={"Contact Telephone"}
-                placeholder={"Enter Student Contact Telephone here"}
+                label={"Telephone"}
+                placeholder={"Enter Staff Contact Telephone here"}
                 handleBlur={handleStaffExists}
                 required
             />
 
             {/* Staff Max Hours Field */}
             <SimpleField
-                name="maxHours"
+                name="MaxHoursPerWeek"
                 type="number"
                 label={"Max Hours per Week"}
                 placeholder={"Enter Staff Max Hours here"}
@@ -149,37 +173,29 @@ const StaffDialog = ({
             {/* Staff Available Days Field */}
             {/* To be replaced with special dropdown component */}
             <SelectField
-                name="staffAvailableDays"
+                name="AvailableDays"
                 label="Staff Available Days"
                 required
             />
-
-            {/* Staff Type Field */}
-            {/* To be replaced with special dropdown component */}
-            <SelectField
-                name="staffType"
-                label="Staff Type"
-                required
-            />
-
+            
             {/* Staff Skills Field */}
             {/* To be replaced with special dropdown component */}
             <SelectField
-                name="staffSkills"
+                name="Skills"
                 label="Staff Skills"
             />
 
             {/* Staff Credentials Field */}
             {/* To be replaced with special dropdown component */}
             <SelectField
-                name="staffCredentials"
+                name="Credentials"
                 label="Staff Credentials"
             />
 
             {/* Staff Restrictions Field */}
             {/* To be replaced with special dropdown component */}
             <SelectField
-                name="staffRestrictions"
+                name="Restrictions"
                 label="Staff Restrictions"
             />
 
