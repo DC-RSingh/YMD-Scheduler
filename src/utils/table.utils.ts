@@ -1,5 +1,6 @@
 import { IStudent } from "../interfaces/student.interface";
 import { IStaff } from "../interfaces/staff.interface";
+import { IRoom } from "../interfaces/room.interface";
 import { rootStore } from "../renderer/store";
 
 export const filterStudents = (students: IStudent[]): IStudent[] => {
@@ -25,5 +26,16 @@ export const filterStaff = (staff: IStaff[]): IStaff[] => {
         const firstName = s.FirstName.toLowerCase();
         const lastName = s.LastName.toLowerCase();
         return `${firstName} ${lastName}`.includes(filterText);
+    });
+};
+
+export const filterRooms = (room: IRoom[]): IRoom[] => {
+    if (room.length === 0) {
+        return [];
+    }
+    const filterText = rootStore.uiStateStore.roomTableFilterText.toLowerCase().trim();
+
+    return room.filter((r) => {
+        return r.Name.includes(filterText);
     });
 };

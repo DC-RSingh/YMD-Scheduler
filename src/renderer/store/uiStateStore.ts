@@ -26,7 +26,7 @@ export class UiStateStore {
     @observable studentDialogOpen = false;
     @observable studentDialogType: AddDialogType = undefined;
     //#endregion
-    //#region Room States
+    //#region RoomDialog States
     @observable roomError: Error | undefined = undefined;
     @observable creatingRoom = false;
     @observable roomDialogOpen = false;
@@ -47,6 +47,10 @@ export class UiStateStore {
     //#region StaffTable States
     @observable staffTableFilterText = '';
     //#endregion
+    //#region RoomTable States
+    @observable roomTableFilterText = '';
+    //#endregion
+    
 
     //#region LoginDialog Functions
     @action
@@ -119,6 +123,12 @@ export class UiStateStore {
     @action
     setStaffTableFilterText(text: string): void {
       this.staffTableFilterText = text;
+    }
+    //#endregion
+    //#region Room Table Functions
+    @action
+    setRoomTableFilterText(text: string): void {
+      this.roomTableFilterText = text;
     }
     //#endregion
 }
