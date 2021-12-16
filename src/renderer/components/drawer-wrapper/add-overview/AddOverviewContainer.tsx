@@ -14,11 +14,11 @@ const AddOverviewContainer: React.FC = () => {
                 handleAddRoom={() => uiStateStore.setRoomDialogOpen(true, 'Create')}
                 handleAddStaff={() => uiStateStore.setStaffDialogOpen(true, 'Create')}
                 handleAddStudent={() => uiStateStore.setStudentDialogOpen(true, 'Create')}
-                handleAddCredential={undefined}
-                handleAddRestriction={undefined}
-                handleAddRoomType={undefined}
-                handleAddSkill={undefined}
-                handleAddStaffType={undefined}
+                handleAddCredential={() => uiStateStore.setAddFiltersDialogOpen(true, 'Credential')}
+                handleAddRestriction={() => uiStateStore.setAddFiltersDialogOpen(true, 'Restriction')}
+                handleAddRoomType={() => uiStateStore.setAddTypesDialogOpen(true, 'Room')}
+                handleAddSkill={() => uiStateStore.setAddFiltersDialogOpen(true, 'Skill')}
+                handleAddStaffType={() => uiStateStore.setAddTypesDialogOpen(true, 'Staff')}
             />
         </>
     )

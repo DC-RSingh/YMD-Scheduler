@@ -12,6 +12,8 @@ import HelpIcon from '@mui/icons-material/Help';
 import StaffDialogContainer from '../add-dialog/add-staff/StaffDialogContainer';
 import StudentDialogContainer from '../add-dialog/add-student/StudentDialogContainer';
 import RoomDialogContainer from '../add-dialog/add-room/RoomDialogContainer';
+import AddTypesDialogContainer from '../add-dialog/add-types/AddTypesDialogContainer';
+import AddFiltersDialogContainer from '../add-dialog/add-filters/AddFiltersDialogContainer';
 
 type ToolbarProps = {
     sideNavOpened: boolean;
@@ -123,6 +125,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
           <StaffDialogContainer />
           <StudentDialogContainer />
           <RoomDialogContainer />
+          <AddTypesDialogContainer />
+          <AddFiltersDialogContainer />
         </>
     )
 }

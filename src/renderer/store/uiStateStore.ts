@@ -3,6 +3,8 @@ import { persist } from "mobx-persist";
 import { RootStore } from "./rootStore";
 
 export type AddDialogType = 'Create' | 'Edit' | undefined;
+export type AddTypesDialogType = 'Staff' | 'Room' | undefined;
+export type AddFiltersDialogType = 'Skill' | 'Credential' | 'Restriction' | undefined;
 
 export class UiStateStore {
     
@@ -32,6 +34,18 @@ export class UiStateStore {
     @observable roomDialogOpen = false;
     @observable roomDialogType: AddDialogType = undefined;
     //#endregion
+    //#region AddTypesDialog States
+    @observable addTypesError: Error | undefined = undefined;
+    @observable creatingType = false;
+    @observable addTypesDialogOpen = false;
+    @observable addTypesDialogType: AddTypesDialogType = undefined;
+    //#endregion
+    //#region AddFiltersDialog States
+    @observable addFiltersError: Error | undefined = undefined;
+    @observable creatingFilter = false;
+    @observable addFiltersDialogOpen = false;
+    @observable addFiltersDialogType: AddFiltersDialogType = undefined;
+    //#endregion
     //#region NavigationMenu States
     @persist @observable sideNavOpen = false;
     //#endregion
@@ -50,7 +64,6 @@ export class UiStateStore {
     //#region RoomTable States
     @observable roomTableFilterText = '';
     //#endregion
-    
 
     //#region LoginDialog Functions
     @action
@@ -91,6 +104,26 @@ export class UiStateStore {
         }
 
         this.roomDialogOpen = open;
+    }
+    //#endregion
+    //#region Add Types Dialog Functions
+    @action
+    setAddTypesDialogOpen(open: boolean, type?: AddTypesDialogType): void {
+        if (open) {
+            this.addTypesDialogType = type;
+        }
+
+        this.addTypesDialogOpen = open;
+    }
+    //#endregion
+    //#region Add Filters Dialog Functions
+    @action
+    setAddFiltersDialogOpen(open: boolean, type?: AddFiltersDialogType): void {
+        if (open) {
+            this.addFiltersDialogType = type;
+        }
+
+        this.addFiltersDialogOpen = open;
     }
     //#endregion
     //#region NavigationMenu Functions
