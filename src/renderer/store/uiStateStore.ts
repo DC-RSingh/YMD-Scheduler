@@ -127,6 +127,10 @@ export class UiStateStore {
 
         this.addTypesDialogOpen = open;
     }
+    @action
+    setCreatingType(creating: boolean): void {
+        this.creatingType = creating;
+    }
     //#endregion
     //#region Add Filters Dialog Functions
     @action

@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useStores } from '../../../store'
 import RoomDialog from './RoomDialog'
 
@@ -13,8 +13,12 @@ export interface IRoomForm {
 const RoomDialogContainer: React.FC = () => {
     const { uiStateStore, roomStore } = useStores();
 
-    const types = roomStore.roomTypes;
-    const roomTypes = useMemo(() => types, [types])
+    let roomTypes = roomStore.roomTypes();
+
+    useEffect(() => {
+        roomTypes = roomStore.roomTypes();
+        console.log(roomStore.newRoomTypesThisSession)
+    }, [roomStore.newRoomTypesThisSession]);
 
     const initialValues: IRoomForm = {
         Type: 0,

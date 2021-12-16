@@ -1,14 +1,26 @@
-import { computed, makeObservable } from "mobx";
+import { action, computed, makeObservable, observable } from "mobx";
 import { IStaff } from "../../interfaces/staff.interface";
 import { filterStaff } from "../../utils/table.utils";
 import { RootStore } from "./rootStore";
 import { electronService } from "../../services/electron.service";
 import { IType } from "../../interfaces/type.interface";
 import { IStaffForm } from "../components/add-dialog/add-staff/StaffDialogContainer";
+import { IAddTypesForm } from "../components/add-dialog/add-types/AddTypesDialogContainer";
 
 export class StaffStore {
+    @observable newStaffThisSession = 0;
+    @observable newStaffTypesThisSession = 0;
+
     constructor(private rootStore: RootStore) {
         makeObservable(this);
+    }
+
+    @action incrementNewStaff(): void {
+        this.newStaffThisSession++;
+    }
+
+    @action incrementNewStaffTypes(): void {
+        this.newStaffTypesThisSession++;
     }
 
     @computed get staffTableData(): IStaff[] {
@@ -18,7 +30,7 @@ export class StaffStore {
         return filterStaff(staff);
     }
 
-    @computed get staffTypes(): IType[] {
+    staffTypes(): IType[] {
 
         const {staffTypes} = electronService.ipcRenderer.sendSync('retrieve-staffTypes')
 
@@ -34,6 +46,15 @@ export class StaffStore {
         electronService.ipcRenderer.invoke('create-staff', Object.values(staff)).then(() => {
             this.rootStore.uiStateStore.setCreatingStaff(false);
             this.rootStore.uiStateStore.setStaffDialogOpen(false);
+            this.incrementNewStaff();
         })
+    }
+
+    insertStaffType(staffType: IAddTypesForm): void {
+        electronService.ipcRenderer.invoke('create-staffType', Object.values(staffType)).then(() => {
+            this.rootStore.uiStateStore.setCreatingType(false);
+            this.rootStore.uiStateStore.setAddTypesDialogOpen(false);
+            this.incrementNewStaffTypes();
+        });
     }
 }

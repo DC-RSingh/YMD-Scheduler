@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useStores } from '../../../store'
 import StaffDialog from './StaffDialog'
 
@@ -21,8 +21,13 @@ export interface IStaffForm {
 const StaffDialogContainer: React.FC = () => {
     const { uiStateStore, staffStore } = useStores();
 
-    const types = staffStore.staffTypes;
-    const staffTypes = useMemo(() => types, [types])
+    let staffTypes = staffStore.staffTypes();
+    // const staffTypes = useMemo(() => types, [types]);
+
+    useEffect(() => {
+        staffTypes = staffStore.staffTypes();
+        console.log(staffStore.newStaffTypesThisSession)
+    }, [staffStore.newStaffTypesThisSession]);
 
     const initialValues: IStaffForm = {
         Type:  0,        

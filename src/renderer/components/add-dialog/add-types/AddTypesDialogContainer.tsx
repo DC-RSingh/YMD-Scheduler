@@ -8,14 +8,23 @@ export interface IAddTypesForm {
 }
 
 const AddTypesDialogContainer: React.FC = () => {
-    const { uiStateStore } = useStores();
+    const { uiStateStore, roomStore, staffStore } = useStores();
 
     const initialValues: IAddTypesForm = {
         Type: ''
     }
 
     const onSubmit = (addTypes: IAddTypesForm) => {
-        return;
+        uiStateStore.setCreatingType(true);
+        
+        switch (uiStateStore.addTypesDialogType) {
+            case 'Room':
+                roomStore.insertRoomType(addTypes);
+                break;
+            case 'Staff':
+                staffStore.insertStaffType(addTypes);
+                break;
+        }
     }
 
     return (
