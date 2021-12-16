@@ -14,7 +14,7 @@ const getRoomTypes = (): void => {
     });
 }
 
-const getSelectedquery = "SELECT * FROM roomType WHERE id=?";
+const getSelectedquery = "SELECT * FROM roomtype WHERE id=?";
 
 const getRoomTypeId = (): void => {
     ipcMain.on('retrieve-roomType-by-id', async (e, param) => {
@@ -27,7 +27,7 @@ const getRoomTypeId = (): void => {
     });
 }
 
-const createRoomTypequery = "INSERT INTO roomType(type) VALUES (?)";
+const createRoomTypequery = "INSERT INTO roomtype(type) VALUES (?)";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
@@ -38,7 +38,7 @@ const createRoomType = (): void => {
     });
 }
 
-const deleteQuery = "DELETE FROM roomType WHERE id=?";
+const deleteQuery = "DELETE FROM roomtype WHERE id=?";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
@@ -49,7 +49,7 @@ const deleteRoomType = (): void => {
     });
 }
 
-const updateQuery = "UPDATE roomType SET type=? WHERE id=?";
+const updateQuery = "UPDATE roomtype SET type=? WHERE id=?";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 

@@ -1,7 +1,7 @@
 import { ipcMain } from "electron";
 import { getAll, createNew, deleteSelected, updateSelected } from './wrappers';
 
-const getAllquery = "SELECT * FROM staffType";
+const getAllquery = "SELECT * FROM stafftype";
 
 const getStaffTypes = (): void => {
     ipcMain.on('retrieve-staffType', async (e) => {
@@ -14,7 +14,7 @@ const getStaffTypes = (): void => {
     });
 }
 
-const getSelectedquery = "SELECT * FROM staffType WHERE id=?";
+const getSelectedquery = "SELECT * FROM stafftype WHERE id=?";
 
 const getStaffTypeId = (): void => {
     ipcMain.on('retrieve-staffType-by-id', async (e, param) => {
@@ -27,7 +27,7 @@ const getStaffTypeId = (): void => {
     });
 }
 
-const createStaffTypequery = "INSERT INTO staff(type) VALUES (?)";
+const createStaffTypequery = "INSERT INTO stafftype(type) VALUES (?)";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
@@ -38,7 +38,7 @@ const createStaffType = (): void => {
     });
 }
 
-const deleteQuery = "DELETE FROM staffType WHERE id=?";
+const deleteQuery = "DELETE FROM stafftype WHERE id=?";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 
@@ -49,7 +49,7 @@ const deleteStaffType = (): void => {
     });
 }
 
-const updateQuery = "UPDATE staffType SET type=? WHERE id=?";
+const updateQuery = "UPDATE stafftype SET type=? WHERE id=?";
 
 //const studentParams = ["Rob", "Smeller", "M", "07-07-2000", "RS@gmail.com", "9055556783", "Cash"];
 

@@ -2,14 +2,14 @@ import { app, BrowserWindow, ipcMain, } from 'electron';
 import isDev from "electron-is-dev";
 import { copyFileSync, constants } from 'fs';
 import { join } from 'path';
-import { deleteStudent, createStudent, getRooms, getStudents, manager, getStaff } from './database';
+import * as db from './database';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
 
 const dbPath = isDev ? join(__dirname, '../prisma/ymd-db.db') : join(app.getPath("userData"), "ymd-db.db");
 
 // Open the connection with the SQLite3 Database
-manager.open('prisma/ymd-db.db');   // need dynamic path
+db.manager.open('prisma/ymd-db.db');   // need dynamic path
 
 const MIN_HEIGHT = 860;
 const MIN_WIDTH = 1280;
@@ -78,15 +78,20 @@ const createWindow = (): void => {
     })
 
     // Student Channels
-    getStudents();
-    createStudent();
-    deleteStudent();
+    db.getStudents();
+    db.createStudent();
 
     // Room Channels
-    getRooms();
+    db.getRooms();
+    db.getRoomId();
+    db.createRoom();
+
+    db.getRoomTypeId();
 
     // Staff Channels
-    getStaff();
+    db.getStaff();
+    db.createStaff();
+    db.getStaffTypeId();
 
 };
 

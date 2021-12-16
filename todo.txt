@@ -2,28 +2,16 @@
 
 // TODO: prisma in another version I guess, still using it to seed tho
 
-// TODO: Note, project does not work on node version 12 or lower 
-
-// TODO: For Credentials and Restrictions, on value already exists prompt for a delete
-
 // TODO: Checkbox Field cancer not sending actual value, state updates but always sends initial
     Might have to just scrap remember me Sadge (if it does work, remember to make it @persist)
 
-// TODO: Maybe still have a route or way where you can view classes that isn't the schedule
-
 // TODO: use jest to write tests for the app (imagine writing tests after programming the whole project OMEGALUL)
-
-// TODO: Add Credits to README as well as in app with a credit-dialog component, 
-    big thanks to exilence-next for their excellent codebase, api and project structure and DevExtreme for the 
-    great React Scheduler component available for free for non-commercial use
 
 // TODO: On top of edit and delete in table menus, add ability to view info on just one employee
  View info also present for other tables, where for students you can see the classes they are in, rooms you see when they are booked
 
- // TODO: Maybe add views to schema so joins aren't as complex
 
-
-Luxury 
+------------------------------------------------ LUXURY ------------------------------------------------
 
 // TODO: Disclaimer on information collected in software
 
@@ -32,11 +20,7 @@ Luxury
 // TODO: Add notifications with react-toastify and desktop notifications for calendar events (like a lesson is upcoming) 
     with electron notifications
 
-// TODO: Document Project after main functionality is complete
-
 // TODO: System Tray stuff
-
-// TODO: Add Schedule Step to the tour.
 
 // TODO: Do docs folder in Markdown outlining application structure and API
 
@@ -64,3 +48,8 @@ Luxury
 
 // TODO: Change queries in database to use prepared statements
 
+// TODO: Change some queries to be more intuitive to use
+
+// TODO: For Credentials and Restrictions, on value already exists prompt for a delete
+
+// TODO: Probably want to do phone number formatting in actual client and not have it formatted in the database
