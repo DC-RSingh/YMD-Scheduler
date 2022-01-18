@@ -7,7 +7,7 @@ This app was created for [DBAS 6206](https://durhamcollege.ca/programs-and-cours
 
 > Many parts of it still WIP, Scheduling is incomplete
 
-[Preview GIF](https://i.imgur.com/NWDqOGi.mp4)
+![Preview GIF](https://i.imgur.com/NWDqOGi.mp4)
 
 ## Contents
 
