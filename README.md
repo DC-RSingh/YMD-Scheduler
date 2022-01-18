@@ -5,6 +5,10 @@ the development of this project. More requirements were gathered throughout the 
 
 This app was created for [DBAS 6206](https://durhamcollege.ca/programs-and-courses/courses?subj_code_in=DBAS&crse_numb_in=6206&semester_in=SEM5), a course offered at Durham College in the [Computer Programming and Analysis program](https://durhamcollege.ca/programs/computer-programming-analyst-three-year).
 
+> Many parts of it still WIP, Scheduling is incomplete
+
+![Preview GIF](https://imgur.com/a/ZlJvqqj)
+
 ## Contents
 
 - [YMD-Scheduler](#ymd-scheduler)
